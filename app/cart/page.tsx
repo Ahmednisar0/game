@@ -131,14 +131,11 @@ const Cart = () => {
               </div>
             </div>
             
-            <Button className="w-full mt-6" variant="pink">
-              Proceed to Checkout
-            </Button>
             
-            <div className="mt-6 text-center">
-              <Link href="/">
-                <Button variant="outline" leftIcon={<ArrowLeft size={16} />} className="text-game-pink hover:underline">
-                  Continue Shopping
+            <div className="mt-6 text-center bg-pink-500">
+              <Link href="/checkout">
+                <Button   className="text-game-pink hover:underline">
+                Proceed to Checkout
                 </Button>
               </Link>
             </div>

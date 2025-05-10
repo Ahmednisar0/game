@@ -5,20 +5,15 @@ import { useGameStore } from "../contexts/GameStoreContext";
 import { useEffect, useState } from "react";
 import type { FormData, CartItem } from "@/types/order";
 import { client } from "@/sanity/lib/client";
-import { FiCheck, FiHome, FiShoppingBag } from "react-icons/fi";
+import { FiCheck, FiHome } from "react-icons/fi";
 
-export default function PaymentSuccess({
-  searchParams,
-}: {
-  searchParams: { amount: string };
-}) {
+export default function PaymentSuccess() {
   const params = useSearchParams();
-  const amount = params.get('amount') || searchParams.amount;
+  const amount = params.get('amount') || "0";
   const [purchasedItems, setPurchasedItems] = useState<CartItem[]>([]);
   const [orderNumber, setOrderNumber] = useState<string | null>(null);
   const { getFormattedPrice } = useGameStore();
 
-  // Generate consistent order number
   useEffect(() => {
     setOrderNumber(Math.floor(100000 + Math.random() * 900000).toString());
   }, []);
@@ -36,7 +31,6 @@ export default function PaymentSuccess({
     country: params.get('country') || 'US',
   });
 
-  // Load purchased items from localStorage
   useEffect(() => {
     const storedItems = localStorage.getItem("purchasedItems");
     if (storedItems) {
@@ -49,7 +43,6 @@ export default function PaymentSuccess({
     }
   }, []);
 
-  // Process order
   useEffect(() => {
     if (purchasedItems.length === 0 || !orderNumber) return;
 
@@ -74,7 +67,7 @@ export default function PaymentSuccess({
     const orderData = {
       _type: "order",
       ...formData,
-      orderNumber, // Include consistent order number
+      orderNumber,
       products: purchasedItems.map(item => ({
         id: item.product.id,
         name: item.product.name,
@@ -93,9 +86,7 @@ export default function PaymentSuccess({
 
   return (
     <main className="min-h-screen bg-white flex flex-col items-center justify-center p-6">
-      {/* Success Card */}
       <div className="w-full max-w-md bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-        {/* Header */}
         <div className="bg-gradient-to-r from-pink-500 to-pink-700 p-6 text-center">
           <div className="mx-auto flex items-center justify-center h-16 w-16 bg-white rounded-full mb-4">
             <FiCheck className="h-8 w-8 text-pink-900" />
@@ -104,7 +95,6 @@ export default function PaymentSuccess({
           <p className="text-blue-100 mt-1">Thank you for your purchase</p>
         </div>
 
-        {/* Order Summary */}
         <div className="p-6 border-b border-gray-100">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-lg font-semibold text-pink-800">Order Summary</h2>
@@ -137,7 +127,6 @@ export default function PaymentSuccess({
           </div>
         </div>
 
-        {/* Total Amount */}
         <div className="p-6 border-b border-gray-100">
           <div className="flex justify-between items-center">
             <span className="text-gray-600">Total Amount</span>
@@ -145,7 +134,6 @@ export default function PaymentSuccess({
           </div>
         </div>
 
-        {/* Next Steps */}
         <div className="p-6">
           <h3 className="text-sm font-semibold text-gray-900 mb-3">What happens next?</h3>
           <ul className="space-y-3">
@@ -179,7 +167,6 @@ export default function PaymentSuccess({
         </div>
       </div>
 
-      {/* Order Processing Indicator */}
       {purchasedItems.length > 0 && (
         <div className="mt-6 flex items-center text-sm text-gray-500">
           <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

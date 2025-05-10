@@ -1,6 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaCcVisa, FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { 
+  FaCcVisa,
+  FaCcMastercard,
+  FaCcApplePay,
+  FaPaypal,
+  FaFacebook, 
+  FaTwitter, 
+  FaInstagram, 
+  FaYoutube 
+} from 'react-icons/fa';
+import { SiGooglepay } from 'react-icons/si';
 
 const Footer = () => {
   return (
@@ -24,7 +34,6 @@ const Footer = () => {
             <h3 className="font-bold text-lg mb-4">INFORMATION</h3>
             <ul className="space-y-2">
               <li><Link href="/support" className="hover:text-pink-400 transition-colors">My Account</Link></li>
-              
             </ul>
           </div>
 
@@ -32,22 +41,25 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-lg mb-4">ABOUT</h3>
             <ul className="space-y-2">
-              
               <li><Link href="/support" className="hover:text-pink-400 transition-colors">Promotional Terms</Link></li>
               <li><Link href="/support" className="hover:text-pink-400 transition-colors">Terms & Conditions</Link></li>
             </ul>
           </div>
 
-          {/* Payment */}
+          {/* Payment Methods - Icons Only */}
           <div>
-            <div>
-              <h3 className="font-bold text-lg mb-4">WAYS TO PAY</h3>
-              <div className="flex items-center space-x-4">
-                <FaCcVisa size={32} className="text-blue-800" />
-                <span className="text-sm">VISA</span>
-              </div>
-              <div className="mt-2">
-                <Link href="/support" className="text-sm hover:text-pink-400 transition-colors">Pay</Link>
+            <h3 className="font-bold text-lg mb-4">PAYMENT METHODS</h3>
+            <div className="flex flex-wrap gap-4">
+              <FaCcVisa size={28} className="text-blue-800" title="Visa" />
+              <FaCcMastercard size={28} className="text-red-600" title="Mastercard" />
+              <FaPaypal size={28} className="text-blue-600" title="PayPal" />
+              <FaCcApplePay size={28} className="text-black" title="Apple Pay" />
+              <SiGooglepay size={28} className="text-black" title="Google Pay" />
+              <div className="w-7 h-7 bg-gray-200 rounded flex items-center justify-center" title="Debit Card">
+                <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0.5" y="0.5" width="19" height="13" rx="1.5" stroke="#888" />
+                  <rect x="3" y="3" width="14" height="8" rx="1" fill="#888" />
+                </svg>
               </div>
             </div>
           </div>
@@ -66,14 +78,12 @@ const Footer = () => {
                   className="h-10 w-auto"
                 />
               </Link>
-              
             </div>
 
             <div className="text-sm text-center md:text-left mb-4 md:mb-0">
-              © 2025 Game Retail Limited
-              <div className="flex space-x-4 mt-2">
+              <div className="flex flex-wrap justify-center gap-4">
+                <span>© 2025 Game Retail Limited</span>
                 <Link href="/privacy" className="hover:text-pink-400 transition-colors">Privacy Policy</Link>
-                
               </div>
             </div>
 
@@ -93,13 +103,12 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="mt-6 text-xs text-gray-600">
+          <div className="mt-6 text-xs text-gray-600 text-center">
             <p>
-              Elite Hits UK LTD (Company Registration No: 16427807), trading as 'GAME CAFE | Consoles & Games', is authorised and regulated by the Financial Conduct Authority (FCA) as a credit broker and not a lender. Credit services, including Frasers Plus, are provided by Frasers Group Financial Services Ltd (FRN: 955608), also authorised and regulated by the FCA. Please note that missed payments may impact your credit rating. For regulated payment processing, Frasers Group Financial Services Ltd operates as a payment agent of Transact Payments Limited, which is authorised and regulated by the Gibraltar Financial Services Commission as an electronic money institution.
+              Elite Hits UK LTD (Company Registration No: 16427807), trading as 'GAME CAFE | Consoles & Games', is authorised and regulated by the Financial Conduct Authority (FCA) as a credit broker and not a lender.
             </p>
             <p className="mt-2">
               Registered Office: 203 West Street, Fareham, Hampshire, England, PO16 0EN
-              VAT Number: NB265995276
             </p>
           </div>
         </div>

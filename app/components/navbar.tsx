@@ -138,7 +138,7 @@ const Navbar = ({ onSearch = () => {} }: NavbarProps) => {
           </div>
 
           {/* Desktop icons */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-6 text-black ">
             <CurrencySwitcher />
             
             <div className="relative">
@@ -208,7 +208,7 @@ const Navbar = ({ onSearch = () => {} }: NavbarProps) => {
                 </div>
               </form>
 
-              <div className="mb-4">
+              <div className="mb-4 text-black ">
                 <CurrencySwitcher  />
               </div>
 

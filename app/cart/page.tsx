@@ -25,7 +25,7 @@ const Cart = () => {
   }
   
   return (
-    <div className="container mx-auto px-4 py-8 ">
+    <div className="container mx-auto px-4 py-8 bg-white min-h-screen ">
       <h1 className="text-3xl font-bold mb-8 text-pink-700 ">Shopping Cart</h1>
       
       <div className="flex flex-col lg:flex-row gap-8">
@@ -109,23 +109,23 @@ const Cart = () => {
         
         {/* Order summary */}
         <div className="lg:w-1/3">
-          <div className="bg-white rounded-lg shadow-md p-6 sticky top-24">
+          <div className="bg-white rounded-lg shadow-md p-6 sticky top-24 text-black ">
             <h2 className="text-lg font-bold mb-6 text-black ">Order Summary</h2>
             
-            <div className="space-y-4">
-              <div className="flex justify-between">
+            <div className="space-y-4 text-black ">
+              <div className="flex justify-between text-black ">
                 <span className="text-black ">Subtotal</span>
-                <span className="font-medium">{getFormattedPrice(getCartTotal())}</span>
+                <span className="font-medium text-black ">{getFormattedPrice(getCartTotal())}</span>
               </div>
               
-              <div className="flex justify-between">
+              <div className="flex justify-between text-black " >
                 <span className="text-black ">Shipping</span>
-                <span className="font-medium">Free</span>
+                <span className="font-medium text-black ">Free</span>
               </div>
               
               <Separator />
               
-              <div className="flex justify-between text-lg font-bold">
+              <div className="flex justify-between text-lg font-bold text-black ">
                 <span>Total</span>
                 <span className="text-pink-700">{getFormattedPrice(getCartTotal())}</span>
               </div>

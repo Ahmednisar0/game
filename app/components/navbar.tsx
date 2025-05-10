@@ -110,7 +110,7 @@ const Navbar = ({ onSearch = () => {} }: NavbarProps) => {
               <select 
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="border border-gray-300 rounded-l-lg px-3 focus:outline-none focus:ring-1 focus:ring-pink-400"
+                className="border text-black border-gray-300 rounded-l-lg px-3 focus:outline-none focus:ring-1 focus:ring-pink-400"
               >
                 {categories.map(category => (
                   <option key={category.id} value={category.id}>
@@ -122,7 +122,7 @@ const Navbar = ({ onSearch = () => {} }: NavbarProps) => {
                 <input
                   type="text"
                   placeholder="Search products..."
-                  className="w-full py-2 px-4 border-t border-b border-gray-300 focus:outline-none focus:ring-1 focus:ring-pink-400"
+                  className="w-full py-2 px-4 border-t border-b text-black border-gray-300 focus:outline-none focus:ring-1 focus:ring-pink-400"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   aria-label="Search products"
@@ -138,7 +138,7 @@ const Navbar = ({ onSearch = () => {} }: NavbarProps) => {
           </div>
 
           {/* Desktop icons */}
-          <div className="hidden md:flex items-center space-x-6 text-black ">
+          <div className="hidden md:flex items-center space-x-6  ">
             <CurrencySwitcher />
             
             <div className="relative">

@@ -95,11 +95,11 @@ export default function PremiumDashboard() {
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-800">Orders Dashboard</h1>
+          <h1 className="text-2xl font-bold text-gray-800 ">Orders Dashboard</h1>
           <div className="flex space-x-3">
             <button 
               onClick={fetchOrders}
-              className="flex items-center px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50"
+              className="flex items-center px-4 py-2  bg-white border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50"
             >
               <FiRefreshCw className="mr-2" />
               Refresh
@@ -111,7 +111,7 @@ export default function PremiumDashboard() {
               }}
               className="flex items-center px-4 py-2 bg-red-50 text-red-600 rounded-lg text-sm font-medium hover:bg-red-100"
             >
-              <FiLogOut className="mr-2" />
+              <FiLogOut className="mr-2 text-black" />
               Logout
             </button>
           </div>
@@ -207,16 +207,16 @@ export default function PremiumDashboard() {
                         <div className="px-6 py-4 bg-gray-50 border-t border-gray-100 grid grid-cols-1 md:grid-cols-2 gap-6">
                           {/* Customer Info */}
                           <div>
-                            <h3 className="text-sm font-medium text-gray-500 mb-3">CUSTOMER</h3>
+                            <h3 className="text-sm font-medium text-black  mb-3">CUSTOMER</h3>
                             <div className="space-y-2">
                               <p className="text-sm">
-                                <span className="font-medium">Name:</span> {order.firstName} {order.lastName}
+                                <span className="font-medium text-black">Name:</span> {order.firstName} {order.lastName}
                               </p>
                               <p className="text-sm">
-                                <span className="font-medium">Email:</span> {order.email}
+                                <span className="font-medium text-black">Email:</span> {order.email}
                               </p>
                               <p className="text-sm">
-                                <span className="font-medium">Phone:</span> {order.phone}
+                                <span className="font-medium text-black">Phone:</span> {order.phone}
                               </p>
                             </div>
                           </div>
@@ -226,7 +226,7 @@ export default function PremiumDashboard() {
                             <h3 className="text-sm font-medium text-gray-500 mb-3">SHIPPING</h3>
                             <div className="space-y-2">
                               <p className="text-sm flex items-start">
-                                <FiMapPin className="mr-2 mt-0.5 flex-shrink-0" />
+                                <FiMapPin className="mr-2 mt-0.5 flex-shrink-0 text-black" />
                                 {order.address}{order.apartment && `, ${order.apartment}`}, {order.city}, {order.state} {order.zipCode}, {order.country}
                               </p>
                               <p className="text-sm flex items-center">

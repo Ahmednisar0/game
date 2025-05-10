@@ -12,6 +12,110 @@ const COUNTRIES = [
   { code: "US", name: "United States" },
   { code: "CA", name: "Canada" },
   { code: "GB", name: "United Kingdom" },
+  { code: "AU", name: "Australia" },
+  { code: "DE", name: "Germany" },
+  { code: "FR", name: "France" },
+  { code: "IT", name: "Italy" },
+  { code: "JP", name: "Japan" },
+  { code: "IN", name: "India" },
+  { code: "BR", name: "Brazil" },
+  { code: "CN", name: "China" },
+  { code: "RU", name: "Russia" },
+  { code: "KR", name: "South Korea" },
+  { code: "ES", name: "Spain" },
+  { code: "MX", name: "Mexico" },
+  { code: "ID", name: "Indonesia" },
+  { code: "NL", name: "Netherlands" },
+  { code: "SA", name: "Saudi Arabia" },
+  { code: "TR", name: "Turkey" },
+  { code: "CH", name: "Switzerland" },
+  { code: "AR", name: "Argentina" },
+  { code: "SE", name: "Sweden" },
+  { code: "PL", name: "Poland" },
+  { code: "BE", name: "Belgium" },
+  { code: "TH", name: "Thailand" },
+  { code: "IR", name: "Iran" },
+  { code: "AT", name: "Austria" },
+  { code: "NO", name: "Norway" },
+  { code: "AE", name: "United Arab Emirates" },
+  { code: "NG", name: "Nigeria" },
+  { code: "IL", name: "Israel" },
+  { code: "ZA", name: "South Africa" },
+  { code: "IE", name: "Ireland" },
+  { code: "DK", name: "Denmark" },
+  { code: "SG", name: "Singapore" },
+  { code: "MY", name: "Malaysia" },
+  { code: "PH", name: "Philippines" },
+  { code: "EG", name: "Egypt" },
+  { code: "FI", name: "Finland" },
+  { code: "CO", name: "Colombia" },
+  { code: "PK", name: "Pakistan" },
+  { code: "CL", name: "Chile" },
+  { code: "BD", name: "Bangladesh" },
+  { code: "VN", name: "Vietnam" },
+  { code: "PT", name: "Portugal" },
+  { code: "CZ", name: "Czech Republic" },
+  { code: "RO", name: "Romania" },
+  { code: "PE", name: "Peru" },
+  { code: "NZ", name: "New Zealand" },
+  { code: "IQ", name: "Iraq" },
+  { code: "GR", name: "Greece" },
+  { code: "QA", name: "Qatar" },
+  { code: "DZ", name: "Algeria" },
+  { code: "KZ", name: "Kazakhstan" },
+  { code: "HU", name: "Hungary" },
+  { code: "UA", name: "Ukraine" },
+  { code: "KW", name: "Kuwait" },
+  { code: "MA", name: "Morocco" },
+  { code: "SK", name: "Slovakia" },
+  { code: "AO", name: "Angola" },
+  { code: "EC", name: "Ecuador" },
+  { code: "LK", name: "Sri Lanka" },
+  { code: "ET", name: "Ethiopia" },
+  { code: "OM", name: "Oman" },
+  { code: "PR", name: "Puerto Rico" },
+  { code: "BY", name: "Belarus" },
+  { code: "AZ", name: "Azerbaijan" },
+  { code: "SD", name: "Sudan" },
+  { code: "DO", name: "Dominican Republic" },
+  { code: "KE", name: "Kenya" },
+  { code: "BG", name: "Bulgaria" },
+  { code: "VE", name: "Venezuela" },
+  { code: "RS", name: "Serbia" },
+  { code: "TN", name: "Tunisia" },
+  { code: "GH", name: "Ghana" },
+  { code: "LB", name: "Lebanon" },
+  { code: "UZ", name: "Uzbekistan" },
+  { code: "CR", name: "Costa Rica" },
+  { code: "PS", name: "Palestine" },
+  { code: "HR", name: "Croatia" },
+  { code: "LT", name: "Lithuania" },
+  { code: "SI", name: "Slovenia" },
+  { code: "JO", name: "Jordan" },
+  { code: "PY", name: "Paraguay" },
+  { code: "LV", name: "Latvia" },
+  { code: "UG", name: "Uganda" },
+  { code: "SV", name: "El Salvador" },
+  { code: "LK", name: "Sri Lanka" },
+  { code: "GT", name: "Guatemala" },
+  { code: "CY", name: "Cyprus" },
+  { code: "NP", name: "Nepal" },
+  { code: "UY", name: "Uruguay" },
+  { code: "EE", name: "Estonia" },
+  { code: "BA", name: "Bosnia and Herzegovina" },
+  { code: "GE", name: "Georgia" },
+  { code: "CM", name: "Cameroon" },
+  { code: "CI", name: "Ivory Coast" },
+  { code: "SN", name: "Senegal" },
+  { code: "ZW", name: "Zimbabwe" },
+  { code: "KH", name: "Cambodia" },
+  { code: "IS", name: "Iceland" },
+  { code: "NI", name: "Nicaragua" },
+  { code: "MK", name: "North Macedonia" },
+  { code: "MT", name: "Malta" },
+  { code: "BW", name: "Botswana" },
+  { code: "AL", name: "Albania" },
+  { code: "ME", name: "Montenegro" }
 ];
 
 interface FormData {
@@ -130,7 +234,7 @@ purchasedItems.map(item => ({
   }
 
   return (
-   <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-md p-6 md:p-8 max-w-2xl mx-auto">
+   <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-md p-6 md:p-8 max-w-2xl mx-auto text-black ">
       <h2 className="text-2xl font-bold text-gray-900 mb-8">Shipping Information</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -144,7 +248,7 @@ purchasedItems.map(item => ({
             name="firstName"
             value={formData.firstName}
             onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
+            className="w-full p-3 border text-black  border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
             required
           />
         </div>
@@ -159,7 +263,7 @@ purchasedItems.map(item => ({
             name="lastName"
             value={formData.lastName}
             onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
+            className="w-full p-3 border text-black  border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
             required
           />
         </div>
@@ -174,7 +278,7 @@ purchasedItems.map(item => ({
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
+            className="w-full p-3 border text-black  border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
             required
           />
         </div>
@@ -189,7 +293,7 @@ purchasedItems.map(item => ({
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
+            className="w-full p-3 border text-black  border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
             required
           />
         </div>
@@ -204,7 +308,7 @@ purchasedItems.map(item => ({
             name="address"
             value={formData.address}
             onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
+            className="w-full p-3 border text-black  border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
             required
           />
         </div>
@@ -219,7 +323,7 @@ purchasedItems.map(item => ({
             name="apartment"
             value={formData.apartment}
             onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
+            className="w-full p-3 border text-black  border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
           />
         </div>
         
@@ -232,7 +336,7 @@ purchasedItems.map(item => ({
             name="country"
             value={formData.country}
             onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
+            className="w-full p-3 border text-black  border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
             required
           >
             {COUNTRIES.map(country => (
@@ -253,7 +357,7 @@ purchasedItems.map(item => ({
             name="state"
             value={formData.state}
             onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
+            className="w-full p-3 border text-black  border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
             required
           />
         </div>
@@ -268,7 +372,7 @@ purchasedItems.map(item => ({
             name="city"
             value={formData.city}
             onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
+            className="w-full p-3 border text-black  border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
             required
           />
         </div>
@@ -283,7 +387,7 @@ purchasedItems.map(item => ({
             name="zipCode"
             value={formData.zipCode}
             onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
+            className="w-full p-3 border text-black  border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
             required
           />
         </div>
@@ -302,7 +406,7 @@ purchasedItems.map(item => ({
               }
             }
           }}
-          className="border border-gray-300 rounded-lg p-4"
+          className="border text-black  border-gray-300 rounded-lg p-4"
         />
       </div>
 

@@ -135,7 +135,7 @@ const Cart = () => {
             
             <div className="mt-6">
               <Link href="/checkout">
-                <Button className="w-full bg-game-pink hover:bg-pink-600 text-white">
+                <Button className="w-full bg-pink-500 hover:bg-pink-600 text-white">
                   Proceed to Checkout
                 </Button>
               </Link>

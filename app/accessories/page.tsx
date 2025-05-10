@@ -92,7 +92,7 @@ const AccessoriesPage = () => {
       {/* Mobile Filters Button */}
       <div className="md:hidden mb-4 bg-white min-h-screen">
         <details className="dropdown">
-          <summary className="btn btn-primary w-full">Filter Accessories</summary>
+          <summary className="btn btn-primary text-black w-full">Filter Accessories</summary>
           <div className="dropdown-content bg-white p-4 rounded-lg shadow-md mt-2 w-full">
             {/* Category filters */}
             <div className="mb-6">
@@ -119,7 +119,7 @@ const AccessoriesPage = () => {
             
             {/* Price filters */}
             <div>
-              <h3 className="font-semibold mb-3">Price Range</h3>
+              <h3 className="font-semibold mb-3 text-black">Price Range</h3>
               <div className="px-2">
                 <Slider 
                   defaultValue={[0, 500]}
@@ -146,7 +146,7 @@ const AccessoriesPage = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <h2 className="text-xl font-bold mb-6 text-game-pink">Filter Accessories</h2>
+          <h2 className="text-xl font-bold mb-6 text-pink-600">Filter Accessories</h2>
           
           {/* Category filters */}
           <div className="mb-6">
@@ -174,7 +174,7 @@ const AccessoriesPage = () => {
           
           {/* Price filters */}
           <div>
-            <h3 className="font-semibold mb-3">Price Range</h3>
+            <h3 className="font-semibold mb-3 text-black">Price Range</h3>
             <div className="px-2">
               <Slider 
                 defaultValue={[0, 500]}
@@ -192,7 +192,7 @@ const AccessoriesPage = () => {
         </motion.div>
         
         {/* Products grid */}
-        <div className="w-full md:w-3/4">
+        <div className="w-full md:w-3/4 text-black">
           <motion.h1 
             className="text-2xl sm:text-3xl font-bold mb-6"
             initial={{ y: -10, opacity: 0 }}
@@ -207,9 +207,9 @@ const AccessoriesPage = () => {
               variants={emptyState}
               initial="hidden"
               animate="show"
-              className="bg-gray-100 p-8 rounded-lg text-center"
+              className="bg-gray-100 p-8 rounded-lg text-center text-black"
             >
-              <h3 className="text-xl font-medium text-gray-700">No accessories match your filters</h3>
+              <h3 className="text-xl font-medium text-black">No accessories match your filters</h3>
               <p className="text-gray-500 mt-2">Try adjusting your filter criteria</p>
             </motion.div>
           ) : (

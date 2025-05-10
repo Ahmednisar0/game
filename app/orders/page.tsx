@@ -101,7 +101,7 @@ export default function PremiumDashboard() {
               onClick={fetchOrders}
               className="flex items-center px-4 py-2  bg-white border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50"
             >
-              <FiRefreshCw className="mr-2" />
+              <FiRefreshCw className="mr-2 text-black" />
               Refresh
             </button>
             <button 
@@ -109,7 +109,7 @@ export default function PremiumDashboard() {
                 localStorage.removeItem('authToken')
                 router.push('/login')
               }}
-              className="flex items-center px-4 py-2 bg-red-50 text-red-600 rounded-lg text-sm font-medium hover:bg-red-100"
+              className="flex items-center text-black px-4 py-2 bg-red-50 text-red-600 rounded-lg text-sm font-medium hover:bg-red-100"
             >
               <FiLogOut className="mr-2 text-black" />
               Logout
@@ -152,7 +152,7 @@ export default function PremiumDashboard() {
               {orders.map((order) => (
                 <li key={order._id}>
                   <div 
-                    className="px-6 py-4 hover:bg-gray-50 cursor-pointer"
+                    className="px-6 py-4 text-black hover:bg-gray-50 cursor-pointer"
                     onClick={() => toggleExpand(order._id)}
                   >
                     <div className="flex items-center justify-between">
@@ -161,7 +161,7 @@ export default function PremiumDashboard() {
                           <FiShoppingBag />
                         </div>
                         <div>
-                          <p className="font-medium text-gray-800">
+                          <p className="font-medium text-black">
                             {order.firstName} {order.lastName}
                           </p>
                           <p className="text-sm text-gray-500">{order.email}</p>
@@ -170,7 +170,7 @@ export default function PremiumDashboard() {
                       
                       <div className="flex items-center space-x-6">
                         <div className="text-right">
-                          <p className="font-medium">${calculateTotal(order.products).toFixed(2)}</p>
+                          <p className="font-medium text-black">${calculateTotal(order.products).toFixed(2)}</p>
                           <p className="text-sm text-gray-500">
                             {order.products?.length || 0} items
                           </p>
@@ -204,18 +204,18 @@ export default function PremiumDashboard() {
                         transition={{ duration: 0.2 }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 py-4 bg-gray-50 border-t border-gray-100 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="px-6 py-4 bg-gray-50 border-t text-black border-gray-100 grid grid-cols-1 md:grid-cols-2 gap-6">
                           {/* Customer Info */}
                           <div>
                             <h3 className="text-sm font-medium text-black  mb-3">CUSTOMER</h3>
                             <div className="space-y-2">
-                              <p className="text-sm">
+                              <p className="text-sm text-black">
                                 <span className="font-medium text-black">Name:</span> {order.firstName} {order.lastName}
                               </p>
                               <p className="text-sm">
                                 <span className="font-medium text-black">Email:</span> {order.email}
                               </p>
-                              <p className="text-sm">
+                              <p className="text-sm text-black">
                                 <span className="font-medium text-black">Phone:</span> {order.phone}
                               </p>
                             </div>
@@ -229,7 +229,7 @@ export default function PremiumDashboard() {
                                 <FiMapPin className="mr-2 mt-0.5 flex-shrink-0 text-black" />
                                 {order.address}{order.apartment && `, ${order.apartment}`}, {order.city}, {order.state} {order.zipCode}, {order.country}
                               </p>
-                              <p className="text-sm flex items-center">
+                              <p className="text-sm flex items-center text-black">
                                 <FiCalendar className="mr-2" />
                                 Ordered on {formatDate(order._createdAt)}
                               </p>
@@ -249,7 +249,7 @@ export default function PremiumDashboard() {
                                     <th className="px-4 py-2 text-left text-xs font-medium text-gray-500">Total</th>
                                   </tr>
                                 </thead>
-                                <tbody className="divide-y divide-gray-200">
+                                <tbody className="divide-y divide-gray-200 text-black">
                                   {order.products?.map((product, i) => (
                                     <tr key={i}>
                                       <td className="px-4 py-3 text-sm font-medium text-gray-900">{product.name}</td>

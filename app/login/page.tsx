@@ -33,7 +33,7 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="w-full max-w-sm p-8 space-y-6 bg-white rounded-xl shadow-sm border border-gray-100">
+      <div className="w-full max-w-sm p-8 space-y-6 text-black bg-white rounded-xl shadow-sm border border-gray-100">
         {/* Logo/Header */}
         <div className="text-center space-y-1">
           <div className="mx-auto w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-3">
@@ -88,7 +88,7 @@ export default function LoginPage() {
                 name="email"
                 type="email"
                 required
-                className="block w-full pl-10 pr-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                className="block w-full pl-10 pr-3 py-2.5 text-sm bordertext-black  border-gray-200 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                 placeholder="mail@gmail.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -100,15 +100,15 @@ export default function LoginPage() {
             <label htmlFor="password" className="sr-only">Password</label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <FiLock className="h-5 w-5 text-gray-400" />
+                <FiLock className="h-5 w-5 text-gray-40" />
               </div>
               <input
                 id="password"
                 name="password"
                 type="password"
                 required
-                className="block w-full pl-10 pr-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-                placeholder="pass123"
+                className="block w-full pl-10 pr-3 py-2.5 text-sm border text-black border-gray-200 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                placeholder="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />

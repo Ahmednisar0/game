@@ -1,12 +1,13 @@
 'use client';
-
+import { motion, AnimatePresence } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import { useGameStore } from "../contexts/GameStoreContext";
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState } from "react";
 import type { FormData, CartItem } from "@/types/order";
 import { client } from "@/sanity/lib/client";
+import { ArrowRight, CheckCircle, Clock, Mail, ShoppingBag } from "lucide-react";
 
-function PaymentSuccessContent({
+export default function PaymentSuccess({
   searchParams,
 }: {
   searchParams: { amount: string };
@@ -96,69 +97,143 @@ function PaymentSuccessContent({
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-4 space-y-6">
-      {purchasedItems.map((item) => (
-        <div key={item.product.id} className="flex justify-between">
-          <div className="flex items-center">
-            <img
-              src={item.product.image}
-              alt={item.product.name}
-              className="h-12 w-12 rounded-md object-cover mr-3"
-            />
-            <div>
-              <p className="text-sm font-medium text-gray-900">{item.product.name}</p>
-              <p className="text-xs text-gray-500">Qty: {item.quantity}</p>
+      <main className="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 p-4 md:p-8">
+      <div className="max-w-2xl mx-auto">
+        {/* Success Card */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl overflow-hidden border border-white/20 mb-6"
+        >
+          <div className="p-8 text-center">
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ type: "spring", damping: 10, stiffness: 100 }}
+              className="mx-auto flex items-center justify-center h-20 w-20 bg-green-100/20 rounded-full mb-6 border-2 border-green-200/30"
+            >
+              <CheckCircle className="h-10 w-10 text-green-300" strokeWidth={2} />
+            </motion.div>
+
+            <motion.h1 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-3xl font-bold text-white mb-2"
+            >
+              Payment Successful!
+            </motion.h1>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-white/80 mb-6"
+            >
+              Thank you for your purchase. Your order has been confirmed.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3 }}
+              className="bg-white/20 rounded-xl p-6 mb-8"
+            >
+              <p className="text-white/80 text-sm mb-1">Amount Paid</p>
+              <p className="text-4xl font-bold text-white">
+                {getFormattedPrice(parseFloat(amount || '0'))}
+              </p>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Order Summary */}
+        {purchasedItems.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-xl overflow-hidden border border-white/20 mb-6"
+          >
+            <div className="p-6">
+            
+              <div className="space-y-4">
+                {purchasedItems.map((item, index) => (
+                  <motion.div
+                    key={item.product.id}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.5 + index * 0.05 }}
+                    className="flex justify-between items-center p-3 bg-white/5 rounded-lg"
+                  >
+                    <div className="flex items-center">
+                      <img
+                        src={item.product.image}
+                        alt={item.product.name}
+                        className="h-14 w-14 rounded-md object-cover mr-3"
+                      />
+                      <div>
+                        <p className="text-sm font-medium text-white">{item.product.name}</p>
+                        <p className="text-xs text-white/60">Qty: {item.quantity}</p>
+                      </div>
+                    </div>
+                    <p className="text-sm font-medium text-white">
+                      {getFormattedPrice(item.product.price * item.quantity)}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Next Steps */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-xl overflow-hidden border border-white/20 mb-6"
+        >
+          <div className="p-6">
+            <h2 className="text-xl font-semibold text-white mb-4">What's Next?</h2>
+            
+            <div className="space-y-4">
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.7 }}
+                className="flex items-start p-3 bg-white/5 rounded-lg"
+              >
+                <Mail className="h-5 w-5 text-blue-300 mt-0.5 mr-3 flex-shrink-0" />
+                <div>
+                  <p className="text-sm font-medium text-white">Receipt sent to your email</p>
+                  <p className="text-xs text-white/60">Check your inbox for order confirmation</p>
+                </div>
+              </motion.div>
+              
+              
             </div>
           </div>
-          <p className="text-sm font-medium text-gray-900">
-            {getFormattedPrice(item.product.price * item.quantity)}
-          </p>
-        </div>
-      ))}
+        </motion.div>
 
-      <div className="w-full max-w-md bg-white/10 backdrop-blur-lg rounded-3xl shadow-xl overflow-hidden border border-white/20 animate-fade-in">
-        <div className="p-8 text-center">
-          <div className="mx-auto flex items-center justify-center h-16 w-16 bg-green-100 rounded-full mb-6 animate-bounce-in">
-            <svg className="h-10 w-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-
-          <h1 className="text-3xl font-bold text-white mb-2 animate-slide-up">Payment Successful!</h1>
-          <p className="text-white/80 mb-6 animate-slide-up delay-100">Thank you for your purchase</p>
-
-          <div className="bg-white/20 rounded-xl p-6 mb-8 animate-pop-in">
-            <p className="text-white/80 text-sm mb-1">Amount Paid</p>
-            <p className="text-4xl font-bold text-white">${amount}</p>
-          </div>
-
-          <div className="bg-white/10 rounded-lg p-4 mb-8 text-left animate-fade-in delay-200">
-            <h3 className="font-medium text-white mb-2">What's next?</h3>
-            <ul className="text-sm text-white/80 space-y-1">
-              <li className="flex items-center">
-                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
-                </svg>
-                Receipt sent to your email
-              </li>
-              <li className="flex items-center">
-                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
-                </svg>
-                Order processing started
-              </li>
-            </ul>
-          </div>
-
-          <div className="animate-fade-in delay-300">
-            <a href="/" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-white/20 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white/50 transition-all">
-              Back to Home
-              <svg className="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-          </div>
-        </div>
+        {/* Back to Home */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.9 }}
+          className="text-center"
+        >
+          <a 
+            href="/" 
+            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-white/20 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white/50 transition-all group"
+          >
+            Continue Shopping
+            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </a>
+        </motion.div>
       </div>
+    </main>
 
       <style jsx>{`
         @keyframes fadeIn {
@@ -202,17 +277,5 @@ function PaymentSuccessContent({
         }
       `}</style>
     </main>
-  );
-}
-
-export default function PaymentSuccessPage({
-  searchParams,
-}: {
-  searchParams: { amount: string };
-}) {
-  return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
-      <PaymentSuccessContent searchParams={searchParams} />
-    </Suspense>
   );
 }

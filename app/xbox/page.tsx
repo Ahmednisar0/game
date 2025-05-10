@@ -50,15 +50,15 @@ const XboxPage = () => {
   };
   
   return (
-    <div className="container mx-auto px-4 py-8 bg-white min-h-screen">
+    <div className="container mx-auto px-4 py-8 bg-white min-h-screen text-black ">
       {/* Mobile Filters Button */}
       <div className="md:hidden mb-4">
         <details className="dropdown">
           <summary className="btn btn-primary w-full">Filter Products</summary>
-          <div className="dropdown-content bg-white p-4 rounded-lg shadow-md mt-2 w-full">
+          <div className="dropdown-content bg-white p-4 rounded-lg shadow-md mt-2 w-full text-black ">
             {/* Category filters */}
             <div className="mb-6">
-              <h3 className="font-semibold mb-3">Categories</h3>
+              <h3 className="font-semibold mb-3 text-black ">Categories</h3>
               <div className="grid grid-cols-2 gap-2">
                 {(['console', 'digital', 'games', 'accessories'] as ProductCategory[]).map(category => (
                   <div key={category} className="flex items-center">
@@ -77,7 +77,7 @@ const XboxPage = () => {
             
             {/* Price filters */}
             <div>
-              <h3 className="font-semibold mb-3">Price Range</h3>
+              <h3 className="font-semibold mb-3 text-black ">Price Range</h3>
               <div className="px-2">
                 <Slider 
                   defaultValue={[0, 500]}
@@ -99,11 +99,11 @@ const XboxPage = () => {
       <div className="flex flex-col md:flex-row gap-8">
         {/* Sidebar filters - Hidden on mobile */}
         <div className="hidden md:block md:w-1/4 bg-white p-4 rounded-lg shadow-md">
-          <h2 className="text-xl font-bold mb-6 text-game-pink">Filter Products</h2>
+          <h2 className="text-xl font-bold mb-6  text-black ">Filter Products</h2>
           
           {/* Category filters */}
           <div className="mb-6">
-            <h3 className="font-semibold mb-3">Categories</h3>
+            <h3 className="font-semibold text-black  mb-3">Categories</h3>
             <div className="space-y-2">
               {(['console', 'digital', 'games', 'accessories'] as ProductCategory[]).map(category => (
                 <div key={category} className="flex items-center">
@@ -122,7 +122,7 @@ const XboxPage = () => {
           
           {/* Price filters */}
           <div>
-            <h3 className="font-semibold mb-3">Price Range</h3>
+            <h3 className="font-semibold mb-3 text-black ">Price Range</h3>
             <div className="px-2">
               <Slider 
                 defaultValue={[0, 500]}
@@ -141,7 +141,7 @@ const XboxPage = () => {
         
         {/* Products grid */}
         <div className="w-full md:w-3/4">
-          <h1 className="text-2xl sm:text-3xl font-bold mb-6">Xbox Products</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold mb-6text-black ">Xbox Products</h1>
           
           {filteredProducts.length === 0 ? (
             <div className="bg-gray-100 p-8 rounded-lg text-center">

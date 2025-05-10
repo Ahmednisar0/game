@@ -41,11 +41,11 @@ const PCPage = () => {
       {/* Mobile Filters Button */}
       <div className="md:hidden mb-4">
         <details className="dropdown">
-          <summary className="btn btn-primary w-full">Filter Products</summary>
+          <summary className="btn btn-primary w-full text-black ">Filter Products</summary>
           <div className="dropdown-content bg-white p-4 rounded-lg shadow-md mt-2 w-full">
             {/* Price filters */}
             <div>
-              <h3 className="font-semibold mb-3">Price Range</h3>
+              <h3 className="font-semibold mb-3 text-black ">Price Range</h3>
               <div className="px-2">
                 <Slider 
                   defaultValue={[0, 1000]}
@@ -67,7 +67,7 @@ const PCPage = () => {
       <div className="flex flex-col md:flex-row gap-8">
         {/* Sidebar filters - Hidden on mobile */}
         <div className="hidden md:block md:w-1/4 bg-white p-4 rounded-lg shadow-md">
-          <h2 className="text-xl font-bold mb-6 text-game-pink">Filter Products</h2>
+          <h2 className="text-xl font-bold mb-6 text-game-pink text-black ">Filter Products</h2>
           
           {/* Price filters */}
           <div>
@@ -90,7 +90,7 @@ const PCPage = () => {
         
         {/* Products grid */}
         <div className="w-full md:w-3/4">
-          <h1 className="text-2xl sm:text-3xl font-bold mb-6">PC Gaming Products</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-black ">PC Gaming Products</h1>
           
           {filteredProducts.length === 0 ? (
             <motion.div

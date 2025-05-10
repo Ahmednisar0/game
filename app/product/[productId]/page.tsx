@@ -28,8 +28,8 @@ const ProductDetails = () => {
   if (!product) {
     return (
       <div className="container mx-auto px-4 py-8 bg-white min-h-screen">
-        <div className="flex flex-col items-center justify-center py-12">
-          <h1 className="text-2xl font-bold mb-4">Product not found</h1>
+        <div className="flex flex-col items-center justify-center py-12 bg-white">
+          <h1 className="text-2xl font-bold mb-4 text-black">Product not found</h1>
           <p className="text-black mb-6">The product you're looking for doesn't exist or has been removed.</p>
           <Button 
             onClick={() => router.push('/')}
@@ -68,7 +68,7 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-6xl">
+    <div className="container mx-auto px-4 py-8 max-w-6xl bg-white">
       <Button 
         onClick={() => router.back()}
         variant="ghost" 
@@ -78,7 +78,7 @@ const ProductDetails = () => {
         <span>Back to Products</span>
       </Button>
       
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 bg-white">
         {/* Product Image Gallery */}
         <div className="space-y-4">
           <div className="bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-8 relative aspect-square">
@@ -105,7 +105,7 @@ const ProductDetails = () => {
         </div>
         
         {/* Product Info */}
-        <div className="space-y-6">
+        <div className="space-y-6 bg-white">
           <div>
             <h1 className="text-3xl font-bold text-black mb-2">{product.name}</h1>
             <div className="flex items-center gap-3 mb-4">

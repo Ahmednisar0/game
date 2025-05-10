@@ -81,7 +81,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <Link 
       href={`/product/${product.id}`} 
-      className="group  relative bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-gray-100 h-full flex flex-col"
+      className="group  relative bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border text-black border-gray-100 h-full flex flex-col"
       aria-label={`View ${product.name} details`}
     >
       <div className="relative aspect-square bg-gray-50 flex items-center justify-center p-4">
@@ -90,7 +90,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             {discount}
           </Badge>
         )}
-        <Badge variant="secondary" className="absolute top-2 left-2 text-xs z-10">
+        <Badge variant="secondary" className="absolute top-2 left-2 text-xs z-10 text-black">
           {product.category}
         </Badge>
         
@@ -119,7 +119,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       </div>
       
       <div className="p-4 flex-grow flex flex-col">
-        <h3 className="text-lg font-semibold mb-1 line-clamp-2 text-black group-hover:text-game-pink transition-colors min-h-[3rem]">
+        <h3 className="text-lg font-semibold mb-1 line-clamp-2 text-black group-hover:text-pink-700 transition-colors min-h-[3rem]">
           {product.name}
         </h3>
         
@@ -131,7 +131,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </div>
         
         <div className="flex items-center mb-3">
-          <p className="text-game-pink font-bold text-lg">
+          <p className="text-pink-700 font-bold text-lg">
             {getFormattedPrice(product.price)}
           </p>
           {product.id.length % 4 === 0 && (

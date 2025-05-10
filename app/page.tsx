@@ -41,8 +41,8 @@ const GamingHomepage = () => {
       colors: ["#FFFFFF"],
       link: "/playstation",
       rating: 4.7,
-      price: 399.99,
-      originalPrice: 700.27,
+      price: 700.27,
+      originalPrice: 910.35,
       discount: "30% OFF"
     }
   ];

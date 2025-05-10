@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Link from "next/link";
 import Image from "next/image";
@@ -15,8 +15,8 @@ const GamingHomepage = () => {
       colors: ["#003791", "#FFFFFF"],
       link: "/playstation",
       rating: 4.8,
-      price: 990.70,
-      originalPrice: 599.99,
+      price: 599.99,
+      originalPrice: 990.70,
       discount: "20% OFF"
     },
     {
@@ -41,8 +41,8 @@ const GamingHomepage = () => {
       colors: ["#FFFFFF"],
       link: "/playstation",
       rating: 4.7,
-      price: 700.27,
-      originalPrice: 399.99,
+      price: 399.99,
+      originalPrice: 700.27,
       discount: "30% OFF"
     }
   ];
@@ -57,7 +57,7 @@ const GamingHomepage = () => {
       tag: "TRENDING",
       link: "/product/aoc24monitor",
       rating: 4.5,
-      price: 199.99
+     
     },
     {
       id: 5,
@@ -67,7 +67,7 @@ const GamingHomepage = () => {
       tag: "TRENDING",
       link: "/product/pulseelite",
       rating: 4.3,
-      price: 149.99
+      
     },
     {
       id: 6,
@@ -77,7 +77,7 @@ const GamingHomepage = () => {
       tag: "TRENDING",
       link: "/product/dsmidnight",
       rating: 4.4,
-      price: 179.99
+      
     }
   ];
 
@@ -91,8 +91,6 @@ const GamingHomepage = () => {
       tag: "EXCLUSIVE",
       link: "/product/capre3",
       rating: 4.9,
-      price: 39.99,
-      originalPrice: 59.99,
       discount: "33% OFF"
     },
     {
@@ -113,8 +111,6 @@ const GamingHomepage = () => {
       tag: "REMIX",
       link: "/product/hogwarts-legacy-switch",
       rating: 4.7,
-      price: 49.99,
-      originalPrice: 59.99,
       discount: "17% OFF"
     }
   ];
@@ -238,40 +234,40 @@ const GamingHomepage = () => {
       {/* Promo Banner */}
       <section className="py-16 bg-gradient-to-r from-gray-900 to-gray-800 text-white">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="flex flex-col lg:flex-row items-center">
-            <div className="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
-              <Image
-                src="/images/ps5.png"
-                alt="PlayStation 5"
-                width={400}
-                height={200}
-                className="rounded-lg shadow-2xl object-contain"
-                quality={90}
-              />
-            </div>
-            <div className="lg:w-1/2 lg:pl-8 text-center lg:text-left">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="lg:w-1/2">
               <span className="inline-block mb-4 px-3 py-1 bg-pink-600 text-white rounded-full text-sm font-semibold">
                 Limited Time Offer
               </span>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 PlayStation 5 Disc Console + Astro Bot <span className="text-pink-400">Edition</span>
               </h2>
-              <p className="text-lg text-gray-300 mb-6 max-w-lg">
+              <p className="text-lg text-gray-300 mb-6">
                 Experience true 4K gaming at 120FPS with our latest console. Bundle includes exclusive controller and 3 months of PlayStation Plus.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/playstation">
                   <button className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-3 rounded-lg font-medium transition-all shadow-lg hover:shadow-pink-500/30">
                     Shop Now
                   </button>
                 </Link>
               </div>
-              <div className="mt-6 flex items-center justify-center lg:justify-start gap-2 text-sm text-gray-400">
+              <div className="mt-6 flex items-center gap-2 text-sm text-gray-400">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Limited stock available
               </div>
+            </div>
+            <div className="lg:w-1/2 flex justify-center">
+              <Image
+                src="/images/ps5.png"
+                alt="PlayStation 5"
+                width={500}
+                height={300}
+                className="rounded-lg shadow-2xl object-contain max-h-[300px]"
+                quality={90}
+              />
             </div>
           </div>
         </div>
@@ -296,7 +292,7 @@ const GamingHomepage = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProducts.map((product) => (
-              <div key={product.id} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 group">
+              <div key={product.id} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 group flex flex-col h-full">
                 <div className="relative h-64 bg-gray-50 flex items-center justify-center p-8">
                   <Image
                     src={product.image}
@@ -317,7 +313,7 @@ const GamingHomepage = () => {
                     </div>
                   )}
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-grow">
                   <div className="flex justify-between items-start mb-2">
                     <p className="text-gray-500 text-sm">{product.category}</p>
                     <div className="flex items-center">
@@ -327,10 +323,10 @@ const GamingHomepage = () => {
                       <span className="text-sm ml-1 text-gray-600">{product.rating}</span>
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-gray-900">{product.name}</h3>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900 line-clamp-2">{product.name}</h3>
                   
                   {/* Price section with original and sale price */}
-                  <div className="mb-4">
+                  <div className="mb-4 mt-auto">
                     {product.originalPrice ? (
                       <div className="flex items-center gap-2">
                         <p className="text-pink-600 font-bold text-lg">
@@ -349,7 +345,7 @@ const GamingHomepage = () => {
                   
                   <div className="flex justify-center mt-4">
                     <Link href={product.link}>
-                      <button className="bg-gray-900 hover:bg-pink-600 text-white px-8 py-3 rounded-lg font-medium transition-all">
+                      <button className="w-full bg-gray-900 hover:bg-pink-600 text-white px-8 py-3 rounded-lg font-medium transition-all">
                         Shop Now
                       </button>
                     </Link>
@@ -374,7 +370,7 @@ const GamingHomepage = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {trendingProducts.map((product) => (
-              <div key={product.id} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 group">
+              <div key={product.id} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 group flex flex-col h-full">
                 <div className="relative h-64 bg-gray-50 flex items-center justify-center p-8">
                   <Image
                     src={product.image}
@@ -390,7 +386,7 @@ const GamingHomepage = () => {
                     </div>
                   )}
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-grow">
                   <div className="flex justify-between items-start mb-2">
                     <p className="text-gray-500 text-sm">{product.category}</p>
                     <div className="flex items-center">
@@ -400,18 +396,18 @@ const GamingHomepage = () => {
                       <span className="text-sm ml-1 text-gray-600">{product.rating}</span>
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-gray-900">{product.name}</h3>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900 line-clamp-2">{product.name}</h3>
                   
                   {/* Price section */}
-                  <div className="mb-4">
+                  <div className="mb-4 mt-auto">
                     <p className="text-gray-900 font-bold text-lg">
-                      {formatPrice(product.price)}
+                     
                     </p>
                   </div>
                   
                   <div className="flex justify-center mt-4">
                     <Link href={product.link}>
-                      <button className="bg-gray-900 hover:bg-pink-600 text-white px-8 py-3 rounded-lg font-medium transition-all">
+                      <button className="w-full bg-gray-900 hover:bg-pink-600 text-white px-8 py-3 rounded-lg font-medium transition-all">
                         Shop Now
                       </button>
                     </Link>
@@ -442,7 +438,7 @@ const GamingHomepage = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {psGames.map((game) => (
-              <div key={game.id} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 group">
+              <div key={game.id} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 group flex flex-col h-full">
                 <div className="relative h-64 bg-gray-50 flex items-center justify-center p-8">
                   <Image
                     src={game.image}
@@ -463,7 +459,7 @@ const GamingHomepage = () => {
                     </div>
                   )}
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-grow">
                   <div className="flex justify-between items-start mb-2">
                     <p className="text-gray-500 text-sm">{game.category}</p>
                     <div className="flex items-center">
@@ -473,29 +469,29 @@ const GamingHomepage = () => {
                       <span className="text-sm ml-1 text-gray-600">{game.rating}</span>
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-gray-900">{game.name}</h3>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900 line-clamp-2">{game.name}</h3>
                   
                   {/* Price section with original and sale price */}
-                  <div className="mb-4">
-                    {game.originalPrice ? (
+                  <div className="mb-4 mt-auto">
+                    {game.discount ? (
                       <div className="flex items-center gap-2">
                         <p className="text-pink-600 font-bold text-lg">
-                          {formatPrice(game.price)}
+                        
                         </p>
                         <p className="text-sm text-gray-500 line-through">
-                          {formatPrice(game.originalPrice)}
+                          
                         </p>
                       </div>
                     ) : (
                       <p className="text-gray-900 font-bold text-lg">
-                        {formatPrice(game.price)}
+                        
                       </p>
                     )}
                   </div>
                   
                   <div className="flex justify-center mt-4">
                     <Link href={game.link}>
-                      <button className="bg-gray-900 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium transition-all">
+                      <button className="w-full bg-gray-900 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium transition-all">
                         Buy Now
                       </button>
                     </Link>

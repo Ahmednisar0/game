@@ -2,12 +2,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import { useGameStore } from "../contexts/GameStoreContext";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import type { FormData, CartItem } from "@/types/order";
 import { client } from "@/sanity/lib/client";
 import { ArrowRight, CheckCircle, Clock, Mail, ShoppingBag } from "lucide-react";
 
-export default function PaymentSuccess({
+function PaymentSuccessContent({
   searchParams,
 }: {
   searchParams: { amount: string };
@@ -277,5 +277,17 @@ export default function PaymentSuccess({
         }
       `}</style>
     </main>
+  );
+}
+
+export default function PaymentSuccessPage({
+  searchParams,
+}: {
+  searchParams: { amount: string };
+}) {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <PaymentSuccessContent searchParams={searchParams} />
+    </Suspense>
   );
 }

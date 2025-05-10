@@ -1,14 +1,13 @@
 'use client'
-import React  from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 interface SliderProps {
-  defaultValue?: [number, number]
-  max?: number
-  step?: number
-  value?: [number, number]
-  onValueChange?: (value: [number, number]) => void
-  className?: string
+  defaultValue?: [number, number];
+  max?: number;
+  step?: number;
+  value?: [number, number];
+  onValueChange?: (value: [number, number]) => void;
+  className?: string;
 }
 
 export const Slider = ({
@@ -19,35 +18,44 @@ export const Slider = ({
   onValueChange,
   className = ''
 }: SliderProps) => {
-  const [localValue, setLocalValue] = useState(defaultValue)
-  const value = propValue || localValue
+  const [localValue, setLocalValue] = useState(defaultValue);
+  const value = propValue || localValue;
 
+  // Handle changes in the sliders
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
-    const newValue = [...value] as [number, number]
-    newValue[index] = Number(e.target.value)
-    const sortedValue = newValue.sort((a, b) => a - b) as [number, number]
-    
-    setLocalValue(sortedValue)
-    onValueChange?.(sortedValue)
-  }
+    const newValue = [...value] as [number, number];
+    newValue[index] = Number(e.target.value);
 
-  // Calculate the progress bar position
-  const minPos = (value[0] / max) * 100
-  const maxPos = (value[1] / max) * 100
+    // Ensure that the values are in correct order
+    const sortedValue = newValue.sort((a, b) => a - b) as [number, number];
+
+    // Update local state and trigger onValueChange if provided
+    if (!propValue) {
+      setLocalValue(sortedValue);
+    }
+    onValueChange?.(sortedValue);
+  };
+
+  // Calculate the position of the thumbs
+  const minPos = (value[0] / max) * 100;
+  const maxPos = (value[1] / max) * 100;
 
   return (
     <div className={`relative ${className}`}>
       {/* Track */}
       <div className="h-1 bg-gray-200 rounded-full w-full"></div>
-      
+
       {/* Progress bar */}
-      <div 
+      <div
         className="absolute top-0 h-1 bg-pink-500 rounded-full"
         style={{ left: `${minPos}%`, width: `${maxPos - minPos}%` }}
       ></div>
-      
+
       {/* Thumb for min value */}
-      <div className="absolute top-0 left-0 -mt-1.5" style={{ left: `${minPos}%` }}>
+      <div
+        className="absolute top-0 left-0 -mt-1.5"
+        style={{ left: `${minPos}%` }}
+      >
         <input
           type="range"
           min="0"
@@ -59,9 +67,12 @@ export const Slider = ({
         />
         <div className="w-4 h-4 bg-pink-600 rounded-full shadow-md cursor-pointer"></div>
       </div>
-      
+
       {/* Thumb for max value */}
-      <div className="absolute top-0 left-0 -mt-1.5" style={{ left: `${maxPos}%` }}>
+      <div
+        className="absolute top-0 left-0 -mt-1.5"
+        style={{ left: `${maxPos}%` }}
+      >
         <input
           type="range"
           min="0"
@@ -74,5 +85,5 @@ export const Slider = ({
         <div className="w-4 h-4 bg-pink-600 rounded-full shadow-md cursor-pointer"></div>
       </div>
     </div>
-  )
-}
+  );
+};

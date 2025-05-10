@@ -72,7 +72,7 @@ const PlaystationPage = () => {
                   onValueChange={(value) => setPriceRange(value as [number, number])}
                 />
               </div>
-              <div className="flex justify-between mt-2 text-sm">
+              <div className="flex justify-between text-black mt-2 text-sm">
                 <span>{getFormattedPrice(priceRange[0])}</span>
                 <span>{getFormattedPrice(priceRange[1])}</span>
               </div>
@@ -88,7 +88,7 @@ const PlaystationPage = () => {
           
           {/* Category filters */}
           <div className="mb-6">
-            <h3 className="font-semibold mb-3text-black ">Categories</h3>
+            <h3 className="font-semibold mb-3 text-black ">Categories</h3>
             <div className="space-y-2">
               {(['console', 'digital', 'games', 'accessories'] as ProductCategory[]).map(category => (
                 <div key={category} className="flex items-center">
@@ -97,7 +97,7 @@ const PlaystationPage = () => {
                     checked={selectedCategories.includes(category)} 
                     onCheckedChange={() => toggleCategory(category)}
                   />
-                  <Label htmlFor={category} className="ml-2 capitalize">
+                  <Label htmlFor={category} className="ml-2 capitalize text-black">
                     {category}
                   </Label>
                 </div>
@@ -117,7 +117,7 @@ const PlaystationPage = () => {
                 onValueChange={(value) => setPriceRange(value as [number, number])}
               />
             </div>
-            <div className="flex justify-between mt-2 text-sm">
+            <div className="flex justify-between text-black mt-2 text-sm">
               <span>{getFormattedPrice(priceRange[0])}</span>
               <span>{getFormattedPrice(priceRange[1])}</span>
             </div>

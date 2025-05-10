@@ -70,11 +70,11 @@ const Navbar = ({ onSearch = () => {} }: NavbarProps) => {
 
       <nav className={`bg-white shadow-md sticky top-0 z-50 transition-all ${isScrolled ? 'shadow-lg' : ''}`}>
         {/* Top bar */}
-        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+        <div className="container mx-auto px-4 py-3 flex items-center justify-between text-black">
           {/* Mobile menu + Logo */}
           <div className="flex items-center space-x-4">
             <button
-              className="md:hidden text-gray-700"
+              className="md:hidden text-gray-700 text-black"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -100,7 +100,7 @@ const Navbar = ({ onSearch = () => {} }: NavbarProps) => {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="border text-black border-gray-300 rounded-l-lg px-3 py-2 focus:outline-none focus:ring-1 text-black focus:ring-pink-400"
+                className="border text-black border-pink-300 rounded-l-lg px-3 py-2 focus:outline-none focus:ring-1 text-black focus:ring-pink-400"
               >
                 {categories.map((category) => (
                   <option key={category.id} value={category.id}>

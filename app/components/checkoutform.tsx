@@ -1,29 +1,46 @@
 "use client";
-
 import React, { useState } from "react";
-import {
-  useStripe,
-  useElements,
-  PaymentElement,
-} from "@stripe/react-stripe-js";
+import { useStripe, useElements, PaymentElement } from "@stripe/react-stripe-js";
+import { useRouter } from "next/navigation";
 import { useGameStore } from "../contexts/GameStoreContext";
 import convertToSubcurrency from "@/lib/convertToSubcurrency";
 import { Loader2 } from "lucide-react";
+import { client } from "@/sanity/lib/client";
+import { CartItem } from "@/types/order";
 
 const COUNTRIES = [
   { code: "US", name: "United States" },
   { code: "CA", name: "Canada" },
   { code: "GB", name: "United Kingdom" },
-  // Add more countries as needed
 ];
 
-const CheckoutForm = ({ amount }: { amount: number }) => {
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  address: string;
+  apartment: string;
+  city: string;
+  country: string;
+  state: string;
+  zipCode: string;
+  id: string;
+          name: string;
+          price: string;
+          quantity: string;
+          category: string
+}
+
+const CheckoutForm = ({ amount }: { amount: number }): React.JSX.Element => {
+  const [purchasedItems, setPurchasedItems] = useState<CartItem[]>([]);
   const stripe = useStripe();
   const elements = useElements();
+  const router = useRouter();
   const { getFormattedPrice } = useGameStore();
   const [errorMessage, setErrorMessage] = useState<string>();
   const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
     email: "",
@@ -34,9 +51,21 @@ const CheckoutForm = ({ amount }: { amount: number }) => {
     country: "US",
     state: "",
     zipCode: "",
+     id: "",
+     name: "",
+          price: "",
+          quantity: "",
+          category: "",
   });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+purchasedItems.map(item => ({
+        id : item.product.id,
+        name: item.product.name,
+        price: item.product.price,
+        quantity: item.quantity,
+        category: item.product.category,
+      }))
+      
+       const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -45,16 +74,19 @@ const CheckoutForm = ({ amount }: { amount: number }) => {
     e.preventDefault();
     setLoading(true);
 
-    if (!stripe || !elements) return;
-
-    const { error: submitError } = await elements.submit();
-    if (submitError) {
-      setErrorMessage(submitError.message);
+    if (!stripe || !elements) {
       setLoading(false);
       return;
     }
 
     try {
+      const { error: submitError } = await elements.submit();
+      if (submitError) {
+        setErrorMessage(submitError.message);
+        setLoading(false);
+        return;
+      }
+
       const res = await fetch("/api/create-payment-intent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -68,27 +100,17 @@ const CheckoutForm = ({ amount }: { amount: number }) => {
 
       const { clientSecret } = await res.json();
 
+      const params = new URLSearchParams();
+      Object.entries(formData).forEach(([key, value]) => {
+        if (value) params.set(key, value);
+      });
+
       const { error } = await stripe.confirmPayment({
         elements,
         clientSecret,
         confirmParams: {
-          return_url: `${window.location.origin}/payment-success?amount=${amount}`,
+          return_url: `${window.location.origin}/payment-success?amount=${amount}&${params.toString()}`,
           receipt_email: formData.email,
-          payment_method_data: {
-            billing_details: {
-              name: `${formData.firstName} ${formData.lastName}`,
-              email: formData.email,
-              phone: formData.phone,
-              address: {
-                line1: formData.address,
-                line2: formData.apartment || undefined,
-                city: formData.city,
-                state: formData.state,
-                postal_code: formData.zipCode,
-                country: formData.country,
-              }
-            }
-          }
         },
       });
 
@@ -108,7 +130,7 @@ const CheckoutForm = ({ amount }: { amount: number }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-md p-6 md:p-8 max-w-2xl mx-auto">
+   <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-md p-6 md:p-8 max-w-2xl mx-auto">
       <h2 className="text-2xl font-bold text-gray-900 mb-8">Shipping Information</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">

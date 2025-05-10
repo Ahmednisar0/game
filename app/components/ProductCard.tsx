@@ -22,20 +22,17 @@ const ProductCard = ({ product }: ProductCardProps) => {
     // Improved rating system that ensures all products get good ratings
     const baseRating = 3; // Minimum rating
     const ratingFactors = {
-      nameLength: Math.min(product.name.length / 20, 1), // Longer names get slightly better ratings
-      priceFactor: 1 - (product.price / 2000), // Cheaper items get slightly better ratings
-      randomBoost: Math.random() * 0.5 // Small random variation
+      nameLength: Math.min(product.name.length / 20, 1),
+      priceFactor: 1 - (product.price / 2000),
+      randomBoost: Math.random() * 0.5
     };
     
-    // Calculate final rating (between 3.5 and 5 stars)
     const calculatedRating = baseRating + 
       (ratingFactors.nameLength * 0.5) + 
       (ratingFactors.priceFactor * 0.5) + 
       ratingFactors.randomBoost;
     
-    // Round to nearest 0.5 and clamp between 3.5 and 5
     const finalRating = Math.min(Math.max(Math.round(calculatedRating * 2) / 2, 3.5), 5);
-    
     setRating(finalRating);
   }, [product.name, product.price])
 
@@ -45,7 +42,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
       { condition: product.id.length % 3 === 0, value: '30% OFF' },
       { condition: product.id.length % 2 === 0, value: '10% OFF' }
     ]
-    
     return discounts.find(d => d.condition)?.value
   }
 
@@ -58,7 +54,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
     setTimeout(() => setIsAdded(false), 2000)
   }
 
-  // Function to render stars with half-star support
   const renderStars = () => {
     const stars = [];
     const fullStars = Math.floor(rating);
@@ -70,27 +65,25 @@ const ProductCard = ({ product }: ProductCardProps) => {
       } else if (i === fullStars + 1 && hasHalfStar) {
         stars.push(
           <div key={i} className="relative" style={{ width: 16, height: 16 }}>
-            <Star size={16} className="text-gray-300" />
+            <Star size={16} className="text-black" />
             <div className="absolute top-0 left-0 overflow-hidden" style={{ width: '50%' }}>
               <Star size={16} className="fill-yellow-400 text-yellow-400" />
             </div>
           </div>
         );
       } else {
-        stars.push(<Star key={i} size={16} className="text-gray-300" />);
+        stars.push(<Star key={i} size={16} className="text-black" />);
       }
     }
-
     return stars;
   };
 
   return (
     <Link 
       href={`/product/${product.id}`} 
-      className="group block relative bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-gray-100 h-full flex flex-col"
+      className="group  relative bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-gray-100 h-full flex flex-col"
       aria-label={`View ${product.name} details`}
     >
-      {/* Product Image with loading and error states */}
       <div className="relative aspect-square bg-gray-50 flex items-center justify-center p-4">
         {discount && (
           <Badge className="absolute top-2 right-2 bg-red-600 hover:bg-red-700 text-white shadow-sm z-10">
@@ -102,11 +95,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </Badge>
         
         {!imageLoaded && !imageError && (
-          <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
+          <div className="absolute inset-0 bg-black animate-pulse"></div>
         )}
         
         {imageError ? (
-          <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-500">
+          <div className="w-full h-full flex items-center justify-center bg-black text-black">
             Image not available
           </div>
         ) : (
@@ -125,34 +118,29 @@ const ProductCard = ({ product }: ProductCardProps) => {
         )}
       </div>
       
-      {/* Product Info - flex-grow to push button to bottom */}
       <div className="p-4 flex-grow flex flex-col">
-        {/* Product name with min-height to prevent layout shift */}
-        <h3 className="text-lg font-semibold mb-1 line-clamp-2 text-gray-800 group-hover:text-game-pink transition-colors min-h-[3rem]">
+        <h3 className="text-lg font-semibold mb-1 line-clamp-2 text-black group-hover:text-game-pink transition-colors min-h-[3rem]">
           {product.name}
         </h3>
         
-        {/* Rating */}
         <div className="flex items-center mb-2">
           <div className="flex">
             {renderStars()}
           </div>
-          <span className="text-xs text-gray-500 ml-1">({rating.toFixed(1)})</span>
+          <span className="text-xs text-black ml-1">({rating.toFixed(1)})</span>
         </div>
         
-        {/* Price */}
         <div className="flex items-center mb-3">
           <p className="text-game-pink font-bold text-lg">
             {getFormattedPrice(product.price)}
           </p>
           {product.id.length % 4 === 0 && (
-            <p className="text-sm text-gray-500 line-through ml-2">
+            <p className="text-sm text-black line-through ml-2">
               {getFormattedPrice(product.price * 1.3)}
             </p>
           )}
         </div>
         
-        {/* Add to Cart Button - mt-auto to push to bottom */}
         <div className="mt-auto">
           <button 
             className={`w-full py-2.5 px-4 rounded-md flex items-center justify-center gap-2 transition-all duration-200 ${

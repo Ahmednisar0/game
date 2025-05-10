@@ -50,7 +50,7 @@ const NintendoPage = () => {
   };
   
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 bg-white min-h-screen">
       {/* Mobile Filters Button - Only shown on small screens */}
       <div className="md:hidden mb-4">
         <details className="dropdown">

@@ -90,7 +90,7 @@ const AccessoriesPage = () => {
       className="container mx-auto px-4 py-8"
     >
       {/* Mobile Filters Button */}
-      <div className="md:hidden mb-4">
+      <div className="md:hidden mb-4 bg-white min-h-screen">
         <details className="dropdown">
           <summary className="btn btn-primary w-full">Filter Accessories</summary>
           <div className="dropdown-content bg-white p-4 rounded-lg shadow-md mt-2 w-full">
@@ -138,7 +138,7 @@ const AccessoriesPage = () => {
         </details>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-8">
+      <div className="flex flex-col md:flex-row gap-8 bg-white min-h-screen">
         {/* Sidebar filters - Hidden on mobile */}
         <motion.div 
           className="hidden md:block md:w-1/4 bg-white p-4 rounded-lg shadow-md"

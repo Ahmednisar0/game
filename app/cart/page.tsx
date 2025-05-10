@@ -11,7 +11,7 @@ const Cart = () => {
   
   if (cartItems.length === 0) {
     return (
-      <div className="container mx-auto px-4 py-16 flex flex-col items-center justify-center min-h-[60vh]">
+      <div className="container mx-auto px-4 py-16 flex flex-col items-center justify-center min-h-[60vh] bg-white ">
         <ShoppingBag size={64} className="text-gray-300 mb-4" />
         <h1 className="text-2xl font-bold mb-2">Your cart is empty</h1>
         <p className="text-gray-500 mb-6">Looks like you haven't added anything to your cart yet.</p>

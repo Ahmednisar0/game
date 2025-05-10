@@ -27,10 +27,10 @@ const ProductDetails = () => {
 
   if (!product) {
     return (
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 bg-white min-h-screen">
         <div className="flex flex-col items-center justify-center py-12">
           <h1 className="text-2xl font-bold mb-4">Product not found</h1>
-          <p className="text-gray-600 mb-6">The product you're looking for doesn't exist or has been removed.</p>
+          <p className="text-black mb-6">The product you're looking for doesn't exist or has been removed.</p>
           <Button 
             onClick={() => router.push('/')}
             variant="outline"
@@ -56,14 +56,14 @@ const ProductDetails = () => {
       } else if (i === fullStars && hasHalfStar) {
         return (
           <div key={i} className="relative" style={{ width: 16, height: 16 }}>
-            <Star size={16} className="text-gray-300" />
+            <Star size={16} className="text-black" />
             <div className="absolute top-0 left-0 overflow-hidden" style={{ width: '50%' }}>
               <Star size={16} className="fill-yellow-400 text-yellow-400" />
             </div>
           </div>
         );
       }
-      return <Star key={i} size={16} className="text-gray-300" />;
+      return <Star key={i} size={16} className="text-black" />;
     });
   };
 
@@ -72,7 +72,7 @@ const ProductDetails = () => {
       <Button 
         onClick={() => router.back()}
         variant="ghost" 
-        className="mb-6 flex items-center gap-2 text-gray-600 hover:text-game-pink transition-colors"
+        className="mb-6 flex items-center gap-2 text-black hover:text-game-pink transition-colors"
       >
         <ChevronLeft size={18} />
         <span>Back to Products</span>
@@ -107,13 +107,13 @@ const ProductDetails = () => {
         {/* Product Info */}
         <div className="space-y-6">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.name}</h1>
+            <h1 className="text-3xl font-bold text-black mb-2">{product.name}</h1>
             <div className="flex items-center gap-3 mb-4">
               <div className="flex items-center">
                 {renderStars()}
-                <span className="text-sm text-gray-500 ml-1">({rating.toFixed(1)})</span>
+                <span className="text-sm text-black ml-1">({rating.toFixed(1)})</span>
               </div>
-              <span className="text-sm text-gray-500">•</span>
+              <span className="text-sm text-black">•</span>
               <span className="text-sm text-game-pink font-medium">In Stock</span>
             </div>
             
@@ -135,13 +135,13 @@ const ProductDetails = () => {
                 {getFormattedPrice(product.price)}
               </span>
               {product.id.length % 4 === 0 && (
-                <span className="text-sm text-gray-500 line-through">
+                <span className="text-sm text-black line-through">
                   {getFormattedPrice(product.price * 1.3)}
                 </span>
               )}
             </div>
             
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-black leading-relaxed">
               {product.description || 'Premium quality product with excellent performance and durability.'}
             </p>
           </div>
@@ -150,7 +150,7 @@ const ProductDetails = () => {
             <Button 
               onClick={handleAddToCart}
               disabled={isAdded}
-              className={`flex-1 transition-all duration-300 ${isAdded ? 'bg-green-600 hover:bg-green-700' : 'bg-game-pink hover:bg-pink-700'}`}
+              className={`flex-1 transition-all duration-300 ${isAdded ? 'bg-green-600 hover:bg-green-700' : 'bg-pink-500 hover:bg-pink-700'}`}
               size="lg"
             >
               {isAdded ? (
@@ -175,7 +175,7 @@ const ProductDetails = () => {
               >
                 <Heart 
                   size={20} 
-                  className={isWishlisted ? 'fill-red-500 text-red-500' : 'text-gray-500'} 
+                  className={isWishlisted ? 'fill-red-500 text-red-500' : 'text-black'} 
                 />
               </Button>
               <Button 
@@ -183,15 +183,15 @@ const ProductDetails = () => {
                 size="icon"
                 className="hover:bg-gray-100"
               >
-                <Share2 size={20} className="text-gray-500" />
+                <Share2 size={20} className="text-black" />
               </Button>
             </div>
           </div>
           
           {/* Highlights */}
           <div className="bg-gray-50 rounded-lg p-4 mt-6">
-            <h3 className="font-semibold mb-3 text-gray-900">Highlights</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+            <h3 className="font-semibold mb-3 text-black">Highlights</h3>
+            <ul className="space-y-2 text-sm text-black">
               <li className="flex items-start">
                 <Check className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
                 <span>Free shipping on orders over $50</span>
@@ -225,47 +225,47 @@ const ProductDetails = () => {
                 </TabsTrigger>
               </TabsList>
               <TabsContent value="description" className="p-6 bg-white rounded-b-lg shadow-sm">
-                <h3 className="font-semibold text-lg mb-3 text-gray-900">Product Details</h3>
-                <p className="text-gray-700 mb-4 leading-relaxed">
+                <h3 className="font-semibold text-lg mb-3 text-black">Product Details</h3>
+                <p className="text-black mb-4 leading-relaxed">
                   {product.description || 'This premium product offers exceptional quality and performance. Designed for enthusiasts who demand the best, it delivers outstanding results in all conditions.'}
                 </p>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-black leading-relaxed">
                   The {product.name} features advanced technology and premium materials for long-lasting durability and exceptional performance. Perfect for both casual and professional use.
                 </p>
               </TabsContent>
               <TabsContent value="specs" className="p-6 bg-white rounded-b-lg shadow-sm">
-                <h3 className="font-semibold text-lg mb-3 text-gray-900">Technical Specifications</h3>
+                <h3 className="font-semibold text-lg mb-3 text-black">Technical Specifications</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2">General</h4>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <h4 className="font-medium text-black mb-2">General</h4>
+                    <ul className="space-y-2 text-sm text-black">
                       <li className="flex justify-between">
-                        <span className="text-gray-500">Platform</span>
+                        <span className="text-black">Platform</span>
                         <span>{product.platform}</span>
                       </li>
                       <li className="flex justify-between">
-                        <span className="text-gray-500">Category</span>
+                        <span className="text-black">Category</span>
                         <span>{product.category}</span>
                       </li>
                       <li className="flex justify-between">
-                        <span className="text-gray-500">Release Date</span>
+                        <span className="text-black">Release Date</span>
                         <span>2023</span>
                       </li>
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2">Details</h4>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <h4 className="font-medium text-black mb-2">Details</h4>
+                    <ul className="space-y-2 text-sm text-black">
                       <li className="flex justify-between">
-                        <span className="text-gray-500">Product ID</span>
+                        <span className="text-black">Product ID</span>
                         <span>{product.id}</span>
                       </li>
                       <li className="flex justify-between">
-                        <span className="text-gray-500">Weight</span>
+                        <span className="text-black">Weight</span>
                         <span>0.5 kg</span>
                       </li>
                       <li className="flex justify-between">
-                        <span className="text-gray-500">Dimensions</span>
+                        <span className="text-black">Dimensions</span>
                         <span>10 × 10 × 5 cm</span>
                       </li>
                     </ul>

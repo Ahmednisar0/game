@@ -6,6 +6,7 @@ import CheckoutForm from "../components/checkoutform";
 import { useGameStore } from "../contexts/GameStoreContext";
 import convertToSubcurrency from "@/lib/convertToSubcurrency";
 import { ShoppingBag } from "lucide-react";
+import { useEffect } from "react";
 
 // Initialize Stripe
 if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY === undefined) {
@@ -15,7 +16,13 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 export default function CheckoutPage() {
   const { getCartTotal, getFormattedPrice, cartItems } = useGameStore();
-  const amount = getCartTotal();
+  const amount = getCartTotal(); 
+// Store before processing payment
+useEffect(() => {
+  if (cartItems.length > 0) {
+    localStorage.setItem("purchasedItems", JSON.stringify(cartItems));
+  }
+}, [cartItems]);
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-pink-50 to-white py-12 px-4 sm:px-6 lg:px-8">

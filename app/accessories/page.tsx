@@ -87,14 +87,12 @@ const AccessoriesPage = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="container mx-auto px-4 py-8 bg-white min-h-screen"
+      className="container mx-auto px-4 py-8"
     >
       {/* Mobile Filters Button */}
       <div className="md:hidden mb-4">
         <details className="dropdown w-full">
-          <summary className="btn btn-primary w-full bg-game-pink text-white border-none">
-            Filter Accessories
-          </summary>
+          <summary className="btn btn-primary w-full bg-black text-white">Filter Accessories</summary>
           <div className="dropdown-content bg-white p-4 rounded-lg shadow-md mt-2 w-full border border-gray-200">
             {/* Category filters */}
             <div className="mb-6">
@@ -143,12 +141,12 @@ const AccessoriesPage = () => {
       <div className="flex flex-col md:flex-row gap-8">
         {/* Sidebar filters - Hidden on mobile */}
         <motion.div 
-          className="hidden md:block md:w-1/4 bg-white p-6 rounded-lg shadow-md h-fit sticky top-4"
+          className="hidden md:block md:w-1/4 bg-white p-4 rounded-lg shadow-md border border-gray-200"
           initial={{ x: -20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <h2 className="text-xl font-bold mb-6 text-game-pink">Filter Accessories</h2>
+          <h2 className="text-xl font-bold mb-6 text-black">Filter Accessories</h2>
           
           {/* Category filters */}
           <div className="mb-6">
@@ -211,12 +209,12 @@ const AccessoriesPage = () => {
               animate="show"
               className="bg-gray-100 p-8 rounded-lg text-center"
             >
-              <h3 className="text-xl font-medium text-gray-800">No accessories match your filters</h3>
-              <p className="text-gray-600 mt-2">Try adjusting your filter criteria</p>
+              <h3 className="text-xl font-medium text-black">No accessories match your filters</h3>
+              <p className="text-black mt-2">Try adjusting your filter criteria</p>
             </motion.div>
           ) : (
             <motion.div 
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
+              className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
               variants={container}
               initial="hidden"
               animate="show"

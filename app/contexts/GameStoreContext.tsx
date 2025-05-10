@@ -98,11 +98,21 @@ const mockProducts: Product[] = [
     description: 'PS5 Slim bundled with the special edition of Assassin\'s Creed Shadows.'
   },
   {
-    id: 'ps5pro',
+    id: 'ps5discastri',
     name: 'PlayStation 5 Pro Console',
-    price: 1049.99,
+    price: 930.79,
     category: 'console',
     image: '/playstation/psc4.png',
+    platform: 'playstation',
+    description: 'The most powerful PlayStation console ever with enhanced graphics and performance.'
+  },
+
+   {
+    id: 'ps5discartri',
+    name: 'PlayStation 5 Console Two DualSense Wireless Controllers Bundle (model group - slim)',
+    price: 700.27,
+    category: 'console',
+    image: '/images/m2.jpg',
     platform: 'playstation',
     description: 'The most powerful PlayStation console ever with enhanced graphics and performance.'
   },

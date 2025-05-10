@@ -11,9 +11,9 @@ const Cart = () => {
   
   if (cartItems.length === 0) {
     return (
-      <div className="container mx-auto px-4 py-16 flex flex-col items-center justify-center min-h-[60vh] bg-white dark:bg-gray-900">
+      <div className="container mx-auto px-4 py-16 flex flex-col items-center justify-center min-h-[60vh] bg-white ">
         <ShoppingBag size={64} className="text-gray-300 mb-4" />
-        <h1 className="text-2xl font-bold mb-2 text-gray-800 dark:text-white">Your cart is empty</h1>
+        <h1 className="text-2xl font-bold mb-2">Your cart is empty</h1>
         <p className="text-gray-500 mb-6">Looks like you haven't added anything to your cart yet.</p>
         <Link href="/" className="flex items-center gap-2">
           <Button variant="outline" leftIcon={<ArrowLeft size={16} />}>
@@ -25,21 +25,21 @@ const Cart = () => {
   }
   
   return (
-    <div className="container mx-auto px-4 py-8 bg-white dark:bg-gray-900 min-h-screen">
-      <h1 className="text-3xl font-bold mb-8 text-gray-800 dark:text-white">Shopping Cart</h1>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-8">Shopping Cart</h1>
       
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Cart items */}
         <div className="lg:w-2/3">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-            <div className="hidden md:grid md:grid-cols-5 mb-6 text-sm font-medium text-gray-500 dark:text-gray-300 uppercase">
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="hidden md:grid md:grid-cols-5 mb-6 text-sm font-medium text-gray-500 uppercase">
               <span className="md:col-span-2">Product</span>
               <span>Price</span>
               <span>Quantity</span>
               <span>Total</span>
             </div>
             
-            <Separator className="mb-6 bg-gray-200 dark:bg-gray-700" />
+            <Separator className="mb-6" />
             
             {cartItems.map((item) => (
               <div key={item.product.id} className="mb-6">
@@ -51,35 +51,33 @@ const Cart = () => {
                       className="w-20 h-20 object-cover rounded-md"
                     />
                     <div>
-                      <h3 className="font-medium text-gray-800 dark:text-white">
+                      <h3 className="font-medium">
                         <Link href={`/product/${item.product.id}`} className="hover:text-game-pink">
                           {item.product.name}
                         </Link>
                       </h3>
-                      <p className="text-sm text-gray-500 dark:text-gray-400 capitalize">{item.product.platform} | {item.product.category}</p>
+                      <p className="text-sm text-gray-500 capitalize">{item.product.platform} | {item.product.category}</p>
                     </div>
                   </div>
                   
-                  <div className="text-gray-800 dark:text-white">
-                    <span className="md:hidden text-gray-500 dark:text-gray-400">Price: </span>
+                  <div>
+                    <span className="md:hidden text-gray-500">Price: </span>
                     <span className="font-medium">{getFormattedPrice(item.product.price)}</span>
                   </div>
                   
                   <div className="flex items-center">
-                    <div className="flex items-center border rounded-md dark:border-gray-600">
+                    <div className="flex items-center border rounded-md">
                       <button 
-                        className="px-3 py-1 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-800 dark:text-white"
+                        className="px-3 py-1 hover:bg-gray-100 transition-colors"
                         onClick={() => updateCartItemQuantity(item.product.id, item.quantity - 1)}
                         disabled={item.quantity <= 1}
                         aria-label="Decrease quantity"
                       >
                         <Minus size={16} />
                       </button>
-                      <span className="px-3 py-1 border-l border-r dark:border-gray-600 text-gray-800 dark:text-white">
-                        {item.quantity}
-                      </span>
+                      <span className="px-3 py-1 border-l border-r">{item.quantity}</span>
                       <button 
-                        className="px-3 py-1 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-800 dark:text-white"
+                        className="px-3 py-1 hover:bg-gray-100 transition-colors"
                         onClick={() => updateCartItemQuantity(item.product.id, item.quantity + 1)}
                         aria-label="Increase quantity"
                       >
@@ -89,8 +87,8 @@ const Cart = () => {
                   </div>
                   
                   <div className="flex items-center justify-between">
-                    <div className="text-gray-800 dark:text-white">
-                      <span className="md:hidden text-gray-500 dark:text-gray-400">Total: </span>
+                    <div>
+                      <span className="md:hidden text-gray-500">Total: </span>
                       <span className="font-bold">{getFormattedPrice(item.product.price * item.quantity)}</span>
                     </div>
                     <button 
@@ -103,7 +101,7 @@ const Cart = () => {
                   </div>
                 </div>
                 
-                <Separator className="my-6 bg-gray-200 dark:bg-gray-700" />
+                <Separator className="my-6" />
               </div>
             ))}
           </div>
@@ -111,32 +109,33 @@ const Cart = () => {
         
         {/* Order summary */}
         <div className="lg:w-1/3">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 sticky top-24">
-            <h2 className="text-lg font-bold mb-6 text-gray-800 dark:text-white">Order Summary</h2>
+          <div className="bg-white rounded-lg shadow-md p-6 sticky top-24">
+            <h2 className="text-lg font-bold mb-6">Order Summary</h2>
             
             <div className="space-y-4">
-              <div className="flex justify-between text-gray-800 dark:text-gray-200">
-                <span>Subtotal</span>
+              <div className="flex justify-between">
+                <span className="text-gray-600">Subtotal</span>
                 <span className="font-medium">{getFormattedPrice(getCartTotal())}</span>
               </div>
               
-              <div className="flex justify-between text-gray-800 dark:text-gray-200">
-                <span>Shipping</span>
+              <div className="flex justify-between">
+                <span className="text-gray-600">Shipping</span>
                 <span className="font-medium">Free</span>
               </div>
               
-              <Separator className="bg-gray-200 dark:bg-gray-700" />
+              <Separator />
               
-              <div className="flex justify-between text-lg font-bold text-gray-800 dark:text-white">
+              <div className="flex justify-between text-lg font-bold">
                 <span>Total</span>
                 <span className="text-game-pink">{getFormattedPrice(getCartTotal())}</span>
               </div>
             </div>
             
-            <div className="mt-6">
+            
+            <div className="mt-6 text-center bg-pink-500">
               <Link href="/checkout">
-                <Button className="w-full bg-pink-500 hover:bg-pink-600 text-white">
-                  Proceed to Checkout
+                <Button   className="text-game-pink hover:underline">
+                Proceed to Checkout
                 </Button>
               </Link>
             </div>

@@ -109,7 +109,7 @@ export default function PremiumDashboard() {
                 localStorage.removeItem('authToken')
                 router.push('/login')
               }}
-              className="flex items-center text-black px-4 py-2 bg-red-50 text-red-600 rounded-lg text-sm font-medium hover:bg-red-100"
+              className="flex items-center  px-4 py-2 bg-red-50 text-red-600 rounded-lg text-sm font-medium hover:bg-red-100"
             >
               <FiLogOut className="mr-2 text-black" />
               Logout

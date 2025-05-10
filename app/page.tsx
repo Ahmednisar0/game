@@ -4,37 +4,46 @@ import Link from "next/link";
 import Image from "next/image";
 
 const GamingHomepage = () => {
-  // Featured products data
+  // Featured products data with sale prices
   const featuredProducts = [
     {
       id: 1,
       name: "PlayStation 5 Pro",
       image: "/images/ps52.png",
       category: "Console",
-      tag: "New Release",
+      tag: "SALE",
       colors: ["#003791", "#FFFFFF"],
       link: "/playstation",
-      rating: 4.8
+      rating: 4.8,
+      price: 990.70,
+      originalPrice: 599.99,
+      discount: "20% OFF"
     },
     {
       id: 2,
-      name: "Xbox Series X",
-      image: "/images/xbox1.png",
+      name: "PlayStation 5 Disc Console + Astro Bot",
+      image: "/images/p3.png",
       category: "Console",
-      tag: "Best Seller",
+      tag: "SALE",
       colors: ["#107C10", "#000000"],
-      link: "/xbox",
-      rating: 4.6
+      link: "/playstation",
+      rating: 4.6,
+      price: 644.99,
+      originalPrice: 910.35,
+      discount: "30% OFF"
     },
     {
       id: 3,
-      name: "Nintendo Switch OLED",
-      image: "/images/switch.png",
+      name: "PlayStation 5 Console Two DualSense Wireless Controllers Bundle (model group - slim)",
+      image: "/images/m2.jpg",
       category: "Console",
-      tag: "Family Favorite",
+      tag: "SALE",
       colors: ["#FFFFFF"],
-      link: "/nintendo",
-      rating: 4.7
+      link: "/playstation",
+      rating: 4.7,
+      price: 700.27,
+      originalPrice: 399.99,
+      discount: "30% OFF"
     }
   ];
 
@@ -45,58 +54,68 @@ const GamingHomepage = () => {
       name: "AOC 24G4XF Monitor",
       image: "/images/monitor.png",
       category: "Accessories",
-      tag: "Trending",
+      tag: "TRENDING",
       link: "/product/aoc24monitor",
-      rating: 4.5
+      rating: 4.5,
+      price: 199.99
     },
     {
       id: 5,
       name: "Turtle Beach Stealth",
       image: "/images/head.png",
       category: "Accessories",
-      tag: "Trending",
+      tag: "TRENDING",
       link: "/product/pulseelite",
-      rating: 4.3
+      rating: 4.3,
+      price: 149.99
     },
     {
       id: 6,
       name: "DualSense Edge Wireless Controller",
       image: "/images/wireless.png",
       category: "Accessories",
-      tag: "Trending",
+      tag: "TRENDING",
       link: "/product/dsmidnight",
-      rating: 4.4
+      rating: 4.4,
+      price: 179.99
     }
   ];
 
   // PlayStation games
   const psGames = [
     {
-   id: 1,
+      id: 7,
       name: "Resident Evil 3 Remake",
       image: "/playstation/resident3.png",
       category: "PS5 Game",
-      tag: "Exclusive",
+      tag: "EXCLUSIVE",
       link: "/product/capre3",
-      rating: 4.9
+      rating: 4.9,
+      price: 39.99,
+      originalPrice: 59.99,
+      discount: "33% OFF"
     },
     {
-      
+      id: 8,
       name: "Star Wars Outlaws - Special Edition",
       image: "/xbox/starwars.png",
-      category: "xbox Game",
-      tag: "Exclusive",
+      category: "Xbox Game",
+      tag: "EXCLUSIVE",
       link: "/product/star-wars-outlaws",
-      rating: 4.8
+      rating: 4.8,
+      price: 69.99
     },
     {
       id: 9,
       name: "Harry Potter - Hogwarts Legacy",
       image: "/nintendo/hogwarts.png",
-      category: "nintendo",
-      tag: "Remastered",
+      category: "Nintendo",
+      tag: "REMIX",
       link: "/product/hogwarts-legacy-switch",
-      rating: 4.7
+      rating: 4.7,
+      price: 49.99,
+      originalPrice: 59.99,
+      discount: "17% OFF"
     }
   ];
 
@@ -132,6 +151,14 @@ const GamingHomepage = () => {
     }
   ];
 
+  // Format price function
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    }).format(price);
+  };
+
   return (
     <div className="bg-gray-50">
       {/* Hero Section */}
@@ -156,7 +183,7 @@ const GamingHomepage = () => {
               Next Level <span className="text-pink-400">Gaming</span> Experience
             </h1>
             <p className="text-lg md:text-xl mb-8 text-gray-100 max-w-lg">
-            Experience the galaxy far, far away with our exclusive Star Wars games and collect
+              Experience the galaxy far, far away with our exclusive Star Wars games and collect
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Link href="/xbox">
@@ -284,6 +311,11 @@ const GamingHomepage = () => {
                       {product.tag}
                     </div>
                   )}
+                  {product.discount && (
+                    <div className="absolute top-4 right-4 bg-red-600 text-white px-2 py-1 rounded-md text-xs font-bold shadow-md">
+                      {product.discount}
+                    </div>
+                  )}
                 </div>
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-2">
@@ -296,7 +328,26 @@ const GamingHomepage = () => {
                     </div>
                   </div>
                   <h3 className="text-xl font-bold mb-2 text-gray-900">{product.name}</h3>
-                  <div className="flex justify-center mt-6">
+                  
+                  {/* Price section with original and sale price */}
+                  <div className="mb-4">
+                    {product.originalPrice ? (
+                      <div className="flex items-center gap-2">
+                        <p className="text-pink-600 font-bold text-lg">
+                          {formatPrice(product.price)}
+                        </p>
+                        <p className="text-sm text-gray-500 line-through">
+                          {formatPrice(product.originalPrice)}
+                        </p>
+                      </div>
+                    ) : (
+                      <p className="text-gray-900 font-bold text-lg">
+                        {formatPrice(product.price)}
+                      </p>
+                    )}
+                  </div>
+                  
+                  <div className="flex justify-center mt-4">
                     <Link href={product.link}>
                       <button className="bg-gray-900 hover:bg-pink-600 text-white px-8 py-3 rounded-lg font-medium transition-all">
                         Shop Now
@@ -334,7 +385,7 @@ const GamingHomepage = () => {
                     quality={85}
                   />
                   {product.tag && (
-                    <div className="absolute top-4 left-4 bg-pink-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                    <div className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
                       {product.tag}
                     </div>
                   )}
@@ -350,7 +401,15 @@ const GamingHomepage = () => {
                     </div>
                   </div>
                   <h3 className="text-xl font-bold mb-2 text-gray-900">{product.name}</h3>
-                  <div className="flex justify-center mt-6">
+                  
+                  {/* Price section */}
+                  <div className="mb-4">
+                    <p className="text-gray-900 font-bold text-lg">
+                      {formatPrice(product.price)}
+                    </p>
+                  </div>
+                  
+                  <div className="flex justify-center mt-4">
                     <Link href={product.link}>
                       <button className="bg-gray-900 hover:bg-pink-600 text-white px-8 py-3 rounded-lg font-medium transition-all">
                         Shop Now
@@ -369,7 +428,7 @@ const GamingHomepage = () => {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row justify-between items-center mb-12">
             <div className="text-center md:text-left mb-6 md:mb-0">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900"> Exclusives</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Exclusives</h2>
               <div className="w-20 h-1 bg-blue-600 mx-auto md:mx-0 mb-4"></div>
               <p className="text-gray-600">Experience the best of Games</p>
             </div>
@@ -398,6 +457,11 @@ const GamingHomepage = () => {
                       {game.tag}
                     </div>
                   )}
+                  {game.discount && (
+                    <div className="absolute top-4 right-4 bg-red-600 text-white px-2 py-1 rounded-md text-xs font-bold shadow-md">
+                      {game.discount}
+                    </div>
+                  )}
                 </div>
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-2">
@@ -410,7 +474,26 @@ const GamingHomepage = () => {
                     </div>
                   </div>
                   <h3 className="text-xl font-bold mb-2 text-gray-900">{game.name}</h3>
-                  <div className="flex justify-center mt-6">
+                  
+                  {/* Price section with original and sale price */}
+                  <div className="mb-4">
+                    {game.originalPrice ? (
+                      <div className="flex items-center gap-2">
+                        <p className="text-pink-600 font-bold text-lg">
+                          {formatPrice(game.price)}
+                        </p>
+                        <p className="text-sm text-gray-500 line-through">
+                          {formatPrice(game.originalPrice)}
+                        </p>
+                      </div>
+                    ) : (
+                      <p className="text-gray-900 font-bold text-lg">
+                        {formatPrice(game.price)}
+                      </p>
+                    )}
+                  </div>
+                  
+                  <div className="flex justify-center mt-4">
                     <Link href={game.link}>
                       <button className="bg-gray-900 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium transition-all">
                         Buy Now

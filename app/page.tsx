@@ -173,7 +173,7 @@ const GamingHomepage = () => {
         <div className="relative container mx-auto px-4 sm:px-6 h-full flex items-center">
           <div className="max-w-2xl text-center md:text-left">
             <span className="inline-block mb-4 px-4 py-2 bg-pink-600/90 text-white rounded-full text-sm font-semibold">
-              New Collection 2024
+              New Collection 2025
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-white leading-tight">
               Next Level <span className="text-pink-400">Gaming</span> Experience

@@ -87,12 +87,12 @@ const AccessoriesPage = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="container mx-auto px-4 py-8"
+      className="container mx-auto px-4 py-8 bg-white min-h-screen"
     >
       {/* Mobile Filters Button */}
       <div className="md:hidden mb-4">
         <details className="dropdown w-full">
-          <summary className="btn btn-primary w-full bg-black text-white">Filter Accessories</summary>
+          <summary className="btn btn-primary w-full  text-black">Filter Accessories</summary>
           <div className="dropdown-content bg-white p-4 rounded-lg shadow-md mt-2 w-full border border-gray-200">
             {/* Category filters */}
             <div className="mb-6">

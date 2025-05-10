@@ -119,11 +119,11 @@ const ProductDetails = () => {
           
           <div className="space-y-4">
             <div className="flex items-baseline gap-3">
-              <span className="text-3xl font-bold text-game-pink">
+              <span className="text-3xl font-bold text-pink-700">
                 {getFormattedPrice(product.price)}
               </span>
               {product.id.length % 4 === 0 && (
-                <span className="text-sm text-gray-500 line-through">
+                <span className="text-sm text-gray-500 line-through ">
                   {getFormattedPrice(product.price * 1.3)}
                 </span>
               )}

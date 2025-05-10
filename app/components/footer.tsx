@@ -55,10 +55,11 @@ const Footer = () => {
               <FaPaypal size={28} className="text-blue-600" title="PayPal" />
               <FaCcApplePay size={28} className="text-black" title="Apple Pay" />
               <SiGooglepay size={28} className="text-black" title="Google Pay" />
-              <div className="w-7 h-7 bg-gray-200 rounded flex items-center justify-center" title="Debit Card">
-                <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="0.5" y="0.5" width="19" height="13" rx="1.5" stroke="#888" />
-                  <rect x="3" y="3" width="14" height="8" rx="1" fill="#888" />
+              <div className="relative w-7 h-7" title="Debit Card">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="4" width="20" height="16" rx="2" fill="#1A1A1A"/>
+                  <rect x="6" y="8" width="12" height="8" rx="1" fill="#F0F0F0"/>
+                  <path d="M6 12H18" stroke="#1A1A1A" strokeWidth="2"/>
                 </svg>
               </div>
             </div>

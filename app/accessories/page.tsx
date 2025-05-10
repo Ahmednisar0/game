@@ -87,16 +87,18 @@ const AccessoriesPage = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="container mx-auto px-4 py-8"
+      className="container mx-auto px-4 py-8 bg-white min-h-screen"
     >
       {/* Mobile Filters Button */}
-      <div className="md:hidden mb-4 bg-white min-h-screen">
-        <details className="dropdown">
-          <summary className="btn btn-primary text-black w-full">Filter Accessories</summary>
-          <div className="dropdown-content bg-white p-4 rounded-lg shadow-md mt-2 w-full">
+      <div className="md:hidden mb-4">
+        <details className="dropdown w-full">
+          <summary className="btn btn-primary w-full bg-game-pink text-white border-none">
+            Filter Accessories
+          </summary>
+          <div className="dropdown-content bg-white p-4 rounded-lg shadow-md mt-2 w-full border border-gray-200">
             {/* Category filters */}
             <div className="mb-6">
-              <h3 className="font-semibold mb-3">Categories</h3>
+              <h3 className="font-semibold mb-3 text-black">Categories</h3>
               <div className="grid grid-cols-2 gap-2">
                 {(['Gaming Chairs', 'Gaming Desks', 'Controllers', 'Headsets', 'PC Accessories'] as AccessoryCategory[]).map(category => (
                   <motion.div 
@@ -109,7 +111,7 @@ const AccessoriesPage = () => {
                       checked={selectedCategories.includes(category)}
                       onCheckedChange={() => toggleCategory(category)}
                     />
-                    <Label htmlFor={`mobile-${category}`} className="ml-2">
+                    <Label htmlFor={`mobile-${category}`} className="ml-2 text-black">
                       {category}
                     </Label>
                   </motion.div>
@@ -129,7 +131,7 @@ const AccessoriesPage = () => {
                   onValueChange={(value) => setPriceRange(value as [number, number])}
                 />
               </div>
-              <div className="flex justify-between mt-2 text-sm">
+              <div className="flex justify-between mt-2 text-sm text-black">
                 <span>{getFormattedPrice(priceRange[0])}</span>
                 <span>{getFormattedPrice(priceRange[1])}</span>
               </div>
@@ -138,19 +140,19 @@ const AccessoriesPage = () => {
         </details>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-8 bg-white min-h-screen">
+      <div className="flex flex-col md:flex-row gap-8">
         {/* Sidebar filters - Hidden on mobile */}
         <motion.div 
-          className="hidden md:block md:w-1/4 bg-white p-4 rounded-lg shadow-md"
+          className="hidden md:block md:w-1/4 bg-white p-6 rounded-lg shadow-md h-fit sticky top-4"
           initial={{ x: -20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <h2 className="text-xl font-bold mb-6 text-pink-600">Filter Accessories</h2>
+          <h2 className="text-xl font-bold mb-6 text-game-pink">Filter Accessories</h2>
           
           {/* Category filters */}
           <div className="mb-6">
-            <h3 className="font-semibold mb-3">Categories</h3>
+            <h3 className="font-semibold mb-3 text-black">Categories</h3>
             <div className="space-y-2">
               {(['Gaming Chairs', 'Gaming Desks', 'Controllers', 'Headsets', 'PC Accessories'] as AccessoryCategory[]).map(category => (
                 <motion.div 
@@ -164,7 +166,7 @@ const AccessoriesPage = () => {
                     checked={selectedCategories.includes(category)}
                     onCheckedChange={() => toggleCategory(category)}
                   />
-                  <Label htmlFor={category} className="ml-2">
+                  <Label htmlFor={category} className="ml-2 text-black">
                     {category}
                   </Label>
                 </motion.div>
@@ -184,7 +186,7 @@ const AccessoriesPage = () => {
                 onValueChange={(value) => setPriceRange(value as [number, number])}
               />
             </div>
-            <div className="flex justify-between mt-2 text-sm">
+            <div className="flex justify-between mt-2 text-sm text-black">
               <span>{getFormattedPrice(priceRange[0])}</span>
               <span>{getFormattedPrice(priceRange[1])}</span>
             </div>
@@ -192,9 +194,9 @@ const AccessoriesPage = () => {
         </motion.div>
         
         {/* Products grid */}
-        <div className="w-full md:w-3/4 text-black">
+        <div className="w-full md:w-3/4">
           <motion.h1 
-            className="text-2xl sm:text-3xl font-bold mb-6"
+            className="text-2xl sm:text-3xl font-bold mb-6 text-black"
             initial={{ y: -10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
@@ -207,14 +209,14 @@ const AccessoriesPage = () => {
               variants={emptyState}
               initial="hidden"
               animate="show"
-              className="bg-gray-100 p-8 rounded-lg text-center text-black"
+              className="bg-gray-100 p-8 rounded-lg text-center"
             >
-              <h3 className="text-xl font-medium text-black">No accessories match your filters</h3>
-              <p className="text-gray-500 mt-2">Try adjusting your filter criteria</p>
+              <h3 className="text-xl font-medium text-gray-800">No accessories match your filters</h3>
+              <p className="text-gray-600 mt-2">Try adjusting your filter criteria</p>
             </motion.div>
           ) : (
             <motion.div 
-              className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
               variants={container}
               initial="hidden"
               animate="show"

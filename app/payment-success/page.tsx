@@ -207,8 +207,8 @@ function PaymentSuccessContent({
               >
                 <Mail className="h-5 w-5 text-blue-300 mt-0.5 mr-3 flex-shrink-0" />
                 <div>
-                  <p className="text-sm font-medium text-white">Receipt sent to your email</p>
-                  <p className="text-xs text-white/60">Check your inbox for order confirmation</p>
+                  <p className="text-sm font-medium text-white">your order has been confirmed</p>
+                  
                 </div>
               </motion.div>
               

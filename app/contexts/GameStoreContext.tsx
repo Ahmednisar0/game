@@ -57,7 +57,7 @@ const mockProducts: Product[] = [
     name: 'PlayStation 5 Console',
     price: 499.99,
     category: 'console',
-    image: '/images/ps5.png',
+    image: '/images/ps55.png',
     platform: 'playstation',
     description: 'Experience lightning-fast loading with an ultra-high speed SSD, deeper immersion with support for haptic feedback, adaptive triggers, and 3D Audio.'
   },
@@ -75,7 +75,7 @@ const mockProducts: Product[] = [
     name: 'PlayStation 5 Slim Digital Console',
     price: 584.99,
     category: 'console',
-    image: '/playstation/slim.png',
+    image: '/images/slim2.png',
     platform: 'playstation',
     description: 'The sleek new digital edition PS5 with reduced size and improved efficiency.'
   },
@@ -84,7 +84,7 @@ const mockProducts: Product[] = [
     name: 'PlayStation 5 Disc Console + Astro Bot',
     price: 644.99,
     category: 'console',
-    image: '/playstation/pc2.png',
+    image: '/images/ps5.png',
     platform: 'playstation',
     description: 'PS5 disc console bundled with the delightful Astro Bot game.'
   },
@@ -102,7 +102,7 @@ const mockProducts: Product[] = [
     name: 'PlayStation 5 Pro Console',
     price: 930.79,
     category: 'console',
-    image: '/playstation/psc4.png',
+    image: '/images/pro11.png',
     platform: 'playstation',
     description: 'The most powerful PlayStation console ever with enhanced graphics and performance.'
   },

@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@paypal/paypal-js": "^8.2.0",
+    "@paypal/react-paypal-js": "^8.8.3",
     "@radix-ui/react-select": "^2.2.4",
     "@sanity/client": "^7.2.0",
     "@sanity/image-url": "^1.1.0",

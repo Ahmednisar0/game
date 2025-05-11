@@ -135,25 +135,24 @@ const ProductDetails = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Button 
-              onClick={handleAddToCart}
-              disabled={isAdded}
-              className={`flex-1 transition-all duration-300 ${isAdded ? 'bg-green-600 hover:bg-green-700' : ' bg-pink-600 hover:bg-pink-700'}`}
-              size="lg"
-            >
-              {isAdded ? (
-                <>
-                  <Check size={20} className="mr-2 " />
-                  Added to Cart
-                </>
-              ) : (
-                <>
-                  <ShoppingCart size={20} className="mr-2" />
-                  Add to Cart
-                </>
-              )}
-            </Button>
-            
+           <Button 
+  onClick={handleAddToCart}
+  disabled={isAdded}
+  className={`w-full sm:w-auto min-w-[160px] px-4 sm:px-6 transition-all duration-300 ${isAdded ? 'bg-green-600 hover:bg-green-700' : 'bg-pink-600 hover:bg-pink-700'}`}
+  size="lg"
+>
+  {isAdded ? (
+    <>
+      <Check size={20} className="mr-2" />
+      Added to Cart
+    </>
+  ) : (
+    <>
+      <ShoppingCart size={20} className="mr-2" />
+      Add to Cart
+    </>
+  )}
+</Button>
             <div className="flex gap-2">
               <Button 
                 variant="outline" 
@@ -236,8 +235,7 @@ const ProductDetails = () => {
                         <span className="font-medium">{product.category}</span>
                       </li>
                       <li className="flex justify-between py-1 border-b border-gray-100">
-                        <span className="text-gray-600">Release Date</span>
-                        <span className="font-medium">2023</span>
+                        
                       </li>
                     </ul>
                   </div>

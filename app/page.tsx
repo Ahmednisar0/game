@@ -9,7 +9,7 @@ const GamingHomepage = () => {
     {
       id: 1,
       name: "PlayStation 5 Pro",
-      image: "/images/ps52.png",
+      image: "/images/pp.png",
       category: "Console",
       tag: "SALE",
       colors: ["#003791", "#FFFFFF"],

@@ -77,9 +77,9 @@ useEffect(() => {
                 currency: "usd",
               }}
             >
+              <PayPalButton amount={amount.toFixed(2)} />
 
               <CheckoutForm amount={amount} />
-               <PayPalButton amount={amount.toFixed(2)} />
               
             </Elements>
           </div>

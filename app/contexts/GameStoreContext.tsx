@@ -66,7 +66,7 @@ const mockProducts: Product[] = [
     name: 'PlayStation 5 Digital Edition',
     price: 399.99,
     category: 'console',
-    image: '/playstation/psc11.png',
+    image: '/images/s2.png',
     platform: 'playstation',
     description: 'The PS5 Digital Edition boasts the same powerful features as the regular PS5 but without a disc drive.'
   },

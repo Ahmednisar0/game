@@ -17,8 +17,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "game",
-  description: "game",
+  title: "gamifox",
+  description: "gamifox",
 };
 
 export default function RootLayout({

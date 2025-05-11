@@ -44,6 +44,19 @@ const GamingHomepage = () => {
       price: 700.27,
       originalPrice: 910.35,
       discount: "30% OFF"
+    },
+    {
+      id: 10,
+      name: "Xbox Series S Console",
+      image: "/images/1.png",
+      category: "Console",
+      tag: "NEW",
+      colors: ["#107C10"],
+      link: "/xbox",
+      rating: 4.5,
+      price: 499.99,
+      originalPrice: 599.99,
+      discount: "17% OFF"
     }
   ];
 
@@ -57,7 +70,6 @@ const GamingHomepage = () => {
       tag: "TRENDING",
       link: "/product/aoc24monitor",
       rating: 4.5,
-     
     },
     {
       id: 5,
@@ -67,7 +79,6 @@ const GamingHomepage = () => {
       tag: "TRENDING",
       link: "/product/pulseelite",
       rating: 4.3,
-      
     },
     {
       id: 6,
@@ -77,7 +88,15 @@ const GamingHomepage = () => {
       tag: "TRENDING",
       link: "/product/dsmidnight",
       rating: 4.4,
-      
+    },
+    {
+      id: 11,
+      name: "Nintendo Switch - White OLED + Mario Kart 8 Deluxe Bundle",
+      image: "/images/2.png",
+      category: "Console",
+      tag: "BUNDLE",
+      link: "https://www.gamifox.com/product/switch-oled-white-mk8",
+      rating: 4.7,
     }
   ];
 
@@ -112,6 +131,17 @@ const GamingHomepage = () => {
       link: "/product/hogwarts-legacy-switch",
       rating: 4.7,
       discount: "17% OFF"
+    },
+    {
+      id: 12,
+      name: "Call of Duty: Modern Warfare III",
+      image: "/images/3.png",
+      category: "PS5 Game",
+      tag: "EXCLUSIVE",
+      link: "https://www.gamifox.com/product/cod-modern-warfare3",
+      rating: 4.8,
+      price: 59.99,
+      discount: "25% OFF"
     }
   ];
 
@@ -209,7 +239,7 @@ const GamingHomepage = () => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {featuredProducts.map((product) => (
               <div key={product.id} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 group flex flex-col h-full">
                 <div className="relative h-64 bg-gray-50 flex items-center justify-center p-8">
@@ -375,7 +405,7 @@ const GamingHomepage = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {trendingProducts.map((product) => (
               <div key={product.id} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 group flex flex-col h-full">
                 <div className="relative h-64 bg-gray-50 flex items-center justify-center p-8">
@@ -436,7 +466,7 @@ const GamingHomepage = () => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {psGames.map((game) => (
               <div key={game.id} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 group flex flex-col h-full">
                 <div className="relative h-64 bg-gray-50 flex items-center justify-center p-8">

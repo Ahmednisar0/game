@@ -342,7 +342,7 @@ const GamingHomepage = () => {
           </p>
           <div className="flex items-center mb-4">
             <span className="text-green-400 mr-2">●</span>
-            <span className="text-sm">Ready to Ship</span>
+            <span className="text-sm">available</span>
           </div>
           <Link href="/xbox">
             <button className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium transition-all">

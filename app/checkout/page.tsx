@@ -7,6 +7,7 @@ import { useGameStore } from "../contexts/GameStoreContext";
 import convertToSubcurrency from "@/lib/convertToSubcurrency";
 import { ShoppingBag } from "lucide-react";
 import { useEffect } from "react";
+import PayPalButton from "../components/paypal";
 
 // Initialize Stripe
 if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY === undefined) {
@@ -76,10 +77,15 @@ useEffect(() => {
                 currency: "usd",
               }}
             >
+
               <CheckoutForm amount={amount} />
+               <PayPalButton amount={amount.toFixed(2)} />
+              
             </Elements>
           </div>
         </div>
+      
+
 
         {/* Footer Note */}
         <div className="mt-8 text-center text-sm text-gray-500">

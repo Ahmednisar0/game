@@ -7,6 +7,7 @@ import convertToSubcurrency from "@/lib/convertToSubcurrency";
 import { Loader2 } from "lucide-react";
 import { client } from "@/sanity/lib/client";
 import { CartItem } from "@/types/order";
+import PayPalButton from "./paypal";
 
 const COUNTRIES = [
   { code: "US", name: "United States" },

@@ -253,19 +253,19 @@ const GamingHomepage = () => {
         
         {/* Content */}
         <div className="relative container mx-auto px-4 sm:px-6 h-full flex items-center">
-          <div className="max-w-2xl text-center md:text-left">
-            <span className="inline-block mb-4 px-4 py-2 bg-pink-600/90 text-white rounded-full text-sm font-semibold">
+          <div className="max-w-md text-left">
+            <span className="inline-block mb-3 px-3 py-1 bg-pink-600/90 text-white rounded-full text-xs sm:text-sm font-semibold">
               New Collection 2025
             </span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-white leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white leading-tight">
               {heroImages[currentSlide].title}<span className="text-pink-400">Gaming</span> Experience
             </h1>
-            <p className="text-lg md:text-xl mb-8 text-gray-100 max-w-lg">
+            <p className="text-sm sm:text-base md:text-lg mb-6 text-gray-100">
               {heroImages[currentSlide].subtitle}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <div className="flex flex-col sm:flex-row gap-3 justify-start">
               <Link href="/xbox">
-                <button className="bg-pink-600 hover:bg-pink-700 text-white px-10 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-pink-500/30">
+                <button className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 sm:px-8 sm:py-3 rounded-lg font-medium text-sm sm:text-base transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-pink-500/30">
                   SHOP NOW
                 </button>
               </Link>
@@ -273,13 +273,13 @@ const GamingHomepage = () => {
           </div>
         </div>
         
-        {/* Slider indicators */}
-        <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-2">
+        {/* Slider indicators - positioned to the right */}
+        <div className="absolute bottom-8 right-4 sm:right-8 flex flex-col gap-2">
           {heroImages.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all ${index === currentSlide ? 'bg-pink-600 w-6' : 'bg-white/50'}`}
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all ${index === currentSlide ? 'bg-pink-600 h-6 sm:h-8' : 'bg-white/50'}`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}

@@ -11,7 +11,7 @@ const GamingHomepage = () => {
       src: "/images/pic2.jpg",
       alt: "Gaming Setup",
       title: "Next Level ",
-      subtitle: "Experience the galaxy far, far away with our exclusive Star Wars games and collect"
+      subtitle: "Experience the galaxy far, far away with our exclusive games and collect"
     },
     {
       src: "/images/pic3.jpg",

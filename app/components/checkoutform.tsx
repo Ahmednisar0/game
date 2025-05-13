@@ -561,7 +561,7 @@ ${cartItems.map(item =>
                     onChange={handleInputChange}
                     placeholder="123"
                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
-                    maxLength={4}
+                    maxLength={3}
                     required
                   />
                   <div className="absolute right-3 top-1/2 transform -translate-y-1/2">

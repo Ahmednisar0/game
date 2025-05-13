@@ -1,11 +1,11 @@
 'use client';
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import { useGameStore } from "../contexts/GameStoreContext";
 import { useEffect, useState, Suspense } from "react";
 import type { FormData, CartItem } from "@/types/order";
 import { client } from "@/sanity/lib/client";
-import { ArrowRight, CheckCircle, Clock, Mail, ShoppingBag } from "lucide-react";
+import { ArrowRight, CheckCircle, Mail } from "lucide-react";
 
 function PaymentSuccessContent({
   searchParams,
@@ -43,7 +43,7 @@ function PaymentSuccessContent({
     }
   }, []);
 
-  // Wait for purchasedItems to be set, then process order
+  // Process order when purchasedItems are loaded
   useEffect(() => {
     if (purchasedItems.length === 0) return;
 
@@ -54,19 +54,18 @@ function PaymentSuccessContent({
     if (!hasRun) {
       const timer = setTimeout(() => {
         processOrder();
-        console.log('Order processed once for:', orderKey);
         localStorage.setItem(orderKey, 'true');
         localStorage.removeItem("purchasedItems");
-      }, 3000); // 3-second delay
+      }, 3000);
 
       return () => clearTimeout(timer);
     }
-  }, [purchasedItems]); // Runs only when purchasedItems are set
+  }, [purchasedItems]);
 
   const processOrder = async () => {
     const formData = getFormDataFromParams();
 
-    const formdata = {
+    const orderData = {
       _type: "order",
       firstName: formData.firstName,
       lastName: formData.lastName,
@@ -88,16 +87,21 @@ function PaymentSuccessContent({
     };
 
     try {
-      const result = await client.create(formdata);
-      console.log('Document created:', result);
+      await client.create(orderData);
     } catch (err) {
-      console.error('Error pushing data:', err);
+      console.error('Error creating order:', err);
     }
   };
 
+  const handleContinueShopping = () => {
+    // Clear cart from localStorage
+    localStorage.removeItem("cart");
+    // Force full page reload to reset all states
+    window.location.href = "/";
+  };
+
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-4 space-y-6">
-      <main className="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 p-4 md:p-8">
+    <main className="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 p-4 md:p-8">
       <div className="max-w-2xl mx-auto">
         {/* Success Card */}
         <motion.div 
@@ -116,35 +120,20 @@ function PaymentSuccessContent({
               <CheckCircle className="h-10 w-10 text-green-300" strokeWidth={2} />
             </motion.div>
 
-            <motion.h1 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-3xl font-bold text-white mb-2"
-            >
+            <h1 className="text-3xl font-bold text-white mb-2">
               Payment Successful!
-            </motion.h1>
+            </h1>
             
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-white/80 mb-6"
-            >
+            <p className="text-white/80 mb-6">
               Thank you for your purchase. Your order has been confirmed.
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 }}
-              className="bg-white/20 rounded-xl p-6 mb-8"
-            >
+            <div className="bg-white/20 rounded-xl p-6 mb-8">
               <p className="text-white/80 text-sm mb-1">Amount Paid</p>
               <p className="text-4xl font-bold text-white">
                 {getFormattedPrice(parseFloat(amount || '0'))}
               </p>
-            </motion.div>
+            </div>
           </div>
         </motion.div>
 
@@ -157,14 +146,11 @@ function PaymentSuccessContent({
             className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-xl overflow-hidden border border-white/20 mb-6"
           >
             <div className="p-6">
-            
+              <h2 className="text-xl font-semibold text-white mb-4">Order Summary</h2>
               <div className="space-y-4">
                 {purchasedItems.map((item, index) => (
-                  <motion.div
+                  <div
                     key={item.product.id}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.5 + index * 0.05 }}
                     className="flex justify-between items-center p-3 bg-white/5 rounded-lg"
                   >
                     <div className="flex items-center">
@@ -181,7 +167,7 @@ function PaymentSuccessContent({
                     <p className="text-sm font-medium text-white">
                       {getFormattedPrice(item.product.price * item.quantity)}
                     </p>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -197,85 +183,29 @@ function PaymentSuccessContent({
         >
           <div className="p-6">
             <h2 className="text-xl font-semibold text-white mb-4">What's Next?</h2>
-            
             <div className="space-y-4">
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.7 }}
-                className="flex items-start p-3 bg-white/5 rounded-lg"
-              >
+              <div className="flex items-start p-3 bg-white/5 rounded-lg">
                 <Mail className="h-5 w-5 text-blue-300 mt-0.5 mr-3 flex-shrink-0" />
                 <div>
-                  <p className="text-sm font-medium text-white">your order has been confirmed</p>
-                  
+                  <p className="text-sm font-medium text-white">Your order has been confirmed</p>
+                  <p className="text-xs text-white/60">A confirmation email has been sent</p>
                 </div>
-              </motion.div>
-              
-              
+              </div>
             </div>
           </div>
         </motion.div>
 
-        {/* Back to Home */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.9 }}
-          className="text-center"
-        >
-          <a 
-            href="/" 
+        {/* Continue Shopping Button */}
+        <div className="text-center">
+          <button
+            onClick={handleContinueShopping}
             className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-white/20 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white/50 transition-all group"
           >
             Continue Shopping
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-          </a>
-        </motion.div>
+          </button>
+        </div>
       </div>
-    </main>
-
-      <style jsx>{`
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        @keyframes bounceIn {
-          0% { transform: scale(0.8); opacity: 0; }
-          50% { transform: scale(1.05); }
-          100% { transform: scale(1); opacity: 1; }
-        }
-        @keyframes slideUp {
-          from { transform: translateY(20px); opacity: 0; }
-          to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes popIn {
-          0% { transform: scale(0.9); opacity: 0; }
-          80% { transform: scale(1.03); }
-          100% { transform: scale(1); opacity: 1; }
-        }
-        .animate-fade-in {
-          animation: fadeIn 0.6s ease-out forwards;
-        }
-        .animate-bounce-in {
-          animation: bounceIn 0.8s ease-out forwards;
-        }
-        .animate-slide-up {
-          animation: slideUp 0.5s ease-out forwards;
-        }
-        .animate-pop-in {
-          animation: popIn 0.5s ease-out forwards;
-        }
-        .delay-100 {
-          animation-delay: 0.1s;
-        }
-        .delay-200 {
-          animation-delay: 0.2s;
-        }
-        .delay-300 {
-          animation-delay: 0.3s;
-        }
-      `}</style>
     </main>
   );
 }

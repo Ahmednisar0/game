@@ -103,6 +103,7 @@ const GamingHomepage = () => {
       tag: "TRENDING",
       link: "/product/aoc24monitor",
       rating: 4.5,
+      price: 249.99
     },
     {
       id: 5,
@@ -112,6 +113,7 @@ const GamingHomepage = () => {
       tag: "TRENDING",
       link: "/product/pulseelite",
       rating: 4.3,
+      price: 149.99
     },
     {
       id: 6,
@@ -121,6 +123,7 @@ const GamingHomepage = () => {
       tag: "TRENDING",
       link: "/product/dsmidnight",
       rating: 4.4,
+      price: 199.99
     },
     {
       id: 11,
@@ -130,11 +133,12 @@ const GamingHomepage = () => {
       tag: "BUNDLE",
       link: "https://www.gamifox.com/product/switch-oled-white-mk8",
       rating: 4.7,
+      price: 349.99
     }
   ];
 
-  // PlayStation games
-  const psGames = [
+  // Exclusive games
+  const exclusiveGames = [
     {
       id: 7,
       name: "Resident Evil 3 Remake",
@@ -143,6 +147,8 @@ const GamingHomepage = () => {
       tag: "EXCLUSIVE",
       link: "/product/capre3",
       rating: 4.9,
+      price: 39.99,
+      originalPrice: 59.99,
       discount: "33% OFF"
     },
     {
@@ -163,6 +169,8 @@ const GamingHomepage = () => {
       tag: "REMIX",
       link: "/product/hogwarts-legacy-switch",
       rating: 4.7,
+      price: 49.99,
+      originalPrice: 59.99,
       discount: "17% OFF"
     },
     {
@@ -174,6 +182,7 @@ const GamingHomepage = () => {
       link: "https://www.gamifox.com/product/cod-modern-warfare3",
       rating: 4.8,
       price: 59.99,
+      originalPrice: 79.99,
       discount: "25% OFF"
     }
   ];
@@ -491,6 +500,12 @@ const GamingHomepage = () => {
                   </div>
                   <h3 className="text-xl font-bold mb-2 text-gray-900 line-clamp-2">{product.name}</h3>
                   
+                  <div className="mb-4 mt-auto">
+                    <p className="text-gray-900 font-bold text-lg">
+                      {formatPrice(product.price)}
+                    </p>
+                  </div>
+                  
                   <div className="flex justify-center mt-4">
                     <Link href={product.link}>
                       <button className="w-full bg-gray-900 hover:bg-pink-600 text-white px-8 py-3 rounded-lg font-medium transition-all">
@@ -505,16 +520,16 @@ const GamingHomepage = () => {
         </div>
       </section>
 
-      {/* PlayStation Games Section */}
+      {/* Exclusive Games Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row justify-between items-center mb-12">
             <div className="text-center md:text-left mb-6 md:mb-0">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Exclusives</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Exclusive Games</h2>
               <div className="w-20 h-1 bg-blue-600 mx-auto md:mx-0 mb-4"></div>
-              <p className="text-gray-600">Experience the best of Games</p>
+              <p className="text-gray-600">Experience the best of gaming</p>
             </div>
-            <Link href="/playstation/games" className="flex items-center text-blue-600 hover:text-blue-700 font-medium group">
+            <Link href="/games" className="flex items-center text-blue-600 hover:text-blue-700 font-medium group">
               View All Games
               <svg className="w-5 h-5 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -523,7 +538,7 @@ const GamingHomepage = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {psGames.map((game) => (
+            {exclusiveGames.map((game) => (
               <div key={game.id} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 group flex flex-col h-full">
                 <div className="relative h-64 bg-gray-50 flex items-center justify-center p-8">
                   <Image
@@ -556,6 +571,23 @@ const GamingHomepage = () => {
                     </div>
                   </div>
                   <h3 className="text-xl font-bold mb-2 text-gray-900 line-clamp-2">{game.name}</h3>
+                  
+                  <div className="mb-4 mt-auto">
+                    {game.originalPrice ? (
+                      <div className="flex items-center gap-2">
+                        <p className="text-blue-600 font-bold text-lg">
+                          {formatPrice(game.price)}
+                        </p>
+                        <p className="text-sm text-gray-500 line-through">
+                          {formatPrice(game.originalPrice)}
+                        </p>
+                      </div>
+                    ) : (
+                      <p className="text-gray-900 font-bold text-lg">
+                        {formatPrice(game.price)}
+                      </p>
+                    )}
+                  </div>
                   
                   <div className="flex justify-center mt-4">
                     <Link href={game.link}>

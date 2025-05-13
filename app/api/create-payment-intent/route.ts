@@ -1,22 +1,29 @@
-import { NextRequest, NextResponse } from "next/server";
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+import { NextResponse } from "next/server";
+import Stripe from "stripe";
 
-export async function POST(request: NextRequest) {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: "2025-04-30.basil",
+});
+
+export async function POST(request: Request) {
   try {
-    const { amount } = await request.json();
+    const { amount, currency = "usd" } = await request.json();
 
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: amount,
-      currency: "usd",
-      automatic_payment_methods: { enabled: true },
+      amount: Math.round(amount * 100), // Convert to cents
+      currency,
+      automatic_payment_methods: {
+        enabled: true,
+      },
     });
 
-    return NextResponse.json({ clientSecret: paymentIntent.client_secret });
-  } catch (error) {
-    console.error("Internal Error:", error);
-    // Handle other errors (e.g., network issues, parsing errors)
+    return NextResponse.json({
+      clientSecret: paymentIntent.client_secret,
+    });
+  } catch (error: any) {
+    console.error("Stripe Error:", error);
     return NextResponse.json(
-      { error: `Internal Server Error: ${error}` },
+      { error: error.message || "Payment processing failed" },
       { status: 500 }
     );
   }

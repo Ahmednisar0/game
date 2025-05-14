@@ -2,7 +2,20 @@
 
 const ErrorPage = () => {
   const handleRefresh = () => {
-    window.location.reload();
+    // Clear cart items from localStorage
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('cart');
+      // Alternative if you store cart differently:
+      // localStorage.setItem('cart', JSON.stringify([]));
+    }
+    
+    // Clear session data if needed
+    sessionStorage.removeItem('cartTempData');
+    
+    // Force full page refresh
+    window.location.href = window.location.origin + window.location.pathname;
+    // OR simply:
+    // window.location.reload(true); // The true forces a hard refresh
   };
 
   return (
@@ -14,24 +27,24 @@ const ErrorPage = () => {
           </svg>
         </div>
         
-        <h1 className="text-2xl font-medium text-gray-900 mb-2">Something went wrong</h1>
+        <h1 className="text-2xl font-medium text-gray-900 mb-2">Cart Error</h1>
         <p className="text-gray-600 mb-6">
-          We're experiencing technical difficulties. Please try refreshing the page.
+          We encountered an issue with your cart. Refresh to start fresh.
         </p>
         
         <button
           onClick={handleRefresh}
-          className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
         >
-          Refresh Page
+          Clear Cart & Refresh
         </button>
         
         <p className="mt-4 text-xs text-gray-500">
-          Error code: 500-SERVER_ERROR
+          All items will be removed
         </p>
       </div>
     </div>
   );
 };
 
-export default ErrorPage; // Only one export at the end
+export default ErrorPage;

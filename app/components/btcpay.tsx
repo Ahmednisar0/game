@@ -108,7 +108,7 @@ export function PayButton({ amount = 0, cartItems = [] }: PayButtonProps) {
       <div key={item.id} className="py-3 flex justify-between">
         <div>
           <p className="font-medium text-gray-800">{item.name}</p>
-          <p className="text-sm text-gray-500">Qty: {item.quantity}</p>
+          <p className="text-sm text-black">Qty: {item.quantity}</p>
         </div>
         <p className="font-medium">
           ${(item.price * item.quantity).toFixed(2)}
@@ -120,15 +120,15 @@ export function PayButton({ amount = 0, cartItems = [] }: PayButtonProps) {
   return (
     <div className="flex flex-col gap-6 max-w-md mx-auto">
       {/* Order Summary - Lazy load if needed */}
-      <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+      <div className="bg-white p-6 rounded-lg text-black shadow-sm border border-gray-200">
         <h3 className="text-xl font-semibold mb-4 text-gray-800">Order Details</h3>
         {cartItems.length > 0 ? (
           <>
-            <div className="divide-y divide-gray-200">
+            <div className="divide-y divide-gray-200 text-black">
               {renderedCartItems}
             </div>
-            <div className="border-t border-gray-200 pt-4 mt-4">
-              <div className="flex justify-between font-bold text-lg">
+            <div className="border-t  border-gray-200 pt-4 mt-4">
+              <div className="flex justify-between text-black font-bold text-lg">
                 <span>Total</span>
                 <span>${calculatedAmount.toFixed(2)}</span>
               </div>
@@ -140,10 +140,10 @@ export function PayButton({ amount = 0, cartItems = [] }: PayButtonProps) {
       </div>
 
       {/* Customer Information Form */}
-      <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+      <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 text-black">
         <h3 className="text-xl font-semibold mb-4 text-gray-800">Customer Information</h3>
         
-        <div className="space-y-4">
+        <div className="space-y-4 text-black">
           <InputField
             label="Full Name *"
             id="name"
@@ -165,7 +165,7 @@ export function PayButton({ amount = 0, cartItems = [] }: PayButtonProps) {
             placeholder="@example.com"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-black">
             <InputField
               label="Country"
               id="country"
@@ -175,7 +175,7 @@ export function PayButton({ amount = 0, cartItems = [] }: PayButtonProps) {
               placeholder="United States"
             />
 
-            <InputField
+            <InputField 
               label="ZIP/Postal Code"
               id="zipCode"
               name="zipCode"
@@ -186,7 +186,7 @@ export function PayButton({ amount = 0, cartItems = [] }: PayButtonProps) {
           </div>
 
           <InputField
-            label="Street Address"
+            label="Street Address text-black"
             id="address"
             name="address"
             value={formData.address}
@@ -209,7 +209,7 @@ export function PayButton({ amount = 0, cartItems = [] }: PayButtonProps) {
       <button
         onClick={handlePayment}
         disabled={loading || cartItems.length === 0}
-        className={`w-full py-3 px-6 rounded-md font-medium text-white transition-colors ${
+        className={`w-full py-3 px-6 rounded-md font-medium text-white  transition-colors ${
           loading || cartItems.length === 0
             ? 'bg-gray-400 cursor-not-allowed'
             : 'bg-orange-500 hover:bg-orange-600'

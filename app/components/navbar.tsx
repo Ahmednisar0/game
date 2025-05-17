@@ -74,7 +74,7 @@ const Navbar = ({ onSearch = () => {} }: NavbarProps) => {
           {/* Mobile menu + Logo */}
           <div className="flex items-center space-x-4">
             <button
-              className="md:hidden text-gray-700 text-black"
+              className="md:hidden  text-black"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -84,7 +84,7 @@ const Navbar = ({ onSearch = () => {} }: NavbarProps) => {
             <Link href="/" className="flex items-center">
               <div className="relative h-14 w-32">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/logoo.png"
                   alt="Game Store Logo"
                   fill
                   className="object-cover"
@@ -100,7 +100,7 @@ const Navbar = ({ onSearch = () => {} }: NavbarProps) => {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="border text-black border-pink-300 rounded-l-lg px-3 py-2 focus:outline-none focus:ring-1 text-black focus:ring-pink-400"
+                className="border  border-pink-300 rounded-l-lg px-3 py-2 focus:outline-none focus:ring-1 text-black focus:ring-pink-400"
               >
                 {categories.map((category) => (
                   <option key={category.id} value={category.id}>

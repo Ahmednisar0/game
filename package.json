@@ -17,6 +17,10 @@
     "@sanity/vision": "^3.88.2",
     "@stripe/react-stripe-js": "^3.7.0",
     "@stripe/stripe-js": "^7.3.0",
+    "axios": "^1.9.0",
+    "bip21": "^2.0.3",
+    "bitcoinjs-lib": "^6.1.7",
+    "btcpay": "github:btcpayserver/node-btcpay",
     "clsx": "^2.1.1",
     "firebase": "^11.7.1",
     "framer-motion": "^12.10.1",
@@ -24,6 +28,7 @@
     "next": "14.2.16",
     "next-auth": "^4.24.11",
     "next-sanity": "^9.11.0",
+    "qrcode.react": "^3.2.0",
     "react": "^18",
     "react-dom": "^18",
     "react-hot-toast": "^2.5.2",
@@ -37,7 +42,9 @@
     "tailwind-merge": "^3.2.0"
   },
   "devDependencies": {
+    "@types/bip21": "^2.0.3",
     "@types/node": "^20",
+    "@types/qrcode.react": "^1.0.5",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/react-router-dom": "^5.3.3",

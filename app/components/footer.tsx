@@ -67,19 +67,19 @@ const Footer = () => {
         </div>
 
         {/* Bottom section */}
-        <div className="border-t border-gray-300 mt-8 pt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <Link href="/">
-                <Image 
-                  src="/images/logo.png" 
-                  alt="GAME Logo" 
-                  width={100} 
-                  height={40} 
-                  className="h-10 w-auto"
-                />
-              </Link>
-            </div>
+      <div className="border-t border-gray-300 mt-10 pt-6">
+  <div className="flex flex-col md:flex-row justify-between items-center">
+    <div className="mb-4 md:mb-0">
+      <Link href="/">
+        <Image 
+          src="/images/logoo.png" 
+          alt="GAME Logo" 
+          width={300}  // Increased from 200
+          height={150} // Increased from 100
+          className="h-16 w-auto" // Increased from h-10
+        />
+      </Link>
+    </div>
 
             <div className="text-sm text-center md:text-left mb-4 md:mb-0">
               <div className="flex flex-wrap justify-center gap-4">

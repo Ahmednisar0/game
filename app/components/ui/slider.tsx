@@ -11,8 +11,8 @@ interface SliderProps {
 }
 
 export const Slider = ({
-  defaultValue = [0, 100],
-  max = 100,
+  defaultValue = [0, 1000],
+  max = 1000,
   step = 1,
   value: propValue,
   onValueChange,
@@ -37,7 +37,7 @@ export const Slider = ({
   };
 
   // Calculate the position of the thumbs
-  const minPos = (value[0] / max) * 100;
+  const minPos = (value[0] / max) * 1000;
   const maxPos = (value[1] / max) * 100;
 
   return (

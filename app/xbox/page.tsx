@@ -12,7 +12,7 @@ const XboxPage = () => {
   
   // State for filters
   const [selectedCategories, setSelectedCategories] = useState<ProductCategory[]>(['console', 'digital', 'games', 'accessories']);
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 500]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
   
   const xboxProducts = filterProductsByPlatform('xbox');
   
@@ -80,7 +80,7 @@ const XboxPage = () => {
               <h3 className="font-semibold mb-3 text-black ">Price Range</h3>
               <div className="px-2">
                 <Slider 
-                  defaultValue={[0, 500]}
+                  defaultValue={[0, 1100]}
                   max={500}
                   step={10}
                   value={priceRange}

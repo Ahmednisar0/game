@@ -312,11 +312,22 @@ const mockProducts: Product[] = [
     platform: 'playstation',
     description: 'Redeem for games, DLC, subscriptions and more on PlayStation Store.'
   },
+
+  
+   {
+    id: 'psngift100',
+    name: 'Ghost Of Yotei',
+    price: 104.99,
+    category: 'games',
+    image: '/xbox/xbox1.png',
+    platform: 'playstation',
+    description: 'Discover a bold, new story of a warrior in Japan who is on her own mission of vengeance.Set 300 years after the critically acclaimed Ghost of Tsushima, Ghost of Yotei is a standalone experience set in 1600s rural Japan. The story follows a haunted, lone mercenary named Atsu. Thirstyfor revenge, she travels through the beautiful, rugged landscapes of northern Japan, hunting those who killed her family many years earlier.Sixteen years after her family’s death, Atsu’s quest across Ezo brings her to unexplored lands in search of a gang of six outlaws, but she finds much more than vengeance. Throughout her journey, Atsu will discover unlikely allies, and greater bonds than she could haveimagined'
+  },
   // Xbox Products
     {
       id: 'xbox-series-x',
       name: 'Xbox Series s Console',
-      price: 499.99,
+      price: 374.99,
       category: 'console',
       image: '/xbox/seriess.png',
       platform: 'xbox',
@@ -474,6 +485,15 @@ const mockProducts: Product[] = [
       image: '/xbox/portal.png',
       platform: 'xbox',
       description: 'Officially licensed wired controller with customizable buttons and ergonomic design.'
+    },
+     {
+      id: 'poweraa',
+      name: 'Xbox Series X Black',
+      price: 719.99,
+      category: 'console',
+      image: '/xbox/xbox2.png',
+      platform: 'xbox',
+      description: 'Introducing Xbox Series X, the fastest, most powerful Xbox ever. Play thousands of titles from four generations of consoles - all games look and play best on Xbox Series X.Experience next-gen speed and performance with the Xbox Velocity Architecture, powered by a custom SSD and integrated software.Play thousands of games from four generations of Xbox with Backward Compatibility, including optimized titles at launch.Xbox Game Pass Ultimate includes Xbox Live Gold, over 100 high-quality games on console, PC, and Android mobile devices, and soon an EA Play membership for one low monthly price (membership sold separately).Xbox Smart Delivery ensures you play the best available version of your game no matter which console youre playing on.Important Information'
     },
 
 

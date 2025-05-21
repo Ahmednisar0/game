@@ -15,8 +15,7 @@ type Product = {
 
 type Order = {
   _id: string
-  firstName: string
-  lastName: string
+  fullName: string
   email: string
   phone: string
   address: string
@@ -45,9 +44,17 @@ export default function PremiumDashboard() {
   const fetchOrders = async () => {
     try {
       const result = await client.fetch(`*[_type == "order"] | order(_createdAt desc) {
-        _id, firstName, lastName, email, phone, address, apartment, city, 
-        state, zipCode, country, products, _createdAt
-      }`)
+  _id,
+  fullName,
+  email,
+  country,
+  zipCode,
+  address,
+  city,
+  products,
+  _createdAt
+}
+`)
       setOrders(result)
     } catch (error) {
       console.error('Fetch error:', error)
@@ -162,7 +169,7 @@ export default function PremiumDashboard() {
                         </div>
                         <div>
                           <p className="font-medium text-black">
-                            {order.firstName} {order.lastName}
+                            {order.fullName}
                           </p>
                           <p className="text-sm text-gray-500">{order.email}</p>
                         </div>
@@ -210,7 +217,7 @@ export default function PremiumDashboard() {
                             <h3 className="text-sm font-medium text-black  mb-3">CUSTOMER</h3>
                             <div className="space-y-2">
                               <p className="text-sm text-black">
-                                <span className="font-medium text-black">Name:</span> {order.firstName} {order.lastName}
+                                <span className="font-medium text-black">Name:</span> {order.fullName}
                               </p>
                               <p className="text-sm">
                                 <span className="font-medium text-black">Email:</span> {order.email}

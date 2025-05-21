@@ -1,4 +1,5 @@
 'use client'
+import { client } from '@/sanity/lib/client';
 import { useState, useMemo, useCallback } from 'react'
 
 interface CartItem {
@@ -39,10 +40,42 @@ export function PayButton({ amount = 0, cartItems = [] }: PayButtonProps) {
     setFormData(prev => ({
       ...prev,
       [name]: value
-    }));
+    })); 
   }, []);
+ const processOrder = async () => {
+    
 
+const orderData = {
+  _type: "order",
+  fullName: formData.name,
+  email: formData.email,
+  country: formData.country,
+  zipCode: formData.zipCode,
+  address: formData.address,
+  city: formData.city,
+   products: cartItems.map(item => ({
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        quantity: item.quantity,
+        
+      })),
+};
+
+
+
+    try {
+      await client.create(orderData);
+    } catch (err) {
+      console.error('Error creating order:', err);
+    }
+  };
   // Optimized payment handler with early returns
+  const handleClick = async () => {
+  await handlePayment();     // Optional: use await if it returns a Promise
+  processOrder();            // This runs after payment is done
+};
+
   const handlePayment = useCallback(async () => {
     setLoading(true);
     setError(null);
@@ -207,7 +240,7 @@ export function PayButton({ amount = 0, cartItems = [] }: PayButtonProps) {
 
       {/* Payment Button */}
       <button
-        onClick={handlePayment}
+        onClick={handleClick}
         disabled={loading || cartItems.length === 0}
         className={`w-full py-3 px-6 rounded-md font-medium text-white  transition-colors ${
           loading || cartItems.length === 0

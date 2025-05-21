@@ -1,57 +1,29 @@
-export type Product = {
+export interface CartItem {
   id: string;
   name: string;
   price: number;
-  image: string;
-  category: string;
-};
-
-export type CartItem = {
-  product: Product;
   quantity: number;
-};
+}
 
-export type FormData = {
-  firstName: string;
-  lastName: string;
+export interface CustomerInfo {
+  name: string;
   email: string;
-  phone: string;
-  address: string;
-  apartment: string;
-  city: string;
-  state: string;
-  zipCode: string;
-  country: string;
-};
+  address?: string;
+  city?: string;
+  country?: string;
+  zipCode?: string;
+}
 
-export type SanityOrder = {
-  _type: 'order';
-  customerName: string;
-  customerEmail: string;
-  customerPhone: string;
+export interface Order {
+  _id?: string;
   amount: number;
-  items: OrderItem[];
-  shippingAddress: ShippingAddress;
-  status: 'processing' | 'shipped' | 'delivered' | 'cancelled';
-};
-
-type OrderItem = {
-  _key: string;
-  _type: 'orderItem';
-  product: {
-    _type: 'reference';
-    _ref: string;
-  };
-  quantity: number;
-  price: number;
-};
-
-type ShippingAddress = {
-  _type: 'shippingAddress';
-  street: string;
-  apartment?: string;
-  city: string;
-  state: string;
-  zipCode: string;
-  country: string;
-};
+  items: CartItem[];
+  customer: CustomerInfo;
+  paymentMethod: string;
+  status: 'pending' | 'paid' | 'failed' | 'completed';
+  createdAt: Date;
+  updatedAt: Date;
+  paymentId?: string;
+  btcAmount?: number;
+  btcAddress?: string;
+}

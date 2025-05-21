@@ -315,7 +315,7 @@ const mockProducts: Product[] = [
 
   
    {
-    id: 'psngift100',
+    id: 'psngift1000',
     name: 'Ghost Of Yotei',
     price: 104.99,
     category: 'games',

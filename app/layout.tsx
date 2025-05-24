@@ -5,6 +5,7 @@ import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import { GameStoreProvider } from "./contexts/GameStoreContext"; // Import the provider
 
+// Load local fonts
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -16,9 +17,13 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+// Favicon setup inside metadata
 export const metadata: Metadata = {
   title: "gamifox",
   description: "gamifox",
+  icons: {
+    icon: "/favion.ico", // Make sure favicon.ico is in the /public folder
+  },
 };
 
 export default function RootLayout({
@@ -29,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}>
-        <GameStoreProvider> {/* Wrap your entire app with the provider */}
+        <GameStoreProvider>
           <Navbar />
           {children}
           <Footer />

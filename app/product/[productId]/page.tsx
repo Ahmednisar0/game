@@ -132,10 +132,6 @@ const ProductDetails = () => {
                 </span>
               )}
             </div>
-            
-            <p className="text-gray-700 leading-relaxed">
-              {productDescription}
-            </p>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -202,10 +198,10 @@ const ProductDetails = () => {
           <div className="mt-8 bg-white rounded-lg border border-gray-200 p-6">
             <h3 className="font-semibold text-lg mb-3 text-black">About This Product</h3>
             <p className="text-gray-700 mb-4 leading-relaxed">
-              {extendedDescription}
+              {productDescription}
             </p>
             <p className="text-gray-700 leading-relaxed">
-              Designed with ergonomics in mind, this product ensures comfort during extended gaming sessions. The durable construction guarantees long-lasting performance even with heavy daily use.
+              {extendedDescription}
             </p>
           </div>
         </div>

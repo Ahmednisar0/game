@@ -213,33 +213,33 @@ Explore a vast open world, slay monsters, make impactful choices, and live the l
   },
 
   // Games
+ {
+  id: 'capre2',
+  name: 'Resident Evil 2 Remake',
+  price: 37.49,
+  category: 'games',
+  image: '/playstation/resident1.png',
+  platform: 'playstation',
+  description: 'Step back into the terrifying world of Raccoon City with Resident Evil 2 Remake, a beautifully reimagined version of the 1998 survival horror masterpiece. Experience heart-pounding gameplay as you follow rookie police officer Leon S. Kennedy and college student Claire Redfield as they struggle to survive a zombie outbreak that has engulfed the city. Featuring breathtaking visuals, modernized controls, and a haunting atmosphere, this remake brings the horrors of the original game to life with intense realism. Uncover dark secrets, solve challenging puzzles, and fight off grotesque creatures in a gripping story of survival, fear, and courage.'
+},
   {
-    id: 'capre2',
-    name: 'Resident Evil 2 Remake',
-    price: 37.49,
-    category: 'games',
-    image: '/playstation/resident1.png',
-    platform: 'playstation',
-    description: 'Return to Raccoon City in this stunning remake of the survival horror classic.'
-  },
+  id: 'capre3',
+  name: 'Resident Evil 3 Remake',
+  price: 37.49,
+  category: 'games',
+  image: '/playstation/resident3.png',
+  platform: 'playstation',
+  description: 'Join elite operative Jill Valentine in her desperate fight for survival as Raccoon City descends into chaos in Resident Evil 3 Remake. Reimagined with stunning modern visuals and immersive gameplay, this action-packed thriller puts you face-to-face with the relentless bioweapon Nemesis. Navigate intense escape sequences, uncover the sinister secrets of the Umbrella Corporation, and team up with fellow survivors in a race against time. With enhanced mechanics, cinematic storytelling, and heart-pounding horror, this remake delivers a gripping and unforgettable experience.'
+} ,
   {
-    id: 'capre3',
-    name: 'Resident Evil 3 Remake',
-    price: 37.49,
-    category: 'games',
-    image: '/playstation/resident3.png',
-    platform: 'playstation',
-    description: 'Experience Jill Valentine\'s desperate escape from Raccoon City in this thrilling remake.'
-  },
-  {
-    id: 'eafc25',
-    name: 'EA SPORTS FC™ 25',
-    price: 71.99,
-    category: 'games',
-    image: '/playstation/fc25.png',
-    platform: 'playstation',
-    description: 'The next evolution of football gaming with hyper-realistic gameplay and next-gen graphics.'
-  },
+  id: 'eafc25',
+  name: 'EA SPORTS FC™ 25',
+  price: 71.99,
+  category: 'games',
+  image: '/playstation/fc25.png',
+  platform: 'playstation',
+  description: 'Step onto the pitch with EA SPORTS FC™ 25, the next evolution in football gaming. Featuring hyper-realistic gameplay, cutting-edge graphics, and next-gen physics, this title delivers the most immersive football experience to date. Build your dream squad in Ultimate Team, rise through the ranks in Career Mode, or challenge players around the world in intense online matches. With updated rosters, authentic stadium atmospheres, and smarter AI, FC™ 25 redefines what it means to play the beautiful game. Get ready to feel every pass, tackle, and goal like never before.'
+},
   {
     id: 'indycircle',
     name: 'Indiana Jones and the Great Circle',
@@ -324,41 +324,41 @@ Explore a vast open world, slay monsters, make impactful choices, and live the l
     description: 'Premium customizable controller with advanced features and sleek black design.'
   },
   {
-    id: 'pulseelite',
-    name: 'PULSE Elite Wireless Headset – Midnight Black',
-    price: 194.99,
-    category: 'accessories',
-    image: '/playstation/wireless.png',
-    platform: 'playstation',
-    description: 'High-fidelity wireless headset with noise cancellation and immersive audio.'
-  },
+  id: 'pulseelite',
+  name: 'PULSE Elite Wireless Headset – Midnight Black',
+  price: 194.99,
+  category: 'accessories',
+  image: '/playstation/wireless.png',
+  platform: 'playstation',
+  description: 'Immerse yourself in rich, high-fidelity audio with the PULSE Elite Wireless Headset. Designed for PlayStation, it features advanced noise cancellation, precise positional audio, and a comfortable, lightweight design for extended gaming sessions. Enjoy wireless freedom with crystal-clear chat and deep bass that brings your games and media to life.'
+},
   {
-    id: 'pulseexplore',
-    name: 'PULSE Explore Wireless Earbuds – Midnight Black',
-    price: 299.99,
-    category: 'accessories',
-    image: '/playstation/earbuds.png',
-    platform: 'playstation',
-    description: 'Premium wireless earbuds with lossless audio and sleek design.'
-  },
-  {
-    id: 'gioteckvx4',
-    name: 'Gioteck VX-4+ Wired RGB PS4 Controller - Camo',
-    price: 18.75,
-    category: 'accessories',
-    image: '/playstation/giatck.png',
-    platform: 'playstation',
-    description: 'Affordable wired controller with RGB lighting and camouflage design.'
-  },
-  {
-    id: 'powerachargeuk',
-    name: 'Twin Charging Station for DualSense Wireless Controllers (UK Plug)',
-    price: 29.99,
-    category: 'accessories',
-    image: '/playstation/twin.png',
-    platform: 'playstation',
-    description: 'Official licensed twin charging station for DualSense controllers with UK plug.'
-  },
+  id: 'pulseexplore',
+  name: 'PULSE Explore Wireless Earbuds – Midnight Black',
+  price: 299.99,
+  category: 'accessories',
+  image: '/playstation/earbuds.png',
+  platform: 'playstation',
+  description: 'Experience premium sound quality with the PULSE Explore Wireless Earbuds. Designed for PlayStation gamers, these earbuds deliver lossless audio clarity, deep bass, and a sleek, comfortable fit for all-day use. Featuring advanced wireless connectivity, long battery life, and intuitive touch controls, they offer the perfect blend of style and performance for immersive gaming and media enjoyment.'
+},
+   {
+  id: 'gioteckvx4',
+  name: 'Gioteck VX-4+ Wired RGB PS4 Controller - Camo',
+  price: 18.75,
+  category: 'accessories',
+  image: '/playstation/giatck.png',
+  platform: 'playstation',
+  description: 'Get reliable performance and style with the Gioteck VX-4+ Wired Controller, featuring vibrant RGB lighting and a rugged camouflage design. This affordable controller offers responsive buttons, ergonomic grips, and plug-and-play compatibility with PS4 consoles. Perfect for gamers who want an eye-catching and functional controller without breaking the bank.'
+},
+   {
+  id: 'powerachargeuk',
+  name: 'Twin Charging Station for DualSense Wireless Controllers (UK Plug)',
+  price: 29.99,
+  category: 'accessories',
+  image: '/playstation/twin.png',
+  platform: 'playstation',
+  description: 'Keep your DualSense wireless controllers powered up and ready with this official licensed twin charging station. Designed for convenience, it features simultaneous charging for two controllers, a compact design, and a UK plug for easy connection. Perfect for avid PlayStation gamers who want to keep their controllers charged without the hassle.'
+},
 
   // Digital Gift Cards
   {
@@ -552,26 +552,26 @@ Perfect for Xbox players who want affordable, long-term access to multiplayer an
       category: 'accessories',
       image: '/xbox/glow.png.png',
       platform: 'xbox',
-      description: 'Vibrant translucent design with customizable lighting and responsive buttons.'
+      description: 'Illuminate your gaming sessions with the Afterglow Wave Xbox Controller, featuring a vibrant translucent design and fully customizable RGB lighting. Built for both style and performance, this controller offers responsive buttons, precision analog sticks, and a comfortable ergonomic grip for extended play. Easily adjust lighting effects and profiles to match your setup or mood, and enjoy seamless compatibility with Xbox consoles and Windows PCs. Whether youre gaming casually or competitively, this controller brings both flair and function to your hands.'
     },
     {
-      id: 'controller',
-      name: 'PowerA Advantage Wired Controller for Xbox Series X|S - Warriors Nirvana',
-      price: 25.49,
-      category: 'accessories',
-      image: '/xbox/nivrana.png',
-      platform: 'xbox',
-      description: ''
-    },
-    {
-      id: 'stealth-battery-pack',
-      name: 'High Capacity Rechargeable Battery Twin Pack - black',
-      price: 29.99,
-      category: 'accessories',
-      image: '/xbox/stealth.png',
-      platform: 'xbox',
-      description: 'Never run out of power with this twin pack of high-capacity rechargeable batteries.'
-    },
+  id: 'controller',
+  name: 'PowerA Advantage Wired Controller for Xbox Series X|S - Warriors Nirvana',
+  price: 25.49,
+  category: 'accessories',
+  image: '/xbox/nivrana.png',
+  platform: 'xbox',
+  description: 'Unleash precision and power with the PowerA Advantage Wired Controller for Xbox Series X|S – Warriors Nirvana Edition. Featuring a bold, battle-ready design, this officially licensed controller offers advanced gaming performance with responsive buttons, dual rumble motors, and mappable advanced gaming buttons for quick in-game actions. Its ergonomic shape ensures comfort during long sessions, while the detachable 10ft USB cable provides the freedom you need. Compatible with Xbox Series X|S, Xbox One, and Windows PCs, this controller is built for both competitive play and stunning style.'
+},
+   {
+  id: 'stealth-battery-pack',
+  name: 'High Capacity Rechargeable Battery Twin Pack - Black',
+  price: 29.99,
+  category: 'accessories',
+  image: '/xbox/stealth.png',
+  platform: 'xbox',
+  description: 'Stay in the game longer with the High Capacity Rechargeable Battery Twin Pack – Black, designed specifically for Xbox controllers. This twin pack includes two powerful rechargeable battery packs that deliver extended playtime and eliminate the need for disposable batteries. With fast charging capabilities and a long-lasting charge, you can keep one battery powered up while using the other, ensuring you’re always ready for action. Compatible with Xbox Series X|S and Xbox One controllers, it’s the perfect power solution for uninterrupted gaming.'
+},
     {
       id: 'turtle-beach-headset-white',
       name: 'Stealth 600 Gen 3 Headset for Xbox PS5 PS4 & PC - White',
@@ -738,32 +738,32 @@ Perfect for gamers who want portability combined with style and performance.`
     
       // Nintendo Games
       {
-        id: 'hogwarts-legacy-switch',
-        name: 'Harry Potter - Hogwarts Legacy',
-        price: 44.99,
-        category: 'games',
-        image: '/nintendo/hogwarts.png',
-        platform: 'nintendo',
-        description: 'Experience the wizarding world in this open-world RPG set in 1800s Hogwarts.'
-      },
-      {
-        id: 'minecraft-switch',
-        name: 'Minecraft for Nintendo Switch',
-        price: 32.99,
-        category: 'games',
-        image: '/nintendo/minecraft.png',
-        platform: 'nintendo',
-        description: 'The complete Minecraft experience optimized for Nintendo Switch with cross-platform play.'
-      },
-      {
-        id: 'mario-kart-8-deluxe',
-        name: 'Mario Kart 8 Deluxe',
-        price: 64.49,
-        category: 'games',
-        image: '/nintendo/mario.png',
-        platform: 'nintendo',
-        description: 'Definitive Mario Kart experience with all DLC tracks and characters included.'
-      },
+  id: 'hogwarts-legacy-switch',
+  name: 'Harry Potter - Hogwarts Legacy',
+  price: 44.99,
+  category: 'games',
+  image: '/nintendo/hogwarts.png',
+  platform: 'nintendo',
+  description: 'Embark on a magical journey in *Hogwarts Legacy*, an open-world action RPG set in the 1800s Wizarding World. Discover hidden secrets, master powerful spells, and forge your own legacy as a student at Hogwarts School of Witchcraft and Wizardry. Explore iconic locations like Hogsmeade, the Forbidden Forest, and beyond, while shaping your destiny through choices and alliances. With deep customization, magical creatures, and thrilling combat, this immersive experience lets you live the untold story of the wizarding world—now on Nintendo.'
+},
+    {
+  id: 'minecraft-switch',
+  name: 'Minecraft for Nintendo Switch',
+  price: 32.99,
+  category: 'games',
+  image: '/nintendo/minecraft.png',
+  platform: 'nintendo',
+  description: 'Dive into endless creativity and adventure with Minecraft for Nintendo Switch — the complete Minecraft experience optimized for on-the-go play. Build, explore, and survive in infinite worlds, whether you\'re crafting your dream home or braving the dangers of the Nether. With cross-platform multiplayer, you can join friends on any device, anytime. Enjoy regular updates, creative and survival modes, and access to the Minecraft Marketplace filled with skins, maps, and community content. Perfect for all ages, Minecraft on Switch offers boundless possibilities in the palm of your hand.'
+},
+       {
+  id: 'mario-kart-8-deluxe',
+  name: 'Mario Kart 8 Deluxe',
+  price: 64.49,
+  category: 'games',
+  image: '/nintendo/mario.png',
+  platform: 'nintendo',
+  description: 'Race to victory in Mario Kart 8 Deluxe, the definitive Mario Kart experience on Nintendo Switch. Featuring all DLC tracks and characters, this edition offers enhanced graphics, new items, and revamped gameplay modes. Play solo, with friends locally, or compete online with players worldwide. Master new vehicles, customize your kart, and enjoy fast-paced, fun-filled racing action for all ages. Whether you’re a casual racer or a competitive pro, Mario Kart 8 Deluxe delivers endless thrills and excitement.'
+},
       {
         id: 'star-wars-heritage',
         name: 'Star Wars Heritage Pack',
@@ -1041,50 +1041,49 @@ Perfect for gamers who want portability combined with style and performance.`
   
   // Accessories (General)
     {
-      id: 'stealthledmat',
-      name: 'Light-Up LED XL Gaming Mat',
-      price: 22.49,
-      category: 'accessories',
-      image: '/ac/lightup.png',
-      platform: 'pc',
-      description: 'Extra-large LED-lit gaming surface for PC and consoles with non-slip base.'
-    },
+  id: 'stealthledmat',
+  name: 'Light-Up LED XL Gaming Mat',
+  price: 22.49,
+  category: 'accessories',
+  image: '/ac/lightup.png',
+  platform: 'pc',
+  description: 'Enhance your gaming setup with the Light-Up LED XL Gaming Mat, featuring an extra-large surface illuminated by vibrant LED lighting. Designed for PC and consoles, it provides a smooth, precise surface for mouse movement and controller placement. The non-slip base ensures stability during intense gameplay sessions, while the customizable LED colors add a dynamic aesthetic to your battlestation. Perfect for gamers who want both performance and style.'
+},
+     {
+  id: 'dualsenseedge',
+  name: 'DualSense Edge Wireless Controller',
+  price: 299.99,
+  category: 'accessories',
+  image: '/ac/dual.png',
+  platform: 'pc',
+  description: 'Experience next-level gaming precision with the DualSense Edge Wireless Controller. Designed for ultimate customization, it features interchangeable thumbsticks and paddles, adjustable trigger stops, and a built-in rechargeable battery. Enjoy enhanced comfort with its ergonomic design and haptic feedback technology for immersive gameplay. Compatible with PC and PlayStation, this premium controller lets you tailor your playstyle and dominate every match with confidence.'
+},
     {
-      id: 'dualsenseedge',
-      name: 'DualSense Edge Wireless Controller',
-      price: 299.99,
-      category: 'accessories',
-      image: '/ac/dual.png',
-      platform: 'pc',
-      description: 'Premium customizable controller with interchangeable components.'
-    },
-    {
-      id: 'aoc24monitor',
-      name: 'AOC 24G4XF Monitor',
-      price: 209.99,
-      category: 'accessories',
-      image: '/ac/aoc.png',
-      platform: 'pc',
-      description: '24" gaming monitor with 165Hz refresh rate.'
-    },
-    {
-      id: 'yunixmicblack',
-      name: 'GXT234 Yunix Microphone',
-      price: 44.99,
-      category: 'accessories',
-      image: '/ac/gxt234.png',
-      platform: 'pc',
-      description: 'Professional condenser microphone.'
-    },
-    {
-      id: 'exiscam',
-      name: 'Exis Webcam',
-      price: 10.50,
-      category: 'accessories',
-      image: '/ac/exis.png',
-      platform: 'pc',
-      description: 'HD webcam with built-in microphone.'
-    },
+  id: 'aoc24monitor',
+  name: 'AOC 24G4XF Monitor',
+  price: 209.99,
+  category: 'accessories',
+  image: '/ac/aoc.png',
+  platform: 'pc',
+  description: 'Experience smooth and responsive gameplay on the AOC 24G4XF Monitor, featuring a 24-inch Full HD display with a blazing 165Hz refresh rate and 1ms response time. Designed specifically for gamers, this monitor delivers crisp visuals, reduced motion blur, and AMD FreeSync support to eliminate screen tearing. Its sleek, adjustable stand and slim bezels make it perfect for immersive gaming setups or multi-monitor configurations.'
+}, {
+  id: 'yunixmicblack',
+  name: 'GXT234 Yunix Microphone',
+  price: 44.99,
+  category: 'accessories',
+  image: '/ac/gxt234.png',
+  platform: 'pc',
+  description: 'Capture crystal-clear audio with the GXT234 Yunix Professional Condenser Microphone. Ideal for streaming, podcasting, and gaming, this microphone offers excellent sound quality with low noise and wide frequency response. Its durable build and easy setup make it perfect for both beginners and professionals looking to elevate their audio experience.'
+},
+   {
+  id: 'exiscam',
+  name: 'Exis Webcam',
+  price: 10.50,
+  category: 'accessories',
+  image: '/ac/exis.png',
+  platform: 'pc',
+  description: 'Stay connected with the Exis Webcam, featuring HD video quality and a built-in microphone for clear audio during calls and streaming. Easy to set up and compatible with most PCs, it’s perfect for video conferencing, online classes, and casual streaming.'
+},
     {
       id: 'rival600',
       name: 'Rival 600 Mouse',

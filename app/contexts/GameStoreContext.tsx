@@ -52,60 +52,114 @@ const GameStoreContext = createContext<GameStoreContextType | undefined>(undefin
 // Mock products data
 const mockProducts: Product[] = [
   // PlayStation Products
+ {
+  id: 'ps5console',
+  name: 'PlayStation 5 Console',
+  price: 499.99,
+  category: 'console',
+  image: '/images/ps55.png',
+  platform: 'playstation',
+  description: `Unleash the next generation of gaming with the PlayStation 5 Console, a powerful machine built for speed, immersion, and mind-blowing visuals. The PS5 is more than just a console—it's an experience designed to push boundaries and elevate your gameplay to the next level.
+
+Key Features:
+
+- Ultra-High Speed SSD  
+  Say goodbye to long loading screens. The lightning-fast custom SSD dramatically boosts load times for installed games.
+
+- Revolutionary DualSense™ Controller  
+  Enjoy a new level of tactile immersion with haptic feedback and adaptive triggers that respond uniquely to in-game actions.
+
+- Immersive 3D Audio  
+  Get lost in rich, spatial soundscapes with Tempest 3D AudioTech—hear every whisper, explosion, and footstep with incredible realism.
+
+- Ray Tracing & 4K Gaming  
+  Experience breathtaking graphics with ray tracing technology and play your favorite games in stunning 4K resolution up to 120fps.
+
+- Backward Compatibility  
+  Access a massive library of PlayStation 4 games with enhanced visuals and performance.
+
+- Expandable Storage  
+  Easily add more space for your games with compatible NVMe SSD drives (sold separately).
+
+Perfect for: Hardcore gamers, tech enthusiasts, and anyone ready to embrace the future of gaming.`
+},
+
+ {
+  id: 'ps5digitial',
+  name: 'PlayStation 5 Digital Edition',
+  price: 399.99,
+  category: 'console',
+  image: '/images/s2.png',
+  platform: 'playstation',
+  description: `The PS5 Digital Edition offers the same lightning-fast performance and next-gen features as the standard PS5—but without a disc drive.
+
+Enjoy ultra-fast load times with the built-in SSD, immersive gameplay with haptic feedback and adaptive triggers, and stunning 4K visuals powered by ray tracing.
+
+Perfect for digital-only gamers who prefer downloading their games and want a sleek, all-digital experience.`
+},
+ {
+  id: 'ps5slimdig',
+  name: 'PlayStation 5 Slim Digital Console',
+  price: 584.99,
+  category: 'console',
+  image: '/images/slim2.png',
+  platform: 'playstation',
+  description: `The PlayStation 5 Slim Digital Console delivers powerful next-gen performance in a more compact and energy-efficient design.
+
+Enjoy ultra-fast load times with the high-speed SSD, stunning 4K gaming with ray tracing, and immersive gameplay powered by haptic feedback and adaptive triggers—all without the need for physical discs.
+
+Ideal for digital-first gamers who want the full PS5 experience in a sleeker, slimmer form.`
+},
+ {
+  id: 'ps5discastro',
+  name: 'PlayStation 5 Disc Console + Astro Bot',
+  price: 644.99,
+  category: 'console',
+  image: '/images/ps5.png',
+  platform: 'playstation',
+  description: `Get the ultimate gaming combo with the PlayStation 5 Disc Console bundled with the charming Astro Bot game.
+
+Enjoy ultra-fast load times, breathtaking 4K visuals, ray tracing, and deeply immersive gameplay with the innovative DualSense™ controller.
+
+This bundle includes:
+- PlayStation 5 Disc Console with disc drive for physical and digital games
+- Astro Bot: a fun, family-friendly platformer that showcases the full potential of the PS5's features
+
+Perfect for players who want top-tier performance and a delightful game right out of the box.`
+},
+ {
+  id: 'ps5slimac',
+  name: 'PlayStation 5 Slim Console + Assassin’s Creed Shadows Special Edition Bundle',
+  price: 749.99,
+  category: 'console',
+  image: '/playstation/psc3.png',
+  platform: 'playstation',
+  description: `Immerse yourself in next-gen performance and legendary storytelling with the PlayStation 5 Slim Console bundled with Assassin’s Creed Shadows Special Edition.
+
+Key Features:
+
+- Sleeker, more compact PS5 Slim design with full next-gen capabilities  
+- Ultra-fast SSD for near-instant load times  
+- DualSense™ controller with adaptive triggers and haptic feedback  
+- Stunning 4K graphics with ray tracing support  
+
+Bundle includes:
+- PlayStation 5 Slim Disc Console  
+- Assassin’s Creed Shadows (Special Edition) with exclusive content  
+
+Step into feudal Japan and rewrite history with stealth, power, and precision—only on PS5.`
+},
   {
-    id: 'ps5console',
-    name: 'PlayStation 5 Console',
-    price: 499.99,
-    category: 'console',
-    image: '/images/ps55.png',
-    platform: 'playstation',
-    description: 'Experience lightning-fast loading with an ultra-high speed SSD, deeper immersion with support for haptic feedback, adaptive triggers, and 3D Audio.'
-  },
-  {
-    id: 'ps5digitial',
-    name: 'PlayStation 5 Digital Edition',
-    price: 399.99,
-    category: 'console',
-    image: '/images/s2.png',
-    platform: 'playstation',
-    description: 'The PS5 Digital Edition boasts the same powerful features as the regular PS5 but without a disc drive.'
-  },
-  {
-    id: 'ps5slimdig',
-    name: 'PlayStation 5 Slim Digital Console',
-    price: 584.99,
-    category: 'console',
-    image: '/images/slim2.png',
-    platform: 'playstation',
-    description: 'The sleek new digital edition PS5 with reduced size and improved efficiency.'
-  },
-  {
-    id: 'ps5discastro',
-    name: 'PlayStation 5 Disc Console + Astro Bot',
-    price: 644.99,
-    category: 'console',
-    image: '/images/ps5.png',
-    platform: 'playstation',
-    description: 'PS5 disc console bundled with the delightful Astro Bot game.'
-  },
-  {
-    id: 'ps5slimac',
-    name: 'PlayStation 5 Slim Console + Assassins Creed Shadows Special Edition Bundle',
-    price: 749.99,
-    category: 'console',
-    image: '/playstation/psc3.png',
-    platform: 'playstation',
-    description: 'PS5 Slim bundled with the special edition of Assassin\'s Creed Shadows.'
-  },
-  {
-    id: 'ps5discastri',
-    name: 'PlayStation 5 Pro Console',
-    price: 930.79,
-    category: 'console',
-    image: '/images/pro11.png',
-    platform: 'playstation',
-    description: 'The most powerful PlayStation console ever with enhanced graphics and performance.'
-  },
+  id: 'ps5discastri',
+  name: 'PlayStation 5 Pro Console',
+  price: 930.79,
+  category: 'console',
+  image: '/images/pro11.png',
+  platform: 'playstation',
+  description: `Unlock the next level of performance with the PlayStation 5 Pro Console.
+
+Featuring enhanced 4K resolution, smoother frame rates, improved ray tracing, and faster load times, the PS5 Pro is built for gamers who demand the best. Enjoy more immersive worlds, responsive gameplay, and stunning detail like never before.`
+},
 
    {
     id: 'ps5discartri',
@@ -114,18 +168,31 @@ const mockProducts: Product[] = [
     category: 'console',
     image: '/images/m2.jpg',
     platform: 'playstation',
-    description: 'The most powerful PlayStation console ever with enhanced graphics and performance.'
+    description: `Embark on an unforgettable journey with the PlayStation 5 Slim Console bundled with The Witcher 3: Wild Hunt – Complete Edition, absolutely FREE.\n
+This sleek, space-saving version of the PS5 offers the full power of next-gen gaming with:\n
+- Ultra-fast SSD for near-instant loading\n
+- 4K graphics and ray tracing support\n
+- DualSense™ controller for immersive haptic feedback and adaptive triggers\n
+- Built-in disc drive for physical and digital games\n
+\n
+Included Game:\n🎮 The Witcher 3: Complete Edition – Includes all DLCs and expansions (Hearts of Stone & Blood and Wine), upgraded for PS5 with enhanced visuals, performance, and new gameplay features.\n
+Explore a vast open world, slay monsters, make impactful choices, and live the legend of Geralt of Rivia—all in one powerful bundle.`
   },
   
   {
-    id: 'ps5slimdisc',
-    name: 'PlayStation 5 Slim Disc Console',
-    price: 719.99,
-    category: 'console',
-    image: '/playstation/psc4.png',
-    platform: 'playstation',
-    description: 'The new slim version of the PS5 with disc drive included.'
-  },
+  id: 'ps5slimdisc',
+  name: 'PlayStation 5 Slim Disc Console',
+  price: 719.99,
+  category: 'console',
+  image: '/playstation/psc4.png',
+  platform: 'playstation',
+  description: `The PlayStation 5 Slim Disc Console delivers the same powerful next-gen performance in a more compact and lightweight design.
+
+Equipped with a built-in disc drive, it supports both physical and digital games. Enjoy ultra-fast load times with the custom SSD, stunning 4K visuals, and immersive gameplay with the DualSense™ controller.
+
+Perfect for players who want sleek design without compromising on power or disc compatibility.`
+},
+
   {
     id: 'ps5witcher',
     name: 'PlayStation 5 Slim Console + FREE The Witcher Complete Edition Bundle',
@@ -133,7 +200,16 @@ const mockProducts: Product[] = [
     category: 'console',
     image: '/playstation/psc5.png',
     platform: 'playstation',
-    description: 'PS5 Slim bundled with the complete Witcher game collection.'
+   description: `Embark on an unforgettable journey with the PlayStation 5 Slim Console bundled with The Witcher 3: Wild Hunt – Complete Edition, absolutely FREE.\n
+This sleek, space-saving version of the PS5 offers the full power of next-gen gaming with:\n
+- Ultra-fast SSD for near-instant loading\n
+- 4K graphics and ray tracing support\n
+- DualSense™ controller for immersive haptic feedback and adaptive triggers\n
+- Built-in disc drive for physical and digital games\n
+\n
+Included Game:\n The Witcher 3: Complete Edition – Includes all DLCs and expansions (Hearts of Stone & Blood and Wine), upgraded for PS5 with enhanced visuals, performance, and new gameplay features.\n
+Explore a vast open world, slay monsters, make impactful choices, and live the legend of Geralt of Rivia—all in one powerful bundle.`
+
   },
 
   // Games
@@ -325,32 +401,69 @@ const mockProducts: Product[] = [
   },
   // Xbox Products
     {
-      id: 'xbox-series-x',
-      name: 'Xbox Series s Console',
-      price: 374.99,
-      category: 'console',
-      image: '/xbox/seriess.png',
-      platform: 'xbox',
-      description: 'The most powerful Xbox ever with 12 teraflops of raw graphic processing power.'
-    },
+  id: 'xbox-series-x',
+  name: 'Xbox Series S Console',
+  price: 374.99,
+  category: 'console',
+  image: '/xbox/seriess.png',
+  platform: 'xbox',
+  description: `Introducing the Xbox Series S — the smallest, sleekest Xbox ever, designed to bring you powerful next-gen performance at an incredible value.
+
+Don’t be fooled by its size — the Series S packs a punch with a custom-built SSD and Xbox Velocity Architecture, delivering lightning-fast load times and incredibly smooth gameplay up to 120 frames per second.
+
+Enjoy rich, vibrant visuals with ray tracing support, high dynamic range (HDR), and up to 1440p resolution with 4K upscaling. Whether you're jumping into expansive open worlds or fast-paced shooters, the Series S offers fluid responsiveness and performance that keeps up with your skills.
+
+Key Features:
+- All-digital console with 512GB custom SSD  
+- Quick Resume to switch between multiple games instantly  
+- Ray tracing and ultra-low latency  
+- Smart Delivery ensures you always play the best version of your games  
+- Backward compatibility with thousands of Xbox One, Xbox 360, and original Xbox titles  
+
+Perfect for gamers who want an affordable, digital-only gateway into next-gen gaming — all in a compact, modern design that fits anywhere.`
+},
     {
-      id: 'xbox-series-s-white',
-      name: 'Xbox Series S 512GB White - 2024 Packaging',
-      price: 374.99,
-      category: 'console',
-      image: '/xbox/seriess.png',
-      platform: 'xbox',
-      description: 'Next-gen performance in the smallest Xbox console. Perfect for all-digital gaming.'
-    },
-    {
-      id: 'gamepass-core-12',
-      name: 'Xbox Game Pass Core - 12 Month Membership',
-      price: 83.99,
-      category: 'console',
-      image: '/xbox/12.png',
-      platform: 'xbox',
-      description: 'Access to online multiplayer gaming and a collection of over 25 high-quality games.'
-    },
+  id: 'xbox-series-s-white',
+  name: 'Xbox Series S 512GB White - 2024 Packaging',
+  price: 374.99,
+  category: 'console',
+  image: '/xbox/seriess.png',
+  platform: 'xbox',
+  description: `Introducing the Xbox Series S (512GB, 2024 Packaging) — the all-digital, next-gen console packed into the most compact Xbox ever.
+
+This updated version comes in refreshed 2024 packaging and delivers stunning performance, ultra-fast load times, and smooth gameplay up to 120FPS — all powered by the Xbox Velocity Architecture and a custom SSD.
+
+Highlights:
+- Sleek white design with 512GB storage  
+- All-digital gaming: download and play the latest blockbusters and Xbox exclusives  
+- Up to 1440p resolution with 4K upscaling  
+- DirectX ray tracing and high dynamic range (HDR) for realistic visuals  
+- Quick Resume and faster load times  
+- Compatible with thousands of backward compatible titles  
+- Smart Delivery support for optimized game versions
+
+Ideal for players who want affordable, digital-only access to the latest generation of Xbox gaming with style, speed, and power.`
+},
+   {
+  id: 'gamepass-core-12',
+  name: 'Xbox Game Pass Core - 12 Month Membership',
+  price: 83.99,
+  category: 'console',
+  image: '/xbox/12.png',
+  platform: 'xbox',
+  description: `Get a full year of nonstop gaming with Xbox Game Pass Core – 12 Month Membership.
+
+Enjoy access to online multiplayer gaming, exclusive member deals, and a handpicked collection of 25+ high-quality titles you can play anytime. Whether you're into action, sports, strategy, or indie hits, there's something for every gamer.
+
+Benefits include:
+- 12 months of access to online console multiplayer  
+- A rotating library of 25+ popular and high-quality games  
+- Exclusive discounts on games and add-ons  
+- Access to free play days for select titles  
+- Seamless integration with your Xbox console experience  
+
+Perfect for Xbox players who want affordable, long-term access to multiplayer and great games — all in one package.`
+},
     {
       id: 'gamepass-core-3',
       name: 'Xbox Game Pass Core - 3 Month Membership',
@@ -501,59 +614,124 @@ const mockProducts: Product[] = [
 
       // Nintendo Consoles
       {
-        id: 'switch-oled-white-mk8',
-        name: 'Nintendo Switch - White OLED + Mario Kart 8 Deluxe Bundle',
-        price: 494.99,
-        category: 'console',
-        image: '/nintendo/switchwhite.png',
-        platform: 'nintendo',
-        description: 'Includes OLED Model Switch (7" screen) and Mario Kart 8 Deluxe game. Perfect bundle for multiplayer fun.'
-      },
+  id: 'switch-oled-white-mk8',
+  name: 'Nintendo Switch - White OLED + Mario Kart 8 Deluxe Bundle',
+  price: 494.99,
+  category: 'console',
+  image: '/nintendo/switchwhite.png',
+  platform: 'nintendo',
+  description: `Bring home the ultimate Nintendo gaming experience with the Nintendo Switch OLED White + Mario Kart 8 Deluxe Bundle.
+
+This special bundle includes the upgraded Nintendo Switch OLED model featuring a vibrant 7" OLED screen, enhanced audio, a wide adjustable stand, and 64GB of internal storage. Paired with Mario Kart 8 Deluxe — one of the most fun and fast-paced multiplayer games — this bundle is perfect for solo players, families, and competitive racers alike.
+
+Bundle Features:
+- Nintendo Switch OLED Model (White Joy-Con)  
+- Stunning 7" OLED screen with vivid colors and enhanced contrast  
+- Built-in 64GB of internal storage  
+- Wide adjustable stand for tabletop gaming  
+- Enhanced onboard speakers for improved audio  
+- Includes full digital version of Mario Kart 8 Deluxe  
+- Play anytime, anywhere — TV mode, tabletop mode, or handheld mode  
+
+Ideal for both casual and serious gamers, this bundle delivers everything you need to jump into the world of Nintendo with beautiful visuals and nonstop multiplayer fun.`
+},
       {
-        id: 'switch-oled-mario-nso',
-        name: 'Nintendo Switch (OLED) + Mario Wonder + 12 Months NSO',
-        price: 449.99,
-        category: 'console',
-        image: '/nintendo/nintendo.png',
-        platform: 'nintendo',
-        description: 'Premium bundle with OLED Switch, Super Mario Bros. Wonder game, and 12-month Nintendo Switch Online membership.'
-      },
+  id: 'switch-oled-mario-nso',
+  name: 'Nintendo Switch (OLED) + Mario Wonder + 12 Months NSO',
+  price: 449.99,
+  category: 'console',
+  image: '/nintendo/nintendo.png',
+  platform: 'nintendo',
+  description: `Experience the ultimate Nintendo package with this premium bundle featuring the Nintendo Switch OLED model, the exciting Super Mario Bros. Wonder game, and a full 12-month Nintendo Switch Online membership.
+
+Enjoy the vibrant 7-inch OLED screen with enhanced colors and audio, perfect for handheld and tabletop gaming. Dive into the whimsical new adventures of Mario Wonder, packed with fresh levels and surprises. Plus, stay connected with friends and access classic games with the 12-month NSO membership.
+
+Bundle Highlights:
+- Nintendo Switch OLED with brilliant 7" OLED display  
+- Super Mario Bros. Wonder — a fresh, fun-filled Mario adventure  
+- 12-month Nintendo Switch Online membership for online play, classic games, and exclusive offers  
+- Enhanced audio and adjustable stand for versatile gameplay  
+
+Perfect for players seeking premium visuals, new Mario challenges, and the best online gaming experience all in one pack.`
+},
       {
-        id: 'switch-neon-sports-nso',
-        name: 'Nintendo Switch (Neon Red/Blue) + Switch Sports + 12 Months NSO',
-        price: 374.99,
-        category: 'console',
-        image: 'nintendo/switch2.png',
-        platform: 'nintendo',
-        description: 'Standard Switch with neon Joy-Cons, Nintendo Switch Sports game, and annual online membership.'
-      },
+  id: 'switch-neon-sports-nso',
+  name: 'Nintendo Switch (Neon Red/Blue) + Switch Sports + 12 Months NSO',
+  price: 374.99,
+  category: 'console',
+  image: '/nintendo/switch2.png',
+  platform: 'nintendo',
+  description: `Get active and connected with the Nintendo Switch Neon Red/Blue bundle, featuring the classic Switch console with vibrant neon Joy-Cons, the energetic Nintendo Switch Sports game, and a full 12-month Nintendo Switch Online membership.
+
+Enjoy hours of fun with friends and family through interactive sports like tennis, bowling, and more, all optimized for intuitive motion controls. Stay online with your friends to play multiplayer games, access classic titles, and get exclusive discounts.
+
+Bundle Includes:
+- Nintendo Switch console with Neon Red and Neon Blue Joy-Cons  
+- Nintendo Switch Sports game for immersive, motion-controlled gameplay  
+- 12-month Nintendo Switch Online membership for online multiplayer and access to a library of classic games  
+- Versatile play modes: handheld, tabletop, and TV  
+
+Perfect for players looking for a fun, social gaming experience with an iconic console and a year of online benefits.`
+},
       {
-        id: 'switch-lite-turquoise',
-        name: 'Nintendo Switch Lite - Turquoise',
-        price: 299.99,
-        category: 'console',
-        image: 'nintendo/t.png',
-        platform: 'nintendo',
-        description: 'Compact handheld-only Switch in vibrant turquoise color. Perfect for gaming on the go.'
-      },
-      {
-        id: 'switch-lite-coral',
-        name: 'Nintendo Switch Lite - Coral Pink',
-        price: 299.99,
-        category: 'console',
-        image: 'nintendo/p.png',
-        platform: 'nintendo',
-        description: 'Stylish coral pink edition of the handheld Nintendo Switch Lite console.'
-      },
-      {
-        id: 'switch-lite-y',
-        name: 'Nintendo Switch Lite - Coral yellow',
-        price: 299.99,
-        category: 'console',
-        image: 'nintendo/y.png',
-        platform: 'nintendo',
-        description: 'Stylish coral yellow edition of the handheld Nintendo Switch Lite console.'
-      },
+  id: 'switch-lite-turquoise',
+  name: 'Nintendo Switch Lite - Turquoise',
+  price: 299.99,
+  category: 'console',
+  image: '/nintendo/t.png',
+  platform: 'nintendo',
+  description: `Take your gaming anywhere with the Nintendo Switch Lite in a vibrant turquoise finish.
+
+Designed exclusively for handheld play, this compact and lightweight console delivers all your favorite Nintendo games in a portable form. Its bright turquoise color adds a stylish touch, perfect for gamers on the move.
+
+Key Features:
+- Dedicated handheld-only design for ultimate portability  
+- Vibrant turquoise color that stands out  
+- Compatible with the entire Nintendo Switch game library (handheld-compatible titles)  
+- Built-in controls and ergonomic design for comfortable play  
+- Long battery life for gaming sessions on the go  
+
+Ideal for gamers seeking a lightweight, stylish, and affordable way to enjoy Nintendo's vast game library anytime, anywhere.`
+},{
+  id: 'switch-lite-coral',
+  name: 'Nintendo Switch Lite - Coral Pink',
+  price: 299.99,
+  category: 'console',
+  image: '/nintendo/p.png',
+  platform: 'nintendo',
+  description: `Experience portable gaming in style with the Nintendo Switch Lite Coral Pink edition.
+
+This lightweight, compact handheld console is designed for gaming on the go, featuring a vibrant coral pink color that adds a fun and trendy look. Perfect for players who want a dedicated handheld device, it supports the entire Nintendo Switch game library compatible with handheld mode.
+
+Features include:
+- Compact, ergonomic design for comfortable handheld play  
+- Vibrant coral pink finish for a stylish look  
+- Built-in controls for intuitive gameplay  
+- Compatible with all Nintendo Switch handheld-compatible games  
+- Long-lasting battery for extended gaming sessions  
+
+Ideal for gamers seeking a portable and fashionable way to enjoy Nintendo games anytime, anywhere.`
+},
+     {
+  id: 'switch-lite-y',
+  name: 'Nintendo Switch Lite - Coral Yellow',
+  price: 299.99,
+  category: 'console',
+  image: '/nintendo/y.png',
+  platform: 'nintendo',
+  description: `Brighten up your gaming experience with the Nintendo Switch Lite Coral Yellow edition.
+
+This lightweight, handheld-only console features a vibrant coral yellow finish that stands out. Designed for gamers on the move, it supports all Nintendo Switch games playable in handheld mode.
+
+Key Features:
+- Compact and ergonomic handheld design  
+- Eye-catching coral yellow color  
+- Built-in controls for seamless gameplay  
+- Compatible with all handheld Nintendo Switch games  
+- Long battery life for gaming wherever you go  
+
+Perfect for gamers who want portability combined with style and performance.`
+},
 
 
 

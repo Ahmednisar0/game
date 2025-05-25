@@ -67,6 +67,10 @@ const ProductDetails = () => {
     });
   };
 
+  // Product description
+  const productDescription = product.description || 'Premium quality product with excellent performance and durability. Designed for gamers who demand the best experience.';
+  const extendedDescription = `The ${product.name} is a high-performance gaming accessory that delivers exceptional quality and reliability. Featuring cutting-edge technology and premium materials, it's designed to enhance your gaming experience with improved responsiveness and comfort.`;
+
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl bg-white">
       <Button 
@@ -123,36 +127,36 @@ const ProductDetails = () => {
                 {getFormattedPrice(product.price)}
               </span>
               {product.id.length % 4 === 0 && (
-                <span className="text-sm text-gray-500 line-through ">
+                <span className="text-sm text-gray-500 line-through">
                   {getFormattedPrice(product.price * 1.3)}
                 </span>
               )}
             </div>
             
             <p className="text-gray-700 leading-relaxed">
-              {product.description || 'Premium quality product with excellent performance and durability. Designed for gamers who demand the best experience.'}
+              {productDescription}
             </p>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-           <Button 
-  onClick={handleAddToCart}
-  disabled={isAdded}
-  className={`w-full sm:w-auto min-w-[160px] px-4 sm:px-6 transition-all duration-300 ${isAdded ? 'bg-green-600 hover:bg-green-700' : 'bg-pink-600 hover:bg-pink-700'}`}
-  size="lg"
->
-  {isAdded ? (
-    <>
-      <Check size={20} className="mr-2" />
-      Added to Cart
-    </>
-  ) : (
-    <>
-      <ShoppingCart size={20} className="mr-2" />
-      Add to Cart
-    </>
-  )}
-</Button>
+            <Button 
+              onClick={handleAddToCart}
+              disabled={isAdded}
+              className={`w-full sm:w-auto min-w-[160px] px-4 sm:px-6 transition-all duration-300 ${isAdded ? 'bg-green-600 hover:bg-green-700' : 'bg-pink-600 hover:bg-pink-700'}`}
+              size="lg"
+            >
+              {isAdded ? (
+                <>
+                  <Check size={20} className="mr-2" />
+                  Added to Cart
+                </>
+              ) : (
+                <>
+                  <ShoppingCart size={20} className="mr-2" />
+                  Add to Cart
+                </>
+              )}
+            </Button>
             <div className="flex gap-2">
               <Button 
                 variant="outline" 
@@ -194,71 +198,15 @@ const ProductDetails = () => {
             </ul>
           </div>
           
-          {/* Product Details Tabs */}
-          <div className="mt-8">
-            <Tabs defaultValue="description" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 bg-gray-100 rounded-lg">
-                <TabsTrigger 
-                  value="description" 
-                  className="data-[state=active]:bg-white data-[state=active]:shadow-sm text-black data-[state=active]:text-game-pink rounded-lg"
-                >
-                  Description
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="specs" 
-                  className="data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:text-game-pink text-black rounded-lg"
-                >
-                  Specifications
-                </TabsTrigger>
-              </TabsList>
-              <TabsContent value="description" className="p-6 bg-white rounded-b-lg border border-t-0 border-gray-200">
-                <h3 className="font-semibold text-lg mb-3 text-black">Product Details</h3>
-                <p className="text-gray-700 mb-4 leading-relaxed">
-                  {product.description || 'This premium product offers exceptional quality and performance. Designed for enthusiasts who demand the best, it delivers outstanding results in all conditions.'}
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  The {product.name} features advanced technology and premium materials for long-lasting durability and exceptional performance. Perfect for both casual and professional use.
-                </p>
-              </TabsContent>
-              <TabsContent value="specs" className="p-6 bg-white rounded-b-lg border border-t-0 border-gray-200">
-                <h3 className="font-semibold text-lg mb-3 text-black">Technical Specifications</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <h4 className="font-medium text-black mb-2">General</h4>
-                    <ul className="space-y-2 text-sm text-gray-700">
-                      <li className="flex justify-between py-1 border-b border-gray-100">
-                        <span className="text-gray-600">Platform</span>
-                        <span className="font-medium">{product.platform}</span>
-                      </li>
-                      <li className="flex justify-between py-1 border-b border-gray-100">
-                        <span className="text-gray-600">Category</span>
-                        <span className="font-medium">{product.category}</span>
-                      </li>
-                      <li className="flex justify-between py-1 border-b border-gray-100">
-                        
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-black mb-2">Details</h4>
-                    <ul className="space-y-2 text-sm text-gray-700">
-                      <li className="flex justify-between py-1 border-b border-gray-100">
-                        <span className="text-gray-600">Product ID</span>
-                        <span className="font-medium">{product.id}</span>
-                      </li>
-                      <li className="flex justify-between py-1 border-b border-gray-100">
-                        <span className="text-gray-600">Weight</span>
-                        <span className="font-medium">0.5 kg</span>
-                      </li>
-                      <li className="flex justify-between py-1">
-                        <span className="text-gray-600">Dimensions</span>
-                        <span className="font-medium">10 × 10 × 5 cm</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </TabsContent>
-            </Tabs>
+          {/* Product Description */}
+          <div className="mt-8 bg-white rounded-lg border border-gray-200 p-6">
+            <h3 className="font-semibold text-lg mb-3 text-black">About This Product</h3>
+            <p className="text-gray-700 mb-4 leading-relaxed">
+              {extendedDescription}
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              Designed with ergonomics in mind, this product ensures comfort during extended gaming sessions. The durable construction guarantees long-lasting performance even with heavy daily use.
+            </p>
           </div>
         </div>
       </div>

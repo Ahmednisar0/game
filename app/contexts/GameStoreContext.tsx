@@ -405,7 +405,7 @@ Explore a vast open world, slay monsters, make impactful choices, and live the l
   name: 'Xbox Series S Console',
   price: 374.99,
   category: 'console',
-  image: '/xbox/seriess.png',
+  image: '/images/sers.png',
   platform: 'xbox',
   description: `Introducing the Xbox Series S — the smallest, sleekest Xbox ever, designed to bring you powerful next-gen performance at an incredible value.
 

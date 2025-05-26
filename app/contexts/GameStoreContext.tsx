@@ -109,12 +109,13 @@ Perfect for digital-only gamers who prefer downloading their games and want a sl
   name: 'PlayStation 5 Slim Digital Console',
   price: 644.99,
   category: 'console',
-  image: ['/add/s1.png',
-    '/add/s2.png',
-    '/add/slim1.png',
-    '/add/slim2.png',
-    '/add/slim4.png',
-     '/add/s4.png'
+  image: [
+    '/add/sl1.png',
+    '/add/sl2.png',
+    '/add/sl3.png',
+    '/add/sl4.png',
+    '/add/sl5.png',
+    
   ],
   platform: 'playstation',
   description: `Slim Design
@@ -182,9 +183,27 @@ This bundle includes:
 
 Perfect for players who want top-tier performance and a delightful game right out of the box.`
 },
+
+{
+  id: 'ps5discspiderman',
+  name: 'PlayStation 5  Console + Marvel’s Spider-Man 2',
+  price: 734.99,
+  category: 'console',
+  image: '/add/product1.jpg',
+  platform: 'playstation',
+  description: `Swing into action with the PlayStation 5 Disc Console bundled with Marvel’s Spider-Man 2.
+
+Experience ultra-fast load times, stunning 4K visuals, ray tracing, and next-level immersion with the DualSense™ controller.
+
+This bundle includes:
+- PlayStation 5 Disc Console with disc drive for physical and digital games
+- Marvel’s Spider-Man 2: an epic superhero adventure featuring both Peter Parker and Miles Morales
+
+Perfect for fans of action-packed gameplay and iconic Marvel storytelling.`
+},
  {
   id: 'ps5slimac',
-  name: 'PlayStation 5 Slim Console + Assassin’s Creed Shadows Special Edition Bundle',
+  name: 'PlayStation 5 Disc Console + Assassin’s Creed Shadows Special Edition Bundle',
   price: 749.99,
   category: 'console',
   image: '/playstation/psc3.png',
@@ -225,6 +244,45 @@ Advanced Ray Tracing - Experience next-level realism with ray-traced reflections
 
 PS5 Pro Game Boost and Backwards Compatibility - The PS5 Pro console can play over 8,500 PS4 games. With the PS5 Pro version of the Game Boost feature, you can even enjoy faster and smoother frame rates in some of the PS4 and PS5 console’s greatest games. Enjoy more immersive worlds, responsive gameplay, and stunning detail like never before.`
 },
+
+{
+  id: 'ps5disctlou2',
+  name: 'PlayStation 5  Console + The Last of Us Part II Remastered',
+  price: 707.99,
+  category: 'console',
+  image: '/add/p3.jpg',
+  platform: 'playstation',
+  description: `Survive and explore a post-apocalyptic world with the PlayStation 5 Disc Console bundled with The Last of Us Part II Remastered.
+
+Enjoy lightning-fast loading, enhanced 4K graphics, ray tracing, and immersive gameplay with the DualSense™ controller.
+
+This bundle includes:
+- PlayStation 5 Disc Console with disc drive for physical and digital games
+- The Last of Us Part II Remastered: an emotional, action-packed journey through a broken world, rebuilt with enhanced visuals and gameplay improvements for PS5
+
+Ideal for fans of gripping storytelling and cinematic gaming experiences.`
+},
+
+{
+  id: 'deathstranding2ps5',
+  name: 'PlayStation 5  Console + Death Stranding 2: On The Beach ',
+  price: 749.99,
+  category: 'console',
+  image: '/add/p2.jpg',
+  platform: 'playstation',
+  description: `Embark on a mysterious and emotional journey in Death Stranding 2: On The Beach, exclusively on PlayStation 5.
+
+From legendary game creator Hideo Kojima, this sequel expands the universe of the original with new characters, deeper storylines, and enhanced gameplay.
+
+Features:
+- Stunning 4K visuals powered by the PS5
+- Innovative traversal and delivery mechanics
+- Expansive open world with immersive sound design
+- A gripping narrative that blends sci-fi and human connection
+
+A must-play for fans of cinematic gaming and deep storytelling.`
+},
+
 
    {
     id: 'ps5discartri',
@@ -646,6 +704,40 @@ Perfect for Xbox players who want affordable, long-term access to multiplayer an
       platform: 'xbox',
       description: 'Access to online multiplayer gaming.'
     },
+   {
+  id: 'xssdoomdarkages',
+  name: 'Xbox Series S 512GB White + DOOM: The Dark Ages – Premium Edition',
+  price: 515.99,
+  category: 'console',
+  image: '/add/x1.jpg',
+  platform: 'xbox',
+  description: `Unleash chaos with the Xbox Series S 512GB White bundled with DOOM: The Dark Ages – Premium Edition.
+
+Step into a brutal medieval sci-fi world as the legendary DOOM Slayer and tear through demonic hordes in a high-octane prequel to the DOOM saga. Paired with the lightning-fast, all-digital Xbox Series S, this bundle delivers next-gen speed, stunning visuals, and non-stop action.
+
+This bundle includes:
+- Xbox Series S 512GB White Console – sleek, compact, and fully digital
+- DOOM: The Dark Ages – Premium Edition featuring exclusive in-game content and early access bonuses
+
+Perfect for fans of fast-paced shooters and intense, cinematic storytelling. Get ready to rip and tear – like never before.`
+},
+{
+  id: 'xssclairobscur33',
+  name: 'Xbox Series S 512GB White + Clair Obscur: Expedition 33',
+  price: 449.99,
+  category: 'console',
+  image: '/add/x2.jpg',
+  platform: 'xbox',
+  description: `Embark on a surreal and stunning journey with the Xbox Series S 512GB White bundled with Bandai Namco Entertainment's Clair Obscur: Expedition 33.
+
+Enter a world where dreams and reality blur in a breathtaking turn-based RPG that blends strategic combat with emotionally rich storytelling. Paired with the sleek and powerful Xbox Series S, this bundle brings you next-gen performance and artistic brilliance.
+
+This bundle includes:
+- Xbox Series S 512GB White Console – compact, powerful, and all-digital
+- Clair Obscur: Expedition 33 – an imaginative RPG filled with visually striking environments, deep lore, and dynamic turn-based battles
+
+Perfect for gamers seeking a unique blend of art, emotion, and strategy on one of the most advanced gaming platforms.`
+},
     {
       id: 'gamepass-core-6',
       name: 'Xbox Game Pass Core - 6 Month Membership',
@@ -655,6 +747,7 @@ Perfect for Xbox players who want affordable, long-term access to multiplayer an
       platform: 'xbox',
       description: 'Access to online multiplayer gaming.'
     },
+
     {
       id: 'star-wars-outlaws',
       name: 'Star Wars Outlaws - Special Edition',

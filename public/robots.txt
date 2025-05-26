@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://gamifox.com
+
+# Sitemaps
+Sitemap: https://gamifox.com/sitemap.xml

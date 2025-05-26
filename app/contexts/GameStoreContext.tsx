@@ -345,7 +345,7 @@ Explore a vast open world, slay monsters, make impactful choices, and live the l
   id: 'gioteckvx4',
   name: 'Gioteck VX-4+ Wired RGB PS4 Controller - Camo',
   price: 18.75,
-  category: 'accessories',
+  category: 'accessories' ,  
   image: '/playstation/giatck.png',
   platform: 'playstation',
   description: 'Get reliable performance and style with the Gioteck VX-4+ Wired Controller, featuring vibrant RGB lighting and a rugged camouflage design. This affordable controller offers responsive buttons, ergonomic grips, and plug-and-play compatibility with PS4 consoles. Perfect for gamers who want an eye-catching and functional controller without breaking the bank.'

@@ -15,9 +15,15 @@ const ProductDetails = () => {
   const { products, addToCart, getFormattedPrice } = useGameStore();
   const [isAdded, setIsAdded] = useState(false);
   const [isWishlisted, setIsWishlisted] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   
   const product = products.find(p => p.id === productId);
   
+  // Use the product's image as the main image - properly typed as string[]
+  const productImages = product?.image 
+    ? (Array.isArray(product.image) ? product.image : [product.image])
+    : ['/placeholder.jpg'];
+
   const handleAddToCart = () => {
     if (!product) return;
     addToCart(product);
@@ -67,10 +73,6 @@ const ProductDetails = () => {
     });
   };
 
-  // Product description
-  const productDescription = product.description || 'Premium quality product with excellent performance and durability. Designed for gamers who demand the best experience.';
-  const extendedDescription = `The ${product.name} is a high-performance gaming accessory that delivers exceptional quality and reliability. Featuring cutting-edge technology and premium materials, it's designed to enhance your gaming experience with improved responsiveness and comfort.`;
-
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl bg-white">
       <Button 
@@ -83,17 +85,40 @@ const ProductDetails = () => {
       </Button>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 bg-white">
-        {/* Single Product Image */}
-        <div className="relative group rounded-xl overflow-hidden bg-gray-50 aspect-square flex items-center justify-center">
-          <Badge className="absolute top-4 left-4 bg-game-pink text-white z-10 shadow-md">
-            {product.platform}
-          </Badge>
-          <img 
-            src={product.image} 
-            alt={product.name}
-            className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+        {/* Product Images */}
+        <div className="space-y-4">
+          {/* Main Image */}
+          <div className="relative group rounded-xl overflow-hidden bg-gray-50 aspect-square flex items-center justify-center">
+            <Badge className="absolute top-4 left-4 bg-game-pink text-white z-10 shadow-md">
+              {product.platform}
+            </Badge>
+            <img 
+              src={productImages[selectedImageIndex]} 
+              alt={product.name}
+              className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          </div>
+          
+          {/* Thumbnail Gallery - only show if there are multiple images */}
+          {productImages.length > 1 && (
+            <div className="grid grid-cols-4 gap-3">
+              {productImages.map((img, index) => (
+                <button
+                  key={index}
+                  onClick={() => setSelectedImageIndex(index)}
+                  className={`relative aspect-square rounded-md overflow-hidden border-2 ${selectedImageIndex === index ? 'border-game-pink' : 'border-transparent'}`}
+                >
+                  <img 
+                    src={img} 
+                    alt={`${product.name} view ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors" />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
         
         {/* Product Info */}
@@ -197,12 +222,14 @@ const ProductDetails = () => {
           {/* Product Description */}
           <div className="mt-8 bg-white rounded-lg border border-gray-200 p-6">
             <h3 className="font-semibold text-lg mb-3 text-black">About This Product</h3>
-            <p className="text-gray-700 mb-4 leading-relaxed">
-              {productDescription}
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              {extendedDescription}
-            </p>
+            {/* Render the description exactly as it is, preserving any formatting */}
+            {product.description ? (
+              <div className="text-gray-700 whitespace-pre-line">
+                {product.description}
+              </div>
+            ) : (
+              <p className="text-gray-700">No description available for this product.</p>
+            )}
           </div>
         </div>
       </div>

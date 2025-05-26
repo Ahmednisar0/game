@@ -18,6 +18,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const [imageError, setImageError] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
 
+  // Get the first image if image is an array, or use the string directly
+  const productImage = Array.isArray(product.image) ? product.image[0] : product.image
+  const fallbackImage = '/placeholder.jpg' // Make sure this exists in your public folder
+
   useEffect(() => {
     // Improved rating system that ensures all products get good ratings
     const baseRating = 3; // Minimum rating
@@ -81,7 +85,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <Link 
       href={`/product/${product.id}`} 
-      className="group  relative bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border text-black border-gray-100 h-full flex flex-col"
+      className="group relative bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border text-black border-gray-100 h-full flex flex-col"
       aria-label={`View ${product.name} details`}
     >
       <div className="relative aspect-square bg-gray-50 flex items-center justify-center p-4">
@@ -95,16 +99,16 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </Badge>
         
         {!imageLoaded && !imageError && (
-          <div className="absolute inset-0 bg-black animate-pulse"></div>
+          <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
         )}
         
         {imageError ? (
-          <div className="w-full h-full flex items-center justify-center bg-black text-black">
+          <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-500">
             Image not available
           </div>
         ) : (
           <Image
-            src={product.image}
+            src={productImage || fallbackImage}
             alt={product.name}
             fill
             className={`object-contain transition-transform duration-300 group-hover:scale-105 ${

@@ -23,7 +23,7 @@ export interface Product {
   name: string;
   price: number; // Base price in USD
   category: ProductCategory;
-  image: string;
+  image: string | string[];
   platform: 'playstation' | 'xbox' | 'nintendo' | 'pc';
   description?: string;
 }
@@ -57,7 +57,12 @@ const mockProducts: Product[] = [
   name: 'PlayStation 5 Console',
   price: 499.99,
   category: 'console',
-  image: '/images/ps55.png',
+  image: [
+      '/images/ps55.png',
+      '/playstation/console5.png',
+      
+    ],
+  
   platform: 'playstation',
   description: `Unleash the next generation of gaming with the PlayStation 5 Console, a powerful machine built for speed, immersion, and mind-blowing visuals. The PS5 is more than just a console—it's an experience designed to push boundaries and elevate your gameplay to the next level.
 
@@ -89,7 +94,9 @@ Perfect for: Hardcore gamers, tech enthusiasts, and anyone ready to embrace the 
   name: 'PlayStation 5 Digital Edition',
   price: 399.99,
   category: 'console',
-  image: '/images/s2.png',
+  image: [ '/add/digital.png',
+    '/add/d4.png',
+  ],
   platform: 'playstation',
   description: `The PS5 Digital Edition offers the same lightning-fast performance and next-gen features as the standard PS5—but without a disc drive.
 
@@ -100,22 +107,70 @@ Perfect for digital-only gamers who prefer downloading their games and want a sl
  {
   id: 'ps5slimdig',
   name: 'PlayStation 5 Slim Digital Console',
-  price: 584.99,
+  price: 644.99,
   category: 'console',
-  image: '/images/slim2.png',
+  image: ['/add/s1.png',
+    '/add/s2.png',
+    '/add/slim1.png',
+    '/add/slim2.png',
+    '/add/slim4.png',
+     '/add/s4.png'
+  ],
   platform: 'playstation',
-  description: `The PlayStation 5 Slim Digital Console delivers powerful next-gen performance in a more compact and energy-efficient design.
+  description: `Slim Design
+With PS5, players get powerful gaming technology packed inside a sleek and compact console design.
 
-Enjoy ultra-fast load times with the high-speed SSD, stunning 4K gaming with ray tracing, and immersive gameplay powered by haptic feedback and adaptive triggers—all without the need for physical discs.
+1TB of Storage
+Keep your favorite games ready and waiting for you to jump in and play with 1TB of SSD storage built in.
 
-Ideal for digital-first gamers who want the full PS5 experience in a sleeker, slimmer form.`
+Ultra-High Speed SSD
+Maximize your play sessions with near-instant load times for installed PS5 games.
+
+Integrated I/O
+The custom integration of the PS5 console's systems lets creators pull data from the SSD so quickly that they can design games in ways never before possible.
+
+Ray Tracing
+Immerse yourself in worlds with a new level of realism as rays of light are individually simulated, creating true-to-life shadows and reflections in supported PS5 games.
+
+4K-TV Gaming
+Play your favorite PS5 games on your stunning 4K TV.
+
+Up to 120fps with 120Hz output
+Enjoy smooth and fluid high frame rate gameplay at up to 120fps for compatible games, with support for 120Hz output on 4K displays.
+
+HDR Technology
+With an HDR TV, supported PS5 games display an unbelievably vibrant and lifelike range of colors.
+
+Tempest 3D AudioTech
+Immerse yourself in soundscapes where it feels as if the sound comes from every direction. Your surroundings truly come alive with Tempest 3D AudioTech in supported games.
+
+Haptic Feedback
+Experience haptic feedback via the DualSense wireless controller in select PS5 titles and feel the effects and impact of your in-game actions through dynamic sensory feedback.
+
+Adaptive Triggers
+Get to grips with immersive adaptive triggers, featuring dynamic resistance levels that simulate the physical impact of in-game activities in select PS5 games.
+
+Includes ASTRO’S Playroom
+Explore four worlds, each one showcasing innovative gameplay using the versatile features of the DualSense wireless controller, in this game included for all PS5 console users.
+
+Lightning Speed
+Harness the power of a custom CPU, GPU, and SSD with Integrated I/O that rewrite the rules of what a PlayStation console can do.
+
+Stunning Games
+Marvel at incredible graphics and experience new PS5 features. Play a back catalogue of supported PS4 games.
+
+Breathtaking Immersion
+Discover a deeper gaming experience with support for haptic feedback, adaptive triggers, and 3D Audio technology.
+
+Backwards Compatibility & Game Boost
+The PS5 console can play over 4,000 PS4 games. With the Game Boost feature, you can even enjoy faster and smoother frame rates in some of the PS4 console’s greatest games.`
 },
  {
   id: 'ps5discastro',
   name: 'PlayStation 5 Disc Console + Astro Bot',
   price: 644.99,
   category: 'console',
-  image: '/images/ps5.png',
+  image: '/add/astro.jpg',
   platform: 'playstation',
   description: `Get the ultimate gaming combo with the PlayStation 5 Disc Console bundled with the charming Astro Bot game.
 
@@ -152,13 +207,23 @@ Step into feudal Japan and rewrite history with stealth, power, and precision—
   {
   id: 'ps5discastri',
   name: 'PlayStation 5 Pro Console',
-  price: 930.79,
+  price: 1049.99,
   category: 'console',
-  image: '/images/pro11.png',
+  image: [ '/images/pro11.png',
+     '/add/p1.png',
+     '/add/p2.png',
+     
+  ],
   platform: 'playstation',
-  description: `Unlock the next level of performance with the PlayStation 5 Pro Console.
+  description: `PlayStation Spectral Super Resolution (PSSR) - Get super sharp image clarity on your 4K TV using AI-enhanced resolution for ultra-high definition play with astonishing detail.
 
-Featuring enhanced 4K resolution, smoother frame rates, improved ray tracing, and faster load times, the PS5 Pro is built for gamers who demand the best. Enjoy more immersive worlds, responsive gameplay, and stunning detail like never before.`
+Optimized Console Performance - Reach higher and more consistent frame rates for silky smooth gameplay with support for 60Hz and 120Hz displays.
+
+Advanced Ray Tracing - Experience next-level realism with ray-traced reflections, shadows, and high-quality global illumination as you explore stunning game worlds.
+
+2TB of Storage - Keep your favorite games ready and waiting for you to jump in and play with 2TB of SSD storage built in.
+
+PS5 Pro Game Boost and Backwards Compatibility - The PS5 Pro console can play over 8,500 PS4 games. With the PS5 Pro version of the Game Boost feature, you can even enjoy faster and smoother frame rates in some of the PS4 and PS5 console’s greatest games. Enjoy more immersive worlds, responsive gameplay, and stunning detail like never before.`
 },
 
    {
@@ -184,31 +249,122 @@ Explore a vast open world, slay monsters, make impactful choices, and live the l
   name: 'PlayStation 5 Slim Disc Console',
   price: 719.99,
   category: 'console',
-  image: '/playstation/psc4.png',
+  image: [
+    '/playstation/psc4.png',
+    '/add/slim1.png',
+    '/add/slim2.png',
+    '/add/slim3.png',
+    '/add/slim4.png'
+
+  ],
   platform: 'playstation',
-  description: `The PlayStation 5 Slim Disc Console delivers the same powerful next-gen performance in a more compact and lightweight design.
+  description: `Slim Design
+With PS5, players get powerful gaming technology packed inside a sleek and compact console design.
 
-Equipped with a built-in disc drive, it supports both physical and digital games. Enjoy ultra-fast load times with the custom SSD, stunning 4K visuals, and immersive gameplay with the DualSense™ controller.
+1TB of Storage
+Keep your favorite games ready and waiting for you to jump in and play with 1TB of SSD storage built in.
 
-Perfect for players who want sleek design without compromising on power or disc compatibility.`
+Ultra-High Speed SSD
+Maximize your play sessions with near-instant load times for installed PS5 games.
+
+Integrated I/O
+The custom integration of the PS5 console's systems lets creators pull data from the SSD so quickly that they can design games in ways never before possible.
+
+Ray Tracing
+Immerse yourself in worlds with a new level of realism as rays of light are individually simulated, creating true-to-life shadows and reflections in supported PS5 games.
+
+4K-TV Gaming
+Play your favorite PS5 games on your stunning 4K TV.
+
+Up to 120fps with 120Hz output
+Enjoy smooth and fluid high frame rate gameplay at up to 120fps for compatible games, with support for 120Hz output on 4K displays.
+
+HDR Technology
+With an HDR TV, supported PS5 games display an unbelievably vibrant and lifelike range of colors.
+
+Tempest 3D AudioTech
+Immerse yourself in soundscapes where it feels as if the sound comes from every direction. Your surroundings truly come alive with Tempest 3D AudioTech in supported games.
+
+Haptic Feedback
+Experience haptic feedback via the DualSense wireless controller in select PS5 titles and feel the effects and impact of your in-game actions through dynamic sensory feedback.
+
+Adaptive Triggers
+Get to grips with immersive adaptive triggers, featuring dynamic resistance levels that simulate the physical impact of in-game activities in select PS5 games.
+
+Includes ASTRO’S Playroom
+Explore four worlds, each one showcasing innovative gameplay using the versatile features of the DualSense wireless controller, in this game included for all PS5 console users.
+
+Lightning Speed
+Harness the power of a custom CPU, GPU, and SSD with Integrated I/O that rewrite the rules of what a PlayStation console can do.
+
+Stunning Games
+Marvel at incredible graphics and experience new PS5 features. Play a back catalog of supported PS4 games.
+
+Breathtaking Immersion
+Discover a deeper gaming experience with support for haptic feedback, adaptive triggers, and 3D Audio technology.
+
+Backwards Compatibility & Game Boost
+The PS5 console can play over 4,000 PS4 games. With the Game Boost feature, you can even enjoy faster and smoother frame rates in some of the PS4 console’s greatest games..`
 },
 
   {
     id: 'ps5witcher',
     name: 'PlayStation 5 Slim Console + FREE The Witcher Complete Edition Bundle',
-    price: 749.99,
+    price: 719.99,
     category: 'console',
     image: '/playstation/psc5.png',
     platform: 'playstation',
-   description: `Embark on an unforgettable journey with the PlayStation 5 Slim Console bundled with The Witcher 3: Wild Hunt – Complete Edition, absolutely FREE.\n
-This sleek, space-saving version of the PS5 offers the full power of next-gen gaming with:\n
-- Ultra-fast SSD for near-instant loading\n
-- 4K graphics and ray tracing support\n
-- DualSense™ controller for immersive haptic feedback and adaptive triggers\n
-- Built-in disc drive for physical and digital games\n
-\n
-Included Game:\n The Witcher 3: Complete Edition – Includes all DLCs and expansions (Hearts of Stone & Blood and Wine), upgraded for PS5 with enhanced visuals, performance, and new gameplay features.\n
-Explore a vast open world, slay monsters, make impactful choices, and live the legend of Geralt of Rivia—all in one powerful bundle.`
+   description: `PlayStation 5 Slim Disc Console
+
+The Witcher Complete Edition
+
+Slim Design
+With PS5, players get powerful gaming technology packed inside a sleek and compact console design.
+
+1TB of Storage
+Keep your favorite games ready and waiting for you to jump in and play with 1TB of SSD storage built in.
+
+Ultra-High Speed SSD
+Maximize your play sessions with near-instant load times for installed PS5 games.
+
+Integrated I/O
+The custom integration of the PS5 console's systems lets creators pull data from the SSD so quickly that they can design games in ways never before possible.
+
+Ray Tracing
+Immerse yourself in worlds with a new level of realism as rays of light are individually simulated, creating true-to-life shadows and reflections in supported PS5 games.
+
+4K-TV Gaming
+Play your favorite PS5 games on your stunning 4K TV.
+
+Up to 120fps with 120Hz output
+Enjoy smooth and fluid high frame rate gameplay at up to 120fps for compatible games, with support for 120Hz output on 4K displays.
+
+HDR Technology
+With an HDR TV, supported PS5 games display an unbelievably vibrant and lifelike range of colors.
+
+Tempest 3D AudioTech
+Immerse yourself in soundscapes where it feels as if the sound comes from every direction. Your surroundings truly come alive with Tempest 3D AudioTech in supported games.
+
+Haptic Feedback
+Experience haptic feedback via the DualSense wireless controller in select PS5 titles and feel the effects and impact of your in-game actions through dynamic sensory feedback.
+
+Adaptive Triggers
+Get to grips with immersive adaptive triggers, featuring dynamic resistance levels that simulate the physical impact of in-game activities in select PS5 games.
+
+Includes ASTRO’S Playroom
+Explore four worlds, each one showcasing innovative gameplay using the versatile features of the DualSense wireless controller, in this game included for all PS5 console users.
+
+Lightning Speed
+Harness the power of a custom CPU, GPU, and SSD with Integrated I/O that rewrite the rules of what a PlayStation console can do.
+
+Stunning Games
+Marvel at incredible graphics and experience new PS5 features. Play a back catalogue of supported PS4 games.
+
+Breathtaking Immersion
+Discover a deeper gaming experience with support for haptic feedback, adaptive triggers, and 3D Audio technology.
+
+Backwards Compatibility & Game Boost
+The PS5 console can play over 4,000 PS4 games. With the Game Boost feature, you can even enjoy faster and smoother frame rates in some of the PS4 console’s greatest games.`
 
   },
 
@@ -400,6 +556,23 @@ Explore a vast open world, slay monsters, make impactful choices, and live the l
     description: 'Discover a bold, new story of a warrior in Japan who is on her own mission of vengeance.Set 300 years after the critically acclaimed Ghost of Tsushima, Ghost of Yotei is a standalone experience set in 1600s rural Japan. The story follows a haunted, lone mercenary named Atsu. Thirstyfor revenge, she travels through the beautiful, rugged landscapes of northern Japan, hunting those who killed her family many years earlier.Sixteen years after her family’s death, Atsu’s quest across Ezo brings her to unexplored lands in search of a gang of six outlaws, but she finds much more than vengeance. Throughout her journey, Atsu will discover unlikely allies, and greater bonds than she could haveimagined'
   },
   // Xbox Products
+   {
+      id: 'poweraa',
+      name: 'Xbox Series X Black',
+      price: 719.99,
+      category: 'console',
+      image: ['/xbox/xbox2.png',
+        '/add/black1.png',
+        '/add/black2.png',
+        '/add/black3.png',
+        '/add/black4.png',
+        '/add/black5.png',
+        
+
+      ],
+      platform: 'xbox',
+      description: 'Introducing Xbox Series X, the fastest, most powerful Xbox ever. Play thousands of titles from four generations of consoles - all games look and play best on Xbox Series X.Experience next-gen speed and performance with the Xbox Velocity Architecture, powered by a custom SSD and integrated software.Play thousands of games from four generations of Xbox with Backward Compatibility, including optimized titles at launch.Xbox Game Pass Ultimate includes Xbox Live Gold, over 100 high-quality games on console, PC, and Android mobile devices, and soon an EA Play membership for one low monthly price (membership sold separately).Xbox Smart Delivery ensures you play the best available version of your game no matter which console youre playing on.Important Information'
+    },
     {
   id: 'xbox-series-x',
   name: 'Xbox Series S Console',
@@ -599,15 +772,7 @@ Perfect for Xbox players who want affordable, long-term access to multiplayer an
       platform: 'xbox',
       description: 'Officially licensed wired controller with customizable buttons and ergonomic design.'
     },
-     {
-      id: 'poweraa',
-      name: 'Xbox Series X Black',
-      price: 719.99,
-      category: 'console',
-      image: '/xbox/xbox2.png',
-      platform: 'xbox',
-      description: 'Introducing Xbox Series X, the fastest, most powerful Xbox ever. Play thousands of titles from four generations of consoles - all games look and play best on Xbox Series X.Experience next-gen speed and performance with the Xbox Velocity Architecture, powered by a custom SSD and integrated software.Play thousands of games from four generations of Xbox with Backward Compatibility, including optimized titles at launch.Xbox Game Pass Ultimate includes Xbox Live Gold, over 100 high-quality games on console, PC, and Android mobile devices, and soon an EA Play membership for one low monthly price (membership sold separately).Xbox Smart Delivery ensures you play the best available version of your game no matter which console youre playing on.Important Information'
-    },
+    
 
 
 

@@ -48,7 +48,7 @@ const GamingHomepage = () => {
       colors: ["#003791", "#FFFFFF"],
       link: "/playstation",
       rating: 4.8,
-      price: 599.99,
+      price: 792.56,
       originalPrice: 990.70,
       discount: "20% OFF"
     },
@@ -61,7 +61,7 @@ const GamingHomepage = () => {
       colors: ["#107C10", "#000000"],
       link: "/playstation",
       rating: 4.6,
-      price: 644.99,
+      price: 637.25,
       originalPrice: 910.35,
       discount: "30% OFF"
     },
@@ -74,7 +74,7 @@ const GamingHomepage = () => {
       colors: ["#FFFFFF"],
       link: "/playstation",
       rating: 4.7,
-      price: 700.27,
+      price: 637.25,
       originalPrice: 910.35,
       discount: "30% OFF"
     },
@@ -87,7 +87,7 @@ const GamingHomepage = () => {
       colors: ["#107C10"],
       link: "/xbox",
       rating: 4.5,
-      price: 499.99,
+      price: 497.99,
       originalPrice: 599.99,
       discount: "17% OFF"
     }

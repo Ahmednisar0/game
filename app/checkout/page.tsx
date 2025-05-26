@@ -15,6 +15,11 @@ const stripePromise = process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY
   ? loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY)
   : null;
 
+// Helper function to get product image
+function getProductImage(image: string | string[]): string {
+  return Array.isArray(image) ? image[0] : image;
+}
+
 // Payment Logos Components
 const StripeLogo = () => (
   <svg viewBox="0 0 28 28" className="h-6 w-auto">
@@ -62,7 +67,7 @@ export default function CheckoutPage() {
     name: item.product.name,
     price: item.product.price,
     quantity: item.quantity,
-    image: item.product.image
+    image: getProductImage(item.product.image)
   }));
 
   return (
@@ -84,7 +89,7 @@ export default function CheckoutPage() {
                 <div key={item.product.id} className="flex justify-between">
                   <div className="flex items-center">
                     <img 
-                      src={item.product.image} 
+                      src={getProductImage(item.product.image)} 
                       alt={item.product.name}
                       className="h-12 w-12 rounded-md object-cover mr-3"
                     />

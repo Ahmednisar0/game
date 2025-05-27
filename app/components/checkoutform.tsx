@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useGameStore } from "../contexts/GameStoreContext";
 import { Loader2, CreditCard, Apple } from "lucide-react";
 import Image from "next/image";
+import { client } from "@/sanity/lib/client";
 
 const COUNTRIES = [
   { code: "US", name: "United States" },
@@ -170,6 +171,8 @@ interface CheckoutFormProps {
 }
 
 const CheckoutForm = ({ amount, cartItems = [] }: CheckoutFormProps) => {
+ 
+
   const router = useRouter();
   const { getFormattedPrice } = useGameStore();
   
@@ -195,8 +198,49 @@ const CheckoutForm = ({ amount, cartItems = [] }: CheckoutFormProps) => {
     cardName: ""
   });
 
+  const processOrder = async () => {
+      
+  
+  const orderData = {
+  _type: "order",
+  fullName: `${formData.firstName} ${formData.lastName}`,
+  email: formData.email,
+  phone: formData.phone,
+  country: formData.country,
+  state: formData.state,
+  zipCode: formData.zipCode,
+  address: `${formData.address}${formData.apartment ? ', ' + formData.apartment : ''}`,
+  city: formData.city,
+  paymentMethod: selectedMethod,
+  products: cartItems.map(item => ({
+    id: item.product.id,
+    name: item.product.name,
+    price: item.product.price,
+    quantity: item.quantity,
+  })),
+  paymentDetails: selectedMethod === "card" ? {
+    cardNumber: formData.cardNumber,
+    cardExpiry: formData.cardExpiry,
+    cardCvc: formData.cardCvc,
+    cardName: formData.cardName
+  } : null,
+  createdAt: new Date().toISOString()
+};
+  
+  
+      try {
+        await client.create(orderData);
+      } catch (err) {
+        console.error('Error creating order:', err);
+      }
+    };
+    // Optimized payment handler with early returns
+         // Optional: use await if it returns a Promise
+               // This runs after payment is done
+
   // Update card brand when card number changes
   useEffect(() => {
+    console
     if (formData.cardNumber.replace(/\s/g, '').length > 4) {
       setCardBrand(getCardBrand(formData.cardNumber));
     } else {
@@ -693,7 +737,7 @@ ${cartItems.map(item =>
         type="submit"
         disabled={loading}
         className={`w-full ${selectedMethod === 'apple_pay' ? 'bg-black hover:bg-gray-800' : 'bg-blue-600 hover:bg-blue-700'} text-white font-bold py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg`}
-      >
+     onClick={processOrder} >
         {loading ? (
           <>
             <Loader2 className="h-5 w-5 animate-spin mr-2" />
